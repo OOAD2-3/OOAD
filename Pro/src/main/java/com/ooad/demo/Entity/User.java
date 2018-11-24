@@ -1,4 +1,4 @@
-package com.ooad.demo.Domain;
+package com.ooad.demo.Entity;
 
 public abstract class User {
     protected String userId;

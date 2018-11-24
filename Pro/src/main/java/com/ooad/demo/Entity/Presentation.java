@@ -1,6 +1,4 @@
-package com.ooad.demo.Domain;
-
-import java.util.List;
+package com.ooad.demo.Entity;
 
 public class Presentation {
     //基础信息

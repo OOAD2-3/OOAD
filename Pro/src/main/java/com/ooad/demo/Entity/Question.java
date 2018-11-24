@@ -1,4 +1,4 @@
-package com.ooad.demo.Domain;
+package com.ooad.demo.Entity;
 
 public class Question {
     //基本信息

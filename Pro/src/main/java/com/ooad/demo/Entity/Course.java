@@ -1,7 +1,6 @@
-package com.ooad.demo.Domain;
+package com.ooad.demo.Entity;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 public class Course {
     //基本信息

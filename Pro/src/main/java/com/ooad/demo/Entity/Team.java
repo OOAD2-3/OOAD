@@ -1,4 +1,4 @@
-package com.ooad.demo.Domain;
+package com.ooad.demo.Entity;
 
 public class Team {
     //基本信息
