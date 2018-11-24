@@ -1,6 +1,5 @@
 package com.ooad.demo.Controller;
 
-import com.ooad.demo.Domain.Teacher;
 import com.ooad.demo.Service.TeacherSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

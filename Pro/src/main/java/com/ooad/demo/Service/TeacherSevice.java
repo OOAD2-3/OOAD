@@ -1,7 +1,7 @@
 package com.ooad.demo.Service;
 
 import com.ooad.demo.Dao.TeacherDao;
-import com.ooad.demo.Domain.Teacher;
+import com.ooad.demo.Entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

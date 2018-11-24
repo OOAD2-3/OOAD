@@ -4,7 +4,7 @@
     <resultMap id="tab_teacher" type="Teacher" >
         <result property="accountName" column="account_name"/>
     </resultMap>
-    <select id="findById" parameterType="Integer" resultMap="tab_teacher" resultType="com.ooad.demo.Domain.Teacher">
+    <select id="findById" parameterType="Integer" resultMap="tab_teacher" resultType="com.ooad.demo.Entity.Teacher">
         SELECT * FROM teacher WHERE id = #{id}
     </select>
 </mapper>
