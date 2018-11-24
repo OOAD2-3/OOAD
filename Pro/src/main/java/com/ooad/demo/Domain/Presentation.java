@@ -15,6 +15,4 @@ public class Presentation {
     private String reportFileName;//书面报告文件名
     private String reportFileUrl;//书面报告文件路径
 
-    //展示提出的问题
-    private List<Question> questions;
 }

@@ -22,10 +22,4 @@ public class Course {
     private int questionWeight;
     private int reportWeight;
     private int roundNumber;
-
-    //课程下的班级
-    private List<CClass> cClasses;
-
-    //课程下的讨论课轮次
-    private List<Round> rounds;
 }

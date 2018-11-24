@@ -10,7 +10,4 @@ public class Round {
     private int calculateQueType;
     private int calculateRepType;
     private int signUpNum;
-
-    //课程
-    private List<Seminar> seminars;
 }
