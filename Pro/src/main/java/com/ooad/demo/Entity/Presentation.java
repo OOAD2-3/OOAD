@@ -13,4 +13,67 @@ public class Presentation {
     private String reportFileName;//书面报告文件名
     private String reportFileUrl;//书面报告文件路径
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSeminarId() {
+        return seminarId;
+    }
+
+    public void setSeminarId(int seminarId) {
+        this.seminarId = seminarId;
+    }
+
+    public int getPreScore() {
+        return preScore;
+    }
+
+    public void setPreScore(int preScore) {
+        this.preScore = preScore;
+    }
+
+    public int getReportScore() {
+        return reportScore;
+    }
+
+    public void setReportScore(int reportScore) {
+        this.reportScore = reportScore;
+    }
+
+    public String getPreFileName() {
+        return preFileName;
+    }
+
+    public void setPreFileName(String preFileName) {
+        this.preFileName = preFileName;
+    }
+
+    public String getPreFileUrl() {
+        return preFileUrl;
+    }
+
+    public void setPreFileUrl(String preFileUrl) {
+        this.preFileUrl = preFileUrl;
+    }
+
+    public String getReportFileName() {
+        return reportFileName;
+    }
+
+    public void setReportFileName(String reportFileName) {
+        this.reportFileName = reportFileName;
+    }
+
+    public String getReportFileUrl() {
+        return reportFileUrl;
+    }
+
+    public void setReportFileUrl(String reportFileUrl) {
+        this.reportFileUrl = reportFileUrl;
+    }
 }

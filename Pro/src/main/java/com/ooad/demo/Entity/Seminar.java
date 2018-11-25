@@ -19,4 +19,108 @@ public class Seminar {
     private Timestamp reportDDL;
     private Timestamp signUpStartTime;
     private Timestamp signUpEndTime;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(int roundId) {
+        this.roundId = roundId;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public boolean isCanVisible() {
+        return canVisible;
+    }
+
+    public void setCanVisible(boolean canVisible) {
+        this.canVisible = canVisible;
+    }
+
+    public boolean isShare() {
+        return isShare;
+    }
+
+    public void setShare(boolean share) {
+        isShare = share;
+    }
+
+    public Timestamp getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Timestamp startTime) {
+        this.startTime = startTime;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
+
+    public boolean isStarted() {
+        return isStarted;
+    }
+
+    public void setStarted(boolean started) {
+        isStarted = started;
+    }
+
+    public int getTeamNumLimit() {
+        return teamNumLimit;
+    }
+
+    public void setTeamNumLimit(int teamNumLimit) {
+        this.teamNumLimit = teamNumLimit;
+    }
+
+    public Timestamp getReportDDL() {
+        return reportDDL;
+    }
+
+    public void setReportDDL(Timestamp reportDDL) {
+        this.reportDDL = reportDDL;
+    }
+
+    public Timestamp getSignUpStartTime() {
+        return signUpStartTime;
+    }
+
+    public void setSignUpStartTime(Timestamp signUpStartTime) {
+        this.signUpStartTime = signUpStartTime;
+    }
+
+    public Timestamp getSignUpEndTime() {
+        return signUpEndTime;
+    }
+
+    public void setSignUpEndTime(Timestamp signUpEndTime) {
+        this.signUpEndTime = signUpEndTime;
+    }
 }
