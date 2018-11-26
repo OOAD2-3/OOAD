@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ooad.demo.Dao.CourseDao">
+    <resultMap id="tab_course" type="Course" >
+        <result property="teacherId" column="teacher_id"/>
+        <result property="masterCourseId" column="master_course_id"/>
+        <result property="isShareTeam" column="is_share_team"/>
+        <result property="isShareSeminar" column="is_share_seminar"/>
+        <result property="minTeamMember" column="min_team_member"/>
+        <result property="maxTeamMember" column="max_team_member"/>
+        <result property="startTeamTime" column="start_team_time"/>
+        <result property="endTeamTime" column="end_team_time"/>
+        <result property="presentationWeight" column="presentation_weight"/>
+        <result property="questionWeight" column="question_weight"/>
+        <result property="reportWeight" column="report_weight"/>
+        <result property="roundNumber" column="round_number"/>
+    </resultMap>
+    <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.Course">
+        SELECT * FROM course WHERE  teacher_id= #{teacherId}
+    </select>
+</mapper>

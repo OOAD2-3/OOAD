@@ -6,20 +6,20 @@ public class Course {
     //基本信息
     private int id;
     private int teacherId;              //属于哪个老师
+    private int masterCourseId;
     private String name;
     private String intro;
     private boolean isShareTeam;
     private boolean isShareSeminar;
-    private int masterCourseId;
 
     //课程规则
     private int minTeamMember;
     private int maxTeamMember;
     private Timestamp startTeamTime;
     private Timestamp endTeamTime;
-    private int presentationWeight;
-    private int questionWeight;
-    private int reportWeight;
+    private double presentationWeight;
+    private double questionWeight;
+    private double reportWeight;
     private int roundNumber;
 
     public int getId() {
@@ -110,27 +110,27 @@ public class Course {
         this.endTeamTime = endTeamTime;
     }
 
-    public int getPresentationWeight() {
+    public double getPresentationWeight() {
         return presentationWeight;
     }
 
-    public void setPresentationWeight(int presentationWeight) {
+    public void setPresentationWeight(double presentationWeight) {
         this.presentationWeight = presentationWeight;
     }
 
-    public int getQuestionWeight() {
+    public double getQuestionWeight() {
         return questionWeight;
     }
 
-    public void setQuestionWeight(int questionWeight) {
+    public void setQuestionWeight(double questionWeight) {
         this.questionWeight = questionWeight;
     }
 
-    public int getReportWeight() {
+    public double getReportWeight() {
         return reportWeight;
     }
 
-    public void setReportWeight(int reportWeight) {
+    public void setReportWeight(double reportWeight) {
         this.reportWeight = reportWeight;
     }
 

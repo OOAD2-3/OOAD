@@ -6,6 +6,7 @@ public class Seminar {
     //基本信息
     private int id;
     private int roundId;           //属于哪个round 默认为0 不属于任何一个
+    private int courseId;          //属于哪个course
     private String topic;           //讨论课主题
     private String intro;            //讨论课介绍
     private boolean canVisible;   //是否可见
@@ -34,6 +35,14 @@ public class Seminar {
 
     public void setRoundId(int roundId) {
         this.roundId = roundId;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public String getTopic() {
