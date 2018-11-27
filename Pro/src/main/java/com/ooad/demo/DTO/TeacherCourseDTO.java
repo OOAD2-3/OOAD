@@ -1,6 +1,6 @@
 package com.ooad.demo.DTO;
 
-import com.ooad.demo.Domian.TeacherCourse;
+import com.ooad.demo.Domain.TeacherCourse;
 import com.ooad.demo.Entity.CClass;
 import com.ooad.demo.Entity.Seminar;
 

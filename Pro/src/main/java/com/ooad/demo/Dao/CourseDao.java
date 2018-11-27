@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface CourseDao {
     List<Course> findByTeacherId(int teacherId);
+    Course findById(int id);
 }

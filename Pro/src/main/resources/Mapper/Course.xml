@@ -18,4 +18,8 @@
     <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.Course">
         SELECT * FROM course WHERE  teacher_id= #{teacherId}
     </select>
+
+    <select id="findById" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.Course">
+        SELECT * FROM course WHERE id=#{id}
+    </select>
 </mapper>

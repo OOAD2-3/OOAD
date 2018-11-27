@@ -1,4 +1,4 @@
-package com.ooad.demo.Domian;
+package com.ooad.demo.Domain;
 
 import com.ooad.demo.Entity.CClass;
 import com.ooad.demo.Entity.Course;
