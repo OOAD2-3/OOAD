@@ -17,7 +17,7 @@ public class CourseDao {
      * @Author:17Wang
      * @Time:22:52 2018/11/27
     **/
-    public List<Course> listByTeacherId(int teacherId){
-        return courseMapper.findByTeacherId(teacherId);
+    public List<Course> listByTeacherId(int teacherId) {
+        List<Course> courses = courseMapper.findByTeacherId(teacherId);
     }
 }

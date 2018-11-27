@@ -1,4 +1,4 @@
-package com.ooad.demo.DTO;
+package com.ooad.demo.VO;
 
 import com.ooad.demo.Entity.CClass;
 import com.ooad.demo.Entity.Course;
@@ -6,7 +6,7 @@ import com.ooad.demo.Entity.Seminar;
 
 import java.util.List;
 
-public class SeminarOverviewDTO {
+public class SeminarOverviewVO {
     private int courseId;
     private String courseName;
     private int masterCourseId;
