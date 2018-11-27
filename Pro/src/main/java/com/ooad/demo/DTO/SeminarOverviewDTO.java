@@ -1,7 +1,7 @@
 package com.ooad.demo.DTO;
 
-import com.ooad.demo.Domain.TeacherCourse;
 import com.ooad.demo.Entity.CClass;
+import com.ooad.demo.Entity.Course;
 import com.ooad.demo.Entity.Seminar;
 
 import java.util.List;
@@ -17,18 +17,18 @@ public class SeminarOverviewDTO {
     /**
      * Domain层向DTO层转换，用于教师端讨论课主页
     */
-    public void Initial(TeacherCourse teacherCourse){
-        courseId=teacherCourse.getCourse().getId();
-        courseName=teacherCourse.getCourse().getName();
-        masterCourseId=teacherCourse.getCourse().getMasterCourseId();
+    public void Initial(Course course){
+        courseId=course.getId();
+        courseName=course.getName();
+        masterCourseId=course.getMasterCourseId();
 
-        for (CClass cClass:teacherCourse.getcClasses()){
+        for (CClass cClass:course.getcClasses()){
             MyClass newClass=new MyClass();
             newClass.Initial(cClass);
             myClasses.add(newClass);
         }
 
-        for(Seminar seminar: teacherCourse.getSeminars()){
+        for(Seminar seminar: course.getSeminars()){
             MySeminar newSeminar=new MySeminar();
             newSeminar.Initial(seminar);
             mySeminars.add(newSeminar);

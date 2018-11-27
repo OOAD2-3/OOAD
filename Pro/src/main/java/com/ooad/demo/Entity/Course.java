@@ -1,6 +1,7 @@
 package com.ooad.demo.Entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Course {
     //基本信息
@@ -21,6 +22,11 @@ public class Course {
     private double questionWeight;
     private double reportWeight;
     private int roundNumber;
+
+    //关系
+    private List<CClass> cClasses;
+    private List<Seminar> seminars;
+    private List<Round> rounds;
 
     public int getId() {
         return id;
@@ -140,5 +146,30 @@ public class Course {
 
     public void setRoundNumber(int roundNumber) {
         this.roundNumber = roundNumber;
+    }
+
+    public List<CClass> getcClasses() {
+        return cClasses;
+    }
+
+    //关系
+    public void setcClasses(List<CClass> cClasses) {
+        this.cClasses = cClasses;
+    }
+
+    public List<Seminar> getSeminars() {
+        return seminars;
+    }
+
+    public void setSeminars(List<Seminar> seminars) {
+        this.seminars = seminars;
+    }
+
+    public List<Round> getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(List<Round> rounds) {
+        this.rounds = rounds;
     }
 }

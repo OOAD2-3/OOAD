@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ooad.demo.Mapper.CClassMapper">
+    <resultMap id="tab_class" type="CClass" >
+
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="tab_class" resultType="com.ooad.demo.Entity.CClass">
+        SELECT * FROM cclass WHERE  courseId= #{courseId}
+    </select>
+
+    <select id="findByCourseId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.CClass">
+        SELECT * FROM cclass WHERE id=#{id}
+    </select>
+</mapper>
