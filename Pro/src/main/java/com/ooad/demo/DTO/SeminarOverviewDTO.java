@@ -6,7 +6,7 @@ import com.ooad.demo.Entity.Seminar;
 
 import java.util.List;
 
-public class TeacherCourseDTO {
+public class SeminarOverviewDTO {
     private int courseId;
     private String courseName;
     private int masterCourseId;

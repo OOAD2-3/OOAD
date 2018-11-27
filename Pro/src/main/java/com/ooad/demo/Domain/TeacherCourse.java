@@ -2,6 +2,7 @@ package com.ooad.demo.Domain;
 
 import com.ooad.demo.Entity.CClass;
 import com.ooad.demo.Entity.Course;
+import com.ooad.demo.Entity.Round;
 import com.ooad.demo.Entity.Seminar;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public class TeacherCourse {
     private Course course;
     private List<CClass> cClasses;
     private List<Seminar> seminars;
+    private List<Round> rounds;
 
     public Course getCourse() {
         return course;
