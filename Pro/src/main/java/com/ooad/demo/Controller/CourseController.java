@@ -34,5 +34,4 @@ public class CourseController {
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
         return courseService.listSeminarOverviewVOByTeacherId(teacherId);
     }
-
 }
