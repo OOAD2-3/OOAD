@@ -8,6 +8,7 @@ public class Question {
     private int questionScore;
     private boolean isAsked;
 
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }

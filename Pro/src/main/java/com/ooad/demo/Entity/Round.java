@@ -1,5 +1,8 @@
 package com.ooad.demo.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Round {
     //基础信息
     private int id;
@@ -10,6 +13,10 @@ public class Round {
     private int calculateRepType;
     private int signUpNum;
 
+    //关系
+    private List<Seminar> seminars=new ArrayList<>();
+
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }
@@ -64,5 +71,14 @@ public class Round {
 
     public void setSignUpNum(int signUpNum) {
         this.signUpNum = signUpNum;
+    }
+
+    //关系
+    public List<Seminar> getSeminars() {
+        return seminars;
+    }
+
+    public void setSeminars(List<Seminar> seminars) {
+        this.seminars = seminars;
     }
 }

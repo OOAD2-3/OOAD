@@ -7,7 +7,7 @@ import com.ooad.demo.Entity.Seminar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeminarOverviewVO {
+public class SeminarsOverviewVO {
     private int courseId;
     private String courseName;
     private int masterCourseId;
@@ -16,22 +16,25 @@ public class SeminarOverviewVO {
     private List<MySeminar> mySeminars=new ArrayList<>();
 
     /**
-     * Domain层向DTO层转换，用于教师端讨论课主页
-    */
-    public SeminarOverviewVO (Course course){
-        courseId=course.getId();
-        courseName=course.getName();
-        masterCourseId=course.getMasterCourseId();
+     * @Description:Entity层向DTO层的转换
+     * @Author:17Wang
+     * @Time:15:24 2018/11/28
+     */
+    public SeminarsOverviewVO (Course course) {
+        courseId = course.getId();
+        courseName = course.getName();
+        masterCourseId = course.getMasterCourseId();
 
         for (CClass cClass
-                :course.getcClasses()){
+                : course.getcClasses()) {
             myClasses.add(new MyClass(cClass));
         }
 
-
-        for(Seminar seminar
-                :course.getSeminars()){
-            mySeminars.add(new MySeminar(seminar));
+        for (Seminar seminar
+                : course.getSeminars()) {
+            //只显示可以显示的讨论课
+            if (seminar.isCanVisible())
+                mySeminars.add(new MySeminar(seminar));
         }
     }
 

@@ -22,4 +22,6 @@
     <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.Course">
         SELECT * FROM course WHERE  teacher_id = #{teacherId}
     </select>
+
+
 </mapper>

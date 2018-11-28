@@ -13,6 +13,6 @@
     </select>
 
     <select id="findByCourseId" parameterType="Integer" resultMap="tab_round" resultType="com.ooad.demo.Entity.Round">
-        SELECT * FROM round WHERE course_id=#{id}
+        SELECT * FROM round WHERE course_id=#{courseId}
     </select>
 </mapper>

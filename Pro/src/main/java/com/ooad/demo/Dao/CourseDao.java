@@ -53,4 +53,30 @@ public class CourseDao {
 
         return courses;
     }
+
+    /**
+     * @Description:通过id获取Course，三个布尔值参数可以设置对应的查询表
+     * @Author:17Wang
+     * @Time:14:44 2018/11/28
+    */
+    public Course getById(int id,boolean hasClass,boolean hasRound,boolean hasSeminar){
+        Course course=courseMapper.findById(id);
+
+        if (hasClass) {
+            List<CClass> cClasses = cClassMapper.findByCourseId(course.getId());
+            course.setcClasses(cClasses);
+        }
+        if (hasRound) {
+            List<Round> rounds = roundMapper.findByCourseId(course.getId());
+            course.setRounds(rounds);
+        }
+        if (hasSeminar) {
+            List<Seminar> seminars = seminarMapper.findByCourseId(course.getId());
+            course.setSeminars(seminars);
+        }
+
+        return course;
+    }
+
+
 }

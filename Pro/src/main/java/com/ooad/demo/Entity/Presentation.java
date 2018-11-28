@@ -13,6 +13,7 @@ public class Presentation {
     private String reportFileName;//书面报告文件名
     private String reportFileUrl;//书面报告文件路径
 
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }

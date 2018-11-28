@@ -21,6 +21,7 @@ public class Seminar {
     private Timestamp signUpStartTime;
     private Timestamp signUpEndTime;
 
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }

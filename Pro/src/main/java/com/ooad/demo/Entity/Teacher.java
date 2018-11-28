@@ -6,6 +6,7 @@ public class Teacher extends User{
     private int id;
     private String title;//职称
 
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }

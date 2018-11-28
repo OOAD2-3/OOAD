@@ -28,6 +28,7 @@ public class Course {
     private List<Seminar> seminars;
     private List<Round> rounds;
 
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }

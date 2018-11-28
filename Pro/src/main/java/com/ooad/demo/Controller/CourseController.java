@@ -1,7 +1,7 @@
 package com.ooad.demo.Controller;
 
 import com.ooad.demo.Service.CourseService;
-import com.ooad.demo.VO.SeminarOverviewVO;
+import com.ooad.demo.VO.SeminarsOverviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,10 +28,10 @@ public class CourseController {
      * @Description:快捷进入讨论课界面需要的数据
      * @Author:17Wang
      * @Time:14:11 2018/11/28
-    */
+     */
     @RequestMapping(value = "/presentation/entrance",method = RequestMethod.GET)
     @ResponseBody
-    public List<SeminarOverviewVO> SeminarOverviewInCoursePage(){
+    public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
         return courseService.listSeminarOverviewVOByTeacherId(teacherId);
     }
 }

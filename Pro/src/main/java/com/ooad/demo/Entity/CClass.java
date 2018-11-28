@@ -8,6 +8,7 @@ public class CClass {
     private String place;
     private String time;
 
+    //==================================================getter AND setter==================================================//
     public int getId() {
         return id;
     }

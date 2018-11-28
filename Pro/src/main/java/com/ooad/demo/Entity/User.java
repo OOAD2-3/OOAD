@@ -9,6 +9,7 @@ public abstract class User {
     protected boolean isActived;
     protected int msgInterval;//消息发送时间间隔
 
+    //==================================================getter AND setter==================================================//
     public String getUserId() {
         return userId;
     }

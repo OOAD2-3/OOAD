@@ -8,4 +8,6 @@ public class Team {
     private String name;
     private int leaderId;      //组长id
     private boolean isValid;   //该小组是否合法
+
+    //==================================================getter AND setter==================================================//
 }
