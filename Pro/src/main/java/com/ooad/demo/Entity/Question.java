@@ -6,7 +6,7 @@ public class Question {
     private int presentationId;
     private int teamId;
     private int questionScore;
-    private boolean isAsked;
+    private boolean hasAsked;
 
     //==================================================getter AND setter==================================================//
     public int getId() {
@@ -41,11 +41,11 @@ public class Question {
         this.questionScore = questionScore;
     }
 
-    public boolean isAsked() {
-        return isAsked;
+    public boolean isHasAsked() {
+        return hasAsked;
     }
 
-    public void setAsked(boolean asked) {
-        isAsked = asked;
+    public void setHasAsked(boolean hasAsked) {
+        this.hasAsked = hasAsked;
     }
 }

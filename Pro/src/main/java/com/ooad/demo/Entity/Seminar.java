@@ -10,10 +10,10 @@ public class Seminar {
     private String topic;           //讨论课主题
     private String intro;            //讨论课介绍
     private boolean canVisible;   //是否可见
-    private boolean isShare;       //是否共享
+    private boolean hasShare;       //是否共享
     private Timestamp startTime;    //讨论课开始时间
-    private boolean isFinished;    //是否结束
-    private boolean isStarted;     //是否开始
+    private boolean hasFinished;    //是否结束
+    private boolean hasStarted;     //是否开始
 
     //规则
     private int teamNumLimit;
@@ -70,13 +70,7 @@ public class Seminar {
         this.canVisible = canVisible;
     }
 
-    public boolean isShare() {
-        return isShare;
-    }
 
-    public void setShare(boolean share) {
-        isShare = share;
-    }
 
     public Timestamp getStartTime() {
         return startTime;
@@ -86,20 +80,28 @@ public class Seminar {
         this.startTime = startTime;
     }
 
-    public boolean isFinished() {
-        return isFinished;
+    public boolean isHasShare() {
+        return hasShare;
     }
 
-    public void setFinished(boolean finished) {
-        isFinished = finished;
+    public void setHasShare(boolean hasShare) {
+        this.hasShare = hasShare;
     }
 
-    public boolean isStarted() {
-        return isStarted;
+    public boolean isHasFinished() {
+        return hasFinished;
     }
 
-    public void setStarted(boolean started) {
-        isStarted = started;
+    public void setHasFinished(boolean hasFinished) {
+        this.hasFinished = hasFinished;
+    }
+
+    public boolean isHasStarted() {
+        return hasStarted;
+    }
+
+    public void setHasStarted(boolean hasStarted) {
+        this.hasStarted = hasStarted;
     }
 
     public int getTeamNumLimit() {

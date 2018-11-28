@@ -5,10 +5,10 @@
         <result property="roundId" column="round_id"/>
         <result property="courseId" column="course_id"/>
         <result property="canVisible" column="can_visible"/>
-        <result property="isShare" column="is_share"/>
+        <result property="hasShare" column="is_share"/>
         <result property="startTime" column="start_time"/>
-        <result property="isFinished" column="is_finished"/>
-        <result property="isStarted" column="is_started"/>
+        <result property="hasFinished" column="is_finished"/>
+        <result property="hasStarted" column="is_started"/>
         <result property="teamNumLimit" column="team_num_limit"/>
         <result property="reportDDL" column="report_ddl"/>
         <result property="signUpStartTime" column="sign_up_start_time"/>

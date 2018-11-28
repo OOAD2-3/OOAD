@@ -6,7 +6,7 @@ public abstract class User {
     protected String name;
     protected String email;
     protected String selfieUrl;
-    protected boolean isActived;
+    protected boolean hasActived;
     protected int msgInterval;//消息发送时间间隔
 
     //==================================================getter AND setter==================================================//
@@ -50,12 +50,12 @@ public abstract class User {
         this.selfieUrl = selfieUrl;
     }
 
-    public boolean isActived() {
-        return isActived;
+    public boolean isHasActived() {
+        return hasActived;
     }
 
-    public void setActived(boolean actived) {
-        isActived = actived;
+    public void setHasActived(boolean hasActived) {
+        this.hasActived = hasActived;
     }
 
     public int getMsgInterval() {

@@ -10,8 +10,8 @@ public class Course {
     private int masterCourseId;
     private String name;
     private String intro;
-    private boolean isShareTeam;
-    private boolean isShareSeminar;
+    private boolean hasShareTeam;
+    private boolean hasShareSeminar;
 
     //课程规则
     private int minTeamMember;
@@ -61,20 +61,20 @@ public class Course {
         this.intro = intro;
     }
 
-    public boolean isShareTeam() {
-        return isShareTeam;
+    public boolean isHasShareTeam() {
+        return hasShareTeam;
     }
 
-    public void setShareTeam(boolean shareTeam) {
-        isShareTeam = shareTeam;
+    public void setHasShareTeam(boolean hasShareTeam) {
+        this.hasShareTeam = hasShareTeam;
     }
 
-    public boolean isShareSeminar() {
-        return isShareSeminar;
+    public boolean isHasShareSeminar() {
+        return hasShareSeminar;
     }
 
-    public void setShareSeminar(boolean shareSeminar) {
-        isShareSeminar = shareSeminar;
+    public void setHasShareSeminar(boolean hasShareSeminar) {
+        this.hasShareSeminar = hasShareSeminar;
     }
 
     public int getMasterCourseId() {
