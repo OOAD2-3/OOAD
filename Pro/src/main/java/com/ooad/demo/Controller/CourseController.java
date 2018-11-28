@@ -29,10 +29,9 @@ public class CourseController {
      * @Author:17Wang
      * @Time:14:11 2018/11/28
      */
-    @RequestMapping(value = "/presentation/entrance",method = RequestMethod.GET)
+    @RequestMapping(value = "/presentations/entrance",method = RequestMethod.GET)
     @ResponseBody
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
         return courseService.listSeminarOverviewVOByTeacherId(teacherId);
     }
-    
 }

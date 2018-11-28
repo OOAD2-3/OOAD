@@ -23,4 +23,28 @@ class MyRound{
     private int roundOrder;
 
     private List<MySeminar> mySeminars=new ArrayList<>();
+
+    public int getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(int roundId) {
+        this.roundId = roundId;
+    }
+
+    public int getRoundOrder() {
+        return roundOrder;
+    }
+
+    public void setRoundOrder(int roundOrder) {
+        this.roundOrder = roundOrder;
+    }
+
+    public List<MySeminar> getMySeminars() {
+        return mySeminars;
+    }
+
+    public void setMySeminars(List<MySeminar> mySeminars) {
+        this.mySeminars = mySeminars;
+    }
 }
