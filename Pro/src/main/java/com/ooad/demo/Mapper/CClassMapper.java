@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 @Component
 public interface CClassMapper {
-    CClass findById(int id);
-    List<CClass> findByCourseId(int courseId);
+    CClass findById(Integer id);
+    List<CClass> findByCourseId(Integer courseId);
 }

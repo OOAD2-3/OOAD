@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ooad.demo.Mapper.SeminarMapper">
+    <resultMap id="tab_seminar" type="com.ooad.demo.Entity.Seminar">
+        <result property="roundId" column="round_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="canVisible" column="can_visible"/>
+        <result property="isShare" column="is_share"/>
+        <result property="startTime" column="start_time"/>
+        <result property="isFinished" column="is_finished"/>
+        <result property="isStarted" column="is_started"/>
+        <result property="teamNumLimit" column="team_num_limit"/>
+        <result property="reportDDL" column="report_ddl"/>
+        <result property="signUpStartTime" column="sign_up_start_time"/>
+        <result property="signUpEndTime" column="sign_up_end_time"/>
+    </resultMap>
+
+    <select id="findById" parameterType="Integer" resultMap="tab_seminar" resultType="com.ooad.demo.Entity.Seminar">
+        SELECT * FROM seminar WHERE id=#{id}
+    </select>
+
+    <select id="findByCourseId" parameterType="Integer" resultMap="tab_seminar" resultType="com.ooad.demo.Entity.Seminar">
+        SELECT * FROM seminar WHERE course_id=#{id}
+    </select>
+</mapper>

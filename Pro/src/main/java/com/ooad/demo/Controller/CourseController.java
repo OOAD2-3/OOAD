@@ -1,21 +1,37 @@
 package com.ooad.demo.Controller;
 
-import com.ooad.demo.Entity.Course;
-import com.ooad.demo.Mapper.CourseMapper;
+import com.ooad.demo.Service.CourseService;
+import com.ooad.demo.VO.SeminarOverviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/course")
+@RequestMapping(value = "/courses")
 public class CourseController {
-    @Autowired
-    CourseMapper courseMapper;
 
-    @RequestMapping(value = "/test")
-    public List<Course> listByTeacherId(){
-        return courseMapper.findByTeacherId(1);
+    /**
+     * @Description:暂时使用的参数
+     * @Author:17Wang
+     * @Time:14:07 2018/11/28
+    */
+    private final int teacherId=1;
+
+    @Autowired
+    CourseService courseService;
+
+    /**
+     * @Description:快捷进入讨论课界面需要的数据
+     * @Author:17Wang
+     * @Time:14:11 2018/11/28
+    */
+    @RequestMapping(value = "/presentation/entrance",method = RequestMethod.GET)
+    @ResponseBody
+    public List<SeminarOverviewVO> SeminarOverviewInCoursePage(){
+        return courseService.listSeminarOverviewVOByTeacherId(teacherId);
     }
 }
