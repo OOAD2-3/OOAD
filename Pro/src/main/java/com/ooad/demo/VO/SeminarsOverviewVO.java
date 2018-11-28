@@ -33,7 +33,7 @@ public class SeminarsOverviewVO {
         for (Seminar seminar
                 : course.getSeminars()) {
             //只显示可以显示的讨论课
-            if (seminar.isCanVisible())
+            if (seminar.isVisible())
                 mySeminars.add(new MySeminar(seminar));
         }
     }

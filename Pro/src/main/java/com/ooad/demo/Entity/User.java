@@ -1,15 +1,25 @@
 package com.ooad.demo.Entity;
 
-public abstract class User {
-    protected String userId;
-    protected String password;
-    protected String name;
-    protected String email;
-    protected String selfieUrl;
-    protected boolean hasActived;
-    protected int msgInterval;//消息发送时间间隔
+public class User {
+    private int id;
+    private String userId;
+    private String password;
+    private int identity;
+    private String name;
+    private String email;
+    private String selfieUrl;
+    private boolean active;
+    private int msgInterval;//消息发送时间间隔
 
     //==================================================getter AND setter==================================================//
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -24,6 +34,14 @@ public abstract class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(int identity) {
+        this.identity = identity;
     }
 
     public String getName() {
@@ -50,12 +68,12 @@ public abstract class User {
         this.selfieUrl = selfieUrl;
     }
 
-    public boolean isHasActived() {
-        return hasActived;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setHasActived(boolean hasActived) {
-        this.hasActived = hasActived;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public int getMsgInterval() {

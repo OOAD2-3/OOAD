@@ -7,7 +7,7 @@ public class Team {
     private String teamNumber; //组号，自动生成
     private String name;
     private int leaderId;      //组长id
-    private boolean hasValid;   //该小组是否合法
+    private boolean valid;   //该小组是否合法
 
     //==================================================getter AND setter==================================================//
 
@@ -51,11 +51,11 @@ public class Team {
         this.leaderId = leaderId;
     }
 
-    public boolean isHasValid() {
-        return hasValid;
+    public boolean isValid() {
+        return valid;
     }
 
-    public void setHasValid(boolean hasValid) {
-        this.hasValid = hasValid;
+    public void setValid(boolean valid) {
+        this.valid = valid;
     }
 }

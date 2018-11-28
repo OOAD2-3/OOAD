@@ -10,8 +10,8 @@ public class Course {
     private int masterCourseId;
     private String name;
     private String intro;
-    private boolean hasShareTeam;
-    private boolean hasShareSeminar;
+    private boolean shareTeam;
+    private boolean shareSeminar;
 
     //课程规则
     private int minTeamMember;
@@ -29,6 +29,7 @@ public class Course {
     private List<Round> rounds;
 
     //==================================================getter AND setter==================================================//
+
     public int getId() {
         return id;
     }
@@ -43,6 +44,14 @@ public class Course {
 
     public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public int getMasterCourseId() {
+        return masterCourseId;
+    }
+
+    public void setMasterCourseId(int masterCourseId) {
+        this.masterCourseId = masterCourseId;
     }
 
     public String getName() {
@@ -61,28 +70,20 @@ public class Course {
         this.intro = intro;
     }
 
-    public boolean isHasShareTeam() {
-        return hasShareTeam;
+    public boolean isShareTeam() {
+        return shareTeam;
     }
 
-    public void setHasShareTeam(boolean hasShareTeam) {
-        this.hasShareTeam = hasShareTeam;
+    public void setShareTeam(boolean shareTeam) {
+        this.shareTeam = shareTeam;
     }
 
-    public boolean isHasShareSeminar() {
-        return hasShareSeminar;
+    public boolean isShareSeminar() {
+        return shareSeminar;
     }
 
-    public void setHasShareSeminar(boolean hasShareSeminar) {
-        this.hasShareSeminar = hasShareSeminar;
-    }
-
-    public int getMasterCourseId() {
-        return masterCourseId;
-    }
-
-    public void setMasterCourseId(int masterCourseId) {
-        this.masterCourseId = masterCourseId;
+    public void setShareSeminar(boolean shareSeminar) {
+        this.shareSeminar = shareSeminar;
     }
 
     public int getMinTeamMember() {
@@ -153,7 +154,6 @@ public class Course {
         return cClasses;
     }
 
-    //关系
     public void setcClasses(List<CClass> cClasses) {
         this.cClasses = cClasses;
     }

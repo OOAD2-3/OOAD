@@ -9,11 +9,11 @@ public class Seminar {
     private int courseId;          //属于哪个course
     private String topic;           //讨论课主题
     private String intro;            //讨论课介绍
-    private boolean canVisible;   //是否可见
-    private boolean hasShare;       //是否共享
+    private boolean visible;   //是否可见
+    private boolean share;       //是否共享
     private Timestamp startTime;    //讨论课开始时间
-    private boolean hasFinished;    //是否结束
-    private boolean hasStarted;     //是否开始
+    private boolean finished;    //是否结束
+    private boolean started;     //是否开始
 
     //规则
     private int teamNumLimit;
@@ -22,6 +22,7 @@ public class Seminar {
     private Timestamp signUpEndTime;
 
     //==================================================getter AND setter==================================================//
+
     public int getId() {
         return id;
     }
@@ -62,15 +63,21 @@ public class Seminar {
         this.intro = intro;
     }
 
-    public boolean isCanVisible() {
-        return canVisible;
+    public boolean isVisible() {
+        return visible;
     }
 
-    public void setCanVisible(boolean canVisible) {
-        this.canVisible = canVisible;
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
+    public boolean isShare() {
+        return share;
+    }
 
+    public void setShare(boolean share) {
+        this.share = share;
+    }
 
     public Timestamp getStartTime() {
         return startTime;
@@ -80,28 +87,20 @@ public class Seminar {
         this.startTime = startTime;
     }
 
-    public boolean isHasShare() {
-        return hasShare;
+    public boolean isFinished() {
+        return finished;
     }
 
-    public void setHasShare(boolean hasShare) {
-        this.hasShare = hasShare;
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 
-    public boolean isHasFinished() {
-        return hasFinished;
+    public boolean isStarted() {
+        return started;
     }
 
-    public void setHasFinished(boolean hasFinished) {
-        this.hasFinished = hasFinished;
-    }
-
-    public boolean isHasStarted() {
-        return hasStarted;
-    }
-
-    public void setHasStarted(boolean hasStarted) {
-        this.hasStarted = hasStarted;
+    public void setStarted(boolean started) {
+        this.started = started;
     }
 
     public int getTeamNumLimit() {

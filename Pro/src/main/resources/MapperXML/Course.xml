@@ -4,8 +4,8 @@
     <resultMap id="tab_course" type="com.ooad.demo.Entity.Course" >
         <result property="teacherId" column="teacher_id"/>
         <result property="masterCourseId" column="master_course_id"/>
-        <result property="hasShareTeam" column="is_share_team"/>
-        <result property="hasShareSeminar" column="is_share_seminar"/>
+        <result property="shareTeam" column="is_share_team"/>
+        <result property="shareSeminar" column="is_share_seminar"/>
         <result property="minTeamMember" column="min_team_member"/>
         <result property="maxTeamMember" column="max_team_member"/>
         <result property="startTeamTime" column="start_team_time"/>
