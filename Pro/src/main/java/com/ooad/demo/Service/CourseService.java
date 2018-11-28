@@ -24,7 +24,7 @@ public class CourseService {
         List<SeminarsOverviewVO> seminarOverviewVOS=new ArrayList<>();
         List<Course> courses=courseDao.listByTeacherId(teacherId, true, false, true);
         for (Course course:
-             courses) {
+                courses) {
 
             //是否属于从课程，若为从课程应该转换成主课程的
             if(course.getMasterCourseId()==0)
