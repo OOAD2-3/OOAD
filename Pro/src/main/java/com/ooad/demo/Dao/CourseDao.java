@@ -22,7 +22,7 @@ public class CourseDao {
     CClassMapper cClassMapper;
 
     @Autowired
-    RoundMapper roundMapper;
+    RoundDao roundDao;
 
     @Autowired
     SeminarMapper seminarMapper;
@@ -42,7 +42,7 @@ public class CourseDao {
                 course.setcClasses(cClasses);
             }
             if (hasRound) {
-                List<Round> rounds = roundMapper.findByCourseId(course.getId());
+                List<Round> rounds = roundDao.listByCourseId(course.getId(), true);
                 course.setRounds(rounds);
             }
             if (hasSeminar) {
@@ -67,7 +67,7 @@ public class CourseDao {
             course.setcClasses(cClasses);
         }
         if (hasRound) {
-            List<Round> rounds = roundMapper.findByCourseId(course.getId());
+            List<Round> rounds = roundDao.listByCourseId(course.getId(), true);
             course.setRounds(rounds);
         }
         if (hasSeminar) {

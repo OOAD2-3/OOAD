@@ -5,14 +5,14 @@ import com.ooad.demo.Entity.Course;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeminarsVO {
+public class SeminarsUnderRoundsVO {
     private int courseId;
     private String courseName;
 
     private List<MyRound> myRounds=new ArrayList<>();
     private List<MyClass> myClasses=new ArrayList<>();
 
-    public SeminarsVO(Course course){
+    public SeminarsUnderRoundsVO(Course course){
         courseId=course.getId();
         courseName=course.getName();
     }
@@ -23,6 +23,10 @@ class MyRound{
     private int roundOrder;
 
     private List<MySeminar> mySeminars=new ArrayList<>();
+
+    public MyRound(){
+
+    }
 
     public int getRoundId() {
         return roundId;

@@ -32,6 +32,6 @@ public class CourseController {
     @RequestMapping(value = "/presentations/entrance",method = RequestMethod.GET)
     @ResponseBody
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
-        return courseService.listSeminarOverviewVOByTeacherId(teacherId);
+        return courseService.listSeminarsOverviewVOByTeacherId(teacherId);
     }
 }

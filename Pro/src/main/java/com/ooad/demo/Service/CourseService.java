@@ -1,9 +1,11 @@
 package com.ooad.demo.Service;
 
 import com.ooad.demo.Dao.CourseDao;
+import com.ooad.demo.Dao.RoundDao;
 import com.ooad.demo.Entity.Course;
-import com.ooad.demo.Mapper.CourseMapper;
+import com.ooad.demo.Entity.Round;
 import com.ooad.demo.VO.SeminarsOverviewVO;
+import com.ooad.demo.VO.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,15 @@ public class CourseService {
     @Autowired
     CourseDao courseDao;
 
+    @Autowired
+    RoundDao roundDao;
+
     /**
      * @Description:给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
      * @Author:17Wang
      * @Time:0:01 2018/11/28
     */
-    public List<SeminarsOverviewVO> listSeminarOverviewVOByTeacherId(int teacherId){
+    public List<SeminarsOverviewVO> listSeminarsOverviewVOByTeacherId(int teacherId){
         List<SeminarsOverviewVO> seminarOverviewVOS=new ArrayList<>();
         List<Course> courses=courseDao.listByTeacherId(teacherId, true, false, true);
         for (Course course:
@@ -40,6 +45,25 @@ public class CourseService {
         }
 
         return seminarOverviewVOS;
+    }
+
+    /**
+     * @Description:给某个课程的讨论课界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的轮次和轮次所包括的讨论课
+     * @Author:17Wang
+     * @Time:23:49 2018/11/29
+    */
+    public List<SeminarsUnderRoundsVO> listSeminarsVOByCourseId(int courseId){
+        Course course=courseDao.getById(courseId, true, true, false);
+
+        List<SeminarsUnderRoundsVO> seminarsVOS=new ArrayList<>();
+        List<Round> rounds=roundDao.listByCourseId(courseId, true);
+        for (Round round:
+             rounds) {
+            //待完成
+            seminarsVOS.add(new SeminarsUnderRoundsVO(course));
+        }
+
+        return seminarsVOS;
     }
 
 }
