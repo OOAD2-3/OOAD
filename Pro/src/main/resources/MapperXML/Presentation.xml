@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ooad.demo.Mapper.PresentationMapper">
+    <resultMap id="tab_presentation" type="com.ooad.demo.Entity.Presentation">
+        <result property="seminarId" column="seminar_id"/>
+        <result property="teamId" column="team_id"/>
+        <result property="cClassId" column="cclass_id"/>
+        <result property="preOrder" column="pre_order"/>
+        <result property="preScore" column="pre_score"/>
+        <result property="reportScore" column="report_score"/>
+        <result property="reportFileName" column="report_file_name"/>
+        <result property="reportFileUrl" column="report_file_url"/>
+        <result property="preFileName" column="pre_file_name"/>
+        <result property="preFileUrl" column="pre_file_url"/>
+    </resultMap>
+
+    <select id="findById" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
+        SELECT * FROM presentation WHERE id=#{id}
+    </select>
+
+    <select id="findBySeminarId" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
+        SELECT * FROM presentation WHERE seminar_id=#{seminarId}
+    </select>
+
+    <select id="findBycClassId" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
+        SELECT * FROM presentation WHERE cclass_id=#{cClassId}
+    </select>
+
+    <select id="findByTeamId" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
+        SELECT * FROM presentation WHERE team_id=#{teamId}
+    </select>
+
+    <select id="findByPreOrder" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
+        SELECT * FROM presentation WHERE pre_order=#{preOrder}
+    </select>
+</mapper>

@@ -1,6 +1,7 @@
 package com.ooad.demo.Controller;
 
 import com.ooad.demo.Service.CourseService;
+
 import com.ooad.demo.VO.SeminarsOverviewVO;
 import com.ooad.demo.VO.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,6 @@ public class CourseController {
     public SeminarsUnderRoundsVO RoundsInCoursePage(@PathVariable("courseid") int courseId){
         return courseService.SeminarsUnderRoundsVOByCourseId(courseId);
     }
+
+
 }

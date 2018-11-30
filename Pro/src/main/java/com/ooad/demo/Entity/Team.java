@@ -1,5 +1,7 @@
 package com.ooad.demo.Entity;
 
+import java.util.List;
+
 public class Team {
     //基本信息
     private int id;
@@ -8,6 +10,11 @@ public class Team {
     private String name;
     private int leaderId;      //组长id
     private boolean valid;   //该小组是否合法
+
+    //关系
+    private List<User> users;       //学生
+    private List<Presentation> presentations;
+    private List<Question> questions;
 
     //==================================================getter AND setter==================================================//
 
@@ -57,5 +64,29 @@ public class Team {
 
     public void setValid(boolean valid) {
         this.valid = valid;
+    }
+
+    public List<Presentation> getPresentations() {
+        return presentations;
+    }
+
+    public void setPresentations(List<Presentation> presentations) {
+        this.presentations = presentations;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

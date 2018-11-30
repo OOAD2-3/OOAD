@@ -3,9 +3,9 @@ package com.ooad.demo.Entity;
 public class Question {
     //基本信息
     private int id;
-    private int presentationId;
-    private int teamId;
-    private int questionScore;
+    private int presentationId;  //属于哪个pre
+    private int studentId;         //属于哪个学生
+    private float questionScore;
     private boolean asked;
 
     //==================================================getter AND setter==================================================//
@@ -26,19 +26,19 @@ public class Question {
         this.presentationId = presentationId;
     }
 
-    public int getTeamId() {
-        return teamId;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
-    public int getQuestionScore() {
+    public float getQuestionScore() {
         return questionScore;
     }
 
-    public void setQuestionScore(int questionScore) {
+    public void setQuestionScore(float questionScore) {
         this.questionScore = questionScore;
     }
 

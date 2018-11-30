@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ooad.demo.Mapper.QuestionMapper">
+    <resultMap id="tab_question" type="com.ooad.demo.Entity.Question">
+        <result property="presentationId" column="pre_id"/>
+        <result property="studentId" column="student_id"/>
+        <result property="questionScore" column="question_score"/>
+
+        <result property="ask" column="is_asked"/>
+
+    </resultMap>
+
+    <select id="findById" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
+        SELECT * FROM question WHERE id=#{id}
+    </select>
+
+    <select id="findByPresentationId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
+        SELECT * FROM question WHERE pre_id=#{PresentationId}
+    </select>
+
+    <select id="findByStudentId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
+        SELECT * FROM question WHERE student_id=#{studentId}
+    </select>
+
+</mapper>

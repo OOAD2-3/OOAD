@@ -1,5 +1,7 @@
 package com.ooad.demo.Entity;
 
+import java.util.List;
+
 public class CClass {
     //基本信息
     private int id;
@@ -7,6 +9,9 @@ public class CClass {
     private String name;
     private String place;
     private String time;
+
+    //关系
+    List<Team> teams;
 
     //==================================================getter AND setter==================================================//
     public int getId() {
@@ -47,5 +52,13 @@ public class CClass {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 }
