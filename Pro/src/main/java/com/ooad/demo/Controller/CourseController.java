@@ -33,6 +33,11 @@ public class CourseController {
         return courseService.listSeminarsOverviewVOByTeacherId(teacherId);
     }
 
+    /**
+     * @Description:进入一个课程 显示该课程的所有已有轮次和轮次下的所有讨论课
+     * @Author:17Wang
+     * @Time:16:54 2018/11/30
+    */
     @RequestMapping(value = "/seminars/1/entrance",method = RequestMethod.GET)
     @ResponseBody
     public SeminarsUnderRoundsVO RoundsInCoursePage(){
