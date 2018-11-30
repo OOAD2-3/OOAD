@@ -21,8 +21,6 @@ public class SeminarsUnderRoundsVO {
     private List<MyRound> myRounds=new ArrayList<>();
     private List<MyClass> myClasses=new ArrayList<>();
 
-    public SeminarsUnderRoundsVO(){}
-
     public SeminarsUnderRoundsVO(Course course){
         courseId=course.getId();
         courseName=course.getName();

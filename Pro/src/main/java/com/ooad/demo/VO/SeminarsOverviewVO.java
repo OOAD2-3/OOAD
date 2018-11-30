@@ -16,6 +16,7 @@ public class SeminarsOverviewVO {
     private int courseId;
     private String courseName;
     private int masterCourseId;
+    private String test;
 
     private List<MyClass> myClasses=new ArrayList<>();
     private List<MySeminar> mySeminars=new ArrayList<>();
@@ -25,12 +26,11 @@ public class SeminarsOverviewVO {
      * @Author:17Wang
      * @Time:15:24 2018/11/28
      */
-    public SeminarsOverviewVO(){}
-
     public SeminarsOverviewVO (Course course) {
         courseId = course.getId();
         courseName = course.getName();
         masterCourseId = course.getMasterCourseId();
+        test="1";
 
         for (CClass cClass
                 : course.getcClasses()) {
@@ -84,13 +84,19 @@ public class SeminarsOverviewVO {
     public void setMySeminars(List<MySeminar> mySeminars) {
         this.mySeminars = mySeminars;
     }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
 }
 
 class MyClass{
     private int classId;
     private String className;
-
-    public MyClass(){}
 
     public MyClass (CClass cClass){
         classId=cClass.getId();
@@ -117,8 +123,6 @@ class MyClass{
 class MySeminar{
     private int seminarId;
     private String seminarTopic;
-
-    public MySeminar(){}
 
     public MySeminar (Seminar seminar){
         seminarId=seminar.getId();

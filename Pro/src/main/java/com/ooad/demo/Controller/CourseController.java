@@ -35,8 +35,7 @@ public class CourseController {
 
     @RequestMapping(value = "/seminars/1/entrance",method = RequestMethod.GET)
     @ResponseBody
-    public void RoundsInCoursePage(){
-        System.out.println(1);
-        //return courseService.SeminarsUnderRoundsVOByCourseId(1);
+    public SeminarsUnderRoundsVO RoundsInCoursePage(){
+        return courseService.SeminarsUnderRoundsVOByCourseId(1);
     }
 }
