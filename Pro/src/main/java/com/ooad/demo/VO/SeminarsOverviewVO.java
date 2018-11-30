@@ -7,6 +7,11 @@ import com.ooad.demo.Entity.Seminar;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Description:
+ * @Author:17Wang
+ * @Time:15:52 2018/11/30
+*/
 public class SeminarsOverviewVO {
     private int courseId;
     private String courseName;
@@ -20,6 +25,8 @@ public class SeminarsOverviewVO {
      * @Author:17Wang
      * @Time:15:24 2018/11/28
      */
+    public SeminarsOverviewVO(){}
+
     public SeminarsOverviewVO (Course course) {
         courseId = course.getId();
         courseName = course.getName();
@@ -83,6 +90,8 @@ class MyClass{
     private int classId;
     private String className;
 
+    public MyClass(){}
+
     public MyClass (CClass cClass){
         classId=cClass.getId();
         className=cClass.getName();
@@ -108,6 +117,8 @@ class MyClass{
 class MySeminar{
     private int seminarId;
     private String seminarTopic;
+
+    public MySeminar(){}
 
     public MySeminar (Seminar seminar){
         seminarId=seminar.getId();

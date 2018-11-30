@@ -52,18 +52,10 @@ public class CourseService {
      * @Author:17Wang
      * @Time:23:49 2018/11/29
     */
-    public List<SeminarsUnderRoundsVO> listSeminarsVOByCourseId(int courseId){
+    public SeminarsUnderRoundsVO SeminarsUnderRoundsVOByCourseId(int courseId){
         Course course=courseDao.getById(courseId, true, true, false);
-
-        List<SeminarsUnderRoundsVO> seminarsVOS=new ArrayList<>();
-        List<Round> rounds=roundDao.listByCourseId(courseId, true);
-        for (Round round:
-             rounds) {
-            //待完成
-            seminarsVOS.add(new SeminarsUnderRoundsVO(course));
-        }
-
-        return seminarsVOS;
+        SeminarsUnderRoundsVO seminarsUnderRoundsVOS=new SeminarsUnderRoundsVO(course);
+        return seminarsUnderRoundsVOS;
     }
 
 }

@@ -2,11 +2,9 @@ package com.ooad.demo.Controller;
 
 import com.ooad.demo.Service.CourseService;
 import com.ooad.demo.VO.SeminarsOverviewVO;
+import com.ooad.demo.VO.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,9 +27,16 @@ public class CourseController {
      * @Author:17Wang
      * @Time:14:11 2018/11/28
      */
-    @RequestMapping(value = "/presentations/entrance",method = RequestMethod.GET)
+    @RequestMapping(value = "/seminars/entrance",method = RequestMethod.GET)
     @ResponseBody
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
         return courseService.listSeminarsOverviewVOByTeacherId(teacherId);
+    }
+
+    @RequestMapping(value = "/seminars/1/entrance",method = RequestMethod.GET)
+    @ResponseBody
+    public void RoundsInCoursePage(){
+        System.out.println(1);
+        //return courseService.SeminarsUnderRoundsVOByCourseId(1);
     }
 }
