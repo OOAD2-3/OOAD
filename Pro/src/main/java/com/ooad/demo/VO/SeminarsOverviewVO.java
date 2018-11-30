@@ -16,7 +16,6 @@ public class SeminarsOverviewVO {
     private int courseId;
     private String courseName;
     private int masterCourseId;
-    private String test;
 
     private List<MyClass> myClasses=new ArrayList<>();
     private List<MySeminar> mySeminars=new ArrayList<>();
@@ -30,7 +29,6 @@ public class SeminarsOverviewVO {
         courseId = course.getId();
         courseName = course.getName();
         masterCourseId = course.getMasterCourseId();
-        test="1";
 
         for (CClass cClass
                 : course.getcClasses()) {
@@ -83,14 +81,6 @@ public class SeminarsOverviewVO {
 
     public void setMySeminars(List<MySeminar> mySeminars) {
         this.mySeminars = mySeminars;
-    }
-
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
     }
 }
 

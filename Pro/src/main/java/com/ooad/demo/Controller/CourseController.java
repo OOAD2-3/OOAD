@@ -38,9 +38,9 @@ public class CourseController {
      * @Author:17Wang
      * @Time:16:54 2018/11/30
     */
-    @RequestMapping(value = "/seminars/1/entrance",method = RequestMethod.GET)
+    @RequestMapping(value = "/seminars/{courseid}/entrance",method = RequestMethod.GET)
     @ResponseBody
-    public SeminarsUnderRoundsVO RoundsInCoursePage(){
-        return courseService.SeminarsUnderRoundsVOByCourseId(1);
+    public SeminarsUnderRoundsVO RoundsInCoursePage(@PathVariable("courseid") int courseId){
+        return courseService.SeminarsUnderRoundsVOByCourseId(courseId);
     }
 }
