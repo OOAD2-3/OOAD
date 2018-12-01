@@ -8,12 +8,9 @@ import com.ooad.demo.Service.SeminarService;
 import com.ooad.demo.VO.PreFileDownloadVO;
 
 import com.ooad.demo.VO.SeminarInfoVO;
-<<<<<<< HEAD
 import com.ooad.demo.VO.SeminarSubInfoVO;
-=======
-
->>>>>>> e008043fcea6bc1b4c79e49c280039fd63ee329f
 import com.ooad.demo.VO.SeminarPreVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
