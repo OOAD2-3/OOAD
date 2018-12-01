@@ -7,9 +7,7 @@ import com.ooad.demo.Entity.Seminar;
 
 
 import com.ooad.demo.VO.PreFileDownloadVO;
-
 import com.ooad.demo.VO.SeminarInfoVO;
-
 import com.ooad.demo.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,13 +40,13 @@ public class SeminarService {
     }
 
 
-    public PreFileDownloadVO getPreFileDownLoadVOBySeminarId(int seminarId){
-        Seminar seminar=seminarDao.getById(seminarId,true);
-        PreFileDownloadVO preFileDownloadVO=new PreFileDownloadVO(seminar);
+    public PreFileDownloadVO getPreFileDownLoadVOBySeminarId(int seminarId) {
+        Seminar seminar = seminarDao.getById(seminarId, true);
+        PreFileDownloadVO preFileDownloadVO = new PreFileDownloadVO(seminar);
         //只拿course名字
-        preFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(),false,false,false).getName());
+        preFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(), false, false, false).getName());
         return preFileDownloadVO;
-
+    }
     /**
      * @Description:开始讨论课按钮的界面，显示讨论课的部分基本信息，具体信息看SeminarInfoVO类
      * @Author:17Wang
