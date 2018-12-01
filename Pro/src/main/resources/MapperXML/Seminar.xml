@@ -4,6 +4,7 @@
     <resultMap id="tab_seminar" type="com.ooad.demo.Entity.Seminar">
         <result property="roundId" column="round_id"/>
         <result property="courseId" column="course_id"/>
+        <result property="orderNumber" column="order_num"/>
         <result property="visible" column="can_visible"/>
         <result property="share" column="is_share"/>
         <result property="startTime" column="start_time"/>

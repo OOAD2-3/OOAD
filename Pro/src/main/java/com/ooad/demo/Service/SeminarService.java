@@ -3,10 +3,16 @@ package com.ooad.demo.Service;
 import com.ooad.demo.Dao.CourseDao;
 import com.ooad.demo.Dao.SeminarDao;
 
+import com.ooad.demo.Dao.TeamDao;
+import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
 
 
+import com.ooad.demo.Entity.Team;
+
+
 import com.ooad.demo.VO.PreFileDownloadVO;
+import com.ooad.demo.VO.ReportFileDownloadVO;
 import com.ooad.demo.VO.SeminarInfoVO;
 import com.ooad.demo.VO.SeminarSubInfoVO;
 import com.ooad.demo.VO.SeminarPreVO;
@@ -21,6 +27,8 @@ public class SeminarService {
     @Autowired
     CourseDao courseDao;
 
+    @Autowired
+    TeamDao teamDao;
 
     /**
      * @Author: WinstonDeng
@@ -32,10 +40,25 @@ public class SeminarService {
      */
     public SeminarPreVO getSeminarPreVOBySeminarId(int seminarId){
         Seminar seminar=seminarDao.getById(seminarId,true);
-        return new SeminarPreVO(seminar);
+        SeminarPreVO seminarPreVO=new SeminarPreVO(seminar);
+        List<String> teamNumberList=new ArrayList<>();
+        //放置队伍编号
+        for(int i=0;i<seminarPreVO.getTeamIdList().size();i++){
+            teamNumberList.add(teamDao.getById(seminarPreVO.getTeamIdList().get(i),false,false).getName());
+        }
+        seminarPreVO.setTeamNumberList(teamNumberList);
+        return seminarPreVO;
     }
 
-
+    /**
+     * @Author: WinstonDeng
+     * @Description: 给讨论课展示ppt下载界面用的VO
+     *                  ！！！！暂时没有二进制流的下载！！！
+     *                  讨论课id seminar_id
+     *                  课程名 course_name
+     *                  展示材料 preFileName, preFileUrl
+     * @Date: 22:52 2018/12/1
+     */
     public PreFileDownloadVO getPreFileDownLoadVOBySeminarId(int seminarId) {
         Seminar seminar = seminarDao.getById(seminarId, true);
         PreFileDownloadVO preFileDownloadVO = new PreFileDownloadVO(seminar);
@@ -60,6 +83,23 @@ public class SeminarService {
     public SeminarInfoVO getSeminarInfoVOBySeminarId(int seminarId){
         return new SeminarInfoVO(seminarDao.getById(seminarId, false));
 
+    }
+
+    /**
+     * @Author: WinstonDeng
+     * @Description: 给讨论课结束后 报告下载界面用的VO
+     *            ！！！！暂时没有二进制流的下载！！！
+     *                 讨论课id seminar_id
+     *                 课程名 course_name
+     *                 展示材料 reportFileName, reportFileUrl
+     * @Date: 22:54 2018/12/1
+     */
+    public ReportFileDownloadVO getReportFileDownliadVOBySeminarId(int seminarId){
+        Seminar seminar=seminarDao.getById(seminarId,true);
+        ReportFileDownloadVO reportFileDownloadVO=new ReportFileDownloadVO(seminar);
+        //只拿course名字
+        reportFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(),false,false,false).getName());
+        return reportFileDownloadVO;
     }
 
 }

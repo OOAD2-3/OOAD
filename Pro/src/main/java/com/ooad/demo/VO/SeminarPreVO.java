@@ -21,7 +21,9 @@ public class SeminarPreVO {
     private String seminarTopic;
 
     private List<MyPresentation> myPresentations=new ArrayList<>();
-    private List<MyTeam> myTeams=new ArrayList<>();
+    private List<Integer> teamIdList=new ArrayList<>();
+    private List<String> teamNumberList=new ArrayList<>();
+
 
     public SeminarPreVO(Seminar seminar){
 
@@ -30,11 +32,12 @@ public class SeminarPreVO {
         for(Presentation presentation:
             seminar.getPresentations()){
             myPresentations.add(new MyPresentation(presentation));
+            teamIdList.add(presentation.getTeamId());
         }
-        for (Team team:
-            seminar.getTeams()){
-            myTeams.add(new MyTeam(team));
-        }
+//        for (Team team:
+//            seminar.getTeams()){
+//            myTeams.add(new MyTeam(team));
+//        }
 
     }
 
@@ -62,12 +65,20 @@ public class SeminarPreVO {
         this.myPresentations = myPresentations;
     }
 
-    public List<MyTeam> getMyTeams() {
-        return myTeams;
+    public List<Integer> getTeamIdList() {
+        return teamIdList;
     }
 
-    public void setMyTeams(List<MyTeam> myTeams) {
-        this.myTeams = myTeams;
+    public void setTeamIdList(List<Integer> teamIdList) {
+        this.teamIdList = teamIdList;
+    }
+
+    public List<String> getTeamNumberList() {
+        return teamNumberList;
+    }
+
+    public void setTeamNumberList(List<String> teamNumberList) {
+        this.teamNumberList = teamNumberList;
     }
 }
 
@@ -78,12 +89,14 @@ class MyPresentation{
     private String preFileName;
     private String preFileUrl;
 
+
     public MyPresentation(Presentation presentation){
 
         preOrder=presentation.getPreOrder();
         preScore=presentation.getPreScore();
         preFileName=presentation.getPreFileName();
         preFileUrl=presentation.getPreFileUrl();
+
     }
 
 
@@ -118,29 +131,8 @@ class MyPresentation{
     public void setPreFileUrl(String preFileUrl) {
         this.preFileUrl = preFileUrl;
     }
+
+
 }
 
-class MyTeam{
-    private int teamId;
-    private String teamNumber;
 
-    public MyTeam(Team team){
-        teamId=team.getId();
-        teamNumber=team.getTeamNumber();
-    }
-    public int getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
-    }
-
-    public String getTeamNumber() {
-        return teamNumber;
-    }
-
-    public void setTeamNumber(String teamNumber) {
-        this.teamNumber = teamNumber;
-    }
-}

@@ -7,6 +7,7 @@ import com.ooad.demo.Mapper.PresentationMapper;
 import com.ooad.demo.Mapper.QuestionMapper;
 import com.ooad.demo.Mapper.TeamMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @Date: Created in 23:52 2018/11/29
  * @Modified by:
  */
+@Component
 public class TeamDao {
     @Autowired
     PresentationMapper presentationMapper;

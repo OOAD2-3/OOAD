@@ -30,15 +30,6 @@ public class SeminarDao {
             List<Presentation> presentations=presentationMapper.findBySeminarId(seminarId);
             seminar.setPresentations(presentations);
 
-            List<Team> teams=new ArrayList<>();
-            for(Presentation presentation:
-                presentations){
-                teams.add(teamMapper.findById(presentation.getTeamId()));
-
-            }
-
-            seminar.setTeams(teams);
-
         }
         return seminar;
     }

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @Author: WinstonDeng
- * @Description: 对应讨论课ppt下载界面
+ * @Description: 对应讨论课ppt下载界面，暂时没有做二进制流下载
  * @Date: Created in 19:47 2018/11/30
  * @Modified by:
  */
@@ -19,6 +19,7 @@ public class PreFileDownloadVO {
    private List<String> preFileUrls=new ArrayList<>();
    private List<String> preFileNames=new ArrayList<>();
 
+   //！！！！暂时没有做二进制流下载！！！！！
    public PreFileDownloadVO(Seminar seminar){
        seminarId=seminar.getId();
        for(Presentation presentation:
