@@ -14,12 +14,12 @@
         SELECT * FROM question WHERE id=#{id}
     </select>
 
-    <select id="findByPresentationId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
-        SELECT * FROM question WHERE pre_id=#{PresentationId}
+    <select id="findBySeminarIdAndTeamId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
+        SELECT * FROM question WHERE seminar_id=#{seminarId} AND team_id=#{teamId}
     </select>
 
-    <select id="findByStudentId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
-        SELECT * FROM question WHERE student_id=#{studentId}
+    <select id="findByTeamId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
+        SELECT * FROM question WHERE team_id=#{teamId}
     </select>
 
 </mapper>

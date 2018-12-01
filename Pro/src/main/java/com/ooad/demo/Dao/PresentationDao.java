@@ -29,11 +29,12 @@ public class PresentationDao {
 
    @Autowired
     SeminarMapper seminarMapper;
-
-   public List<Presentation> listBySeminarId(int seminarId){
-       return presentationMapper.findBySeminarId(seminarId);
-   }
-
+   
+   /**
+    * @Description:修改question的查找方式
+    * @Author:17Wang
+    * @Time:23:01 2018/12/1
+   */
    public List<Presentation> listBySeminarId(int seminarId, boolean hasQuestion){
        List<Presentation> presentations=presentationMapper.findBySeminarId(seminarId);
 
@@ -41,11 +42,12 @@ public class PresentationDao {
             presentations){
 
            if(hasQuestion){
-               List<Question> questions=questionMapper.findByPresentationId(presentation.getId());
+               List<Question> questions=questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(),presentation.getTeamId());
                presentation.setQuestions(questions);
            }
        }
         return presentations;
    }
 
+   
 }

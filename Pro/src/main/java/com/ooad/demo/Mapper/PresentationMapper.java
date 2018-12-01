@@ -15,7 +15,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PresentationMapper {
-    Presentation findById(Integer id);
+    Presentation findBySeminarIdAndTeamId(Integer seminarId,Integer teamId);
     List<Presentation> findBySeminarId(Integer seminarId);
     List<Presentation> findByTeamId(Integer teamId);
     List<Presentation> findBycClassId(Integer cClassId);

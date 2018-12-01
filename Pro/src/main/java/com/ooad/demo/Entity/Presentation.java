@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Presentation {
     //基础信息
-    private int id;
     private int seminarId;      //属于哪次讨论课
     private int teamId;         //属于哪个组
     private int cClassId;        //属于哪个班级
     private int preOrder;       //展示次序
     private float preScore;       //展示得分
     private float reportScore;    //书面报告得分
+    private float questionScore;  //提问总得分
 
     private String preFileName; //展示文件名
     private String preFileUrl;  //展示文件路径
@@ -21,15 +21,16 @@ public class Presentation {
     //关系
     private List<Question> questions;
 
+    public void calculateQuestionScore(){
+        questionScore=0;
+        for (Question question:
+             questions) {
+            questionScore += question.getQuestionScore();
+        }
+        questionScore /= questions.size();
+    }
+
     //==================================================getter AND setter==================================================//
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getSeminarId() {
         return seminarId;
     }
@@ -117,5 +118,13 @@ public class Presentation {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
+    }
+
+    public float getQuestionScore() {
+        return questionScore;
+    }
+
+    public void setQuestionScore(float questionScore) {
+        this.questionScore = questionScore;
     }
 }

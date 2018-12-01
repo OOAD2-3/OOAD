@@ -14,8 +14,8 @@
         <result property="preFileUrl" column="pre_file_url"/>
     </resultMap>
 
-    <select id="findById" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
-        SELECT * FROM presentation WHERE id=#{id}
+    <select id="findBySeminarIdAndTeamId" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
+        SELECT * FROM presentation WHERE seminar_id=#{seminarId} AND team_id=#{teamId}
     </select>
 
     <select id="findBySeminarId" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">

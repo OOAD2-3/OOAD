@@ -16,6 +16,6 @@ import java.util.List;
 @Repository
 public interface QuestionMapper {
     Question findById(Integer id);
-    List<Question> findByPresentationId(Integer presentationId);
-    List<Question> findByStudentId(Integer studentId);
+    List<Question> findBySeminarIdAndTeamId(Integer seminarId,Integer teamId);
+    List<Question> findByTeamId(Integer teamId);
 }
