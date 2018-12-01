@@ -4,7 +4,7 @@ public class User {
     private int id;
     private String userId;
     private String password;
-    private int identity;
+    private int identity;   //0是学生 1是老师
     private String name;
     private String email;
     private String selfieUrl;

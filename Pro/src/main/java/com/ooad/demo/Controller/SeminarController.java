@@ -4,8 +4,15 @@ package com.ooad.demo.Controller;
 import com.ooad.demo.Dao.SeminarDao;
 import com.ooad.demo.Entity.Seminar;
 import com.ooad.demo.Service.SeminarService;
+
+import com.ooad.demo.VO.PreFileDownloadVO;
+
 import com.ooad.demo.VO.SeminarInfoVO;
+<<<<<<< HEAD
 import com.ooad.demo.VO.SeminarSubInfoVO;
+=======
+
+>>>>>>> e008043fcea6bc1b4c79e49c280039fd63ee329f
 import com.ooad.demo.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,15 +33,27 @@ public class SeminarController {
      * @Description: 临时参数
      * @Date: 16:02 2018/11/30
      */
+
+    //private final int seminarId=1;
+
     private final int tempSeminarId=1;
+
 
     @Autowired
     SeminarService seminarService;
 
-    @RequestMapping(value = "/presentations/pre", method = RequestMethod.GET)
+    @RequestMapping(value = "/presentations/{seminarId}/entrance", method = RequestMethod.GET)
     @ResponseBody
-    public SeminarPreVO SeminarPreVOInPrePage(){
-        return seminarService.getSeminarPreVOBySeminarId(tempSeminarId);
+    public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarId") int seminarId){
+        return seminarService.getSeminarPreVOBySeminarId(seminarId);
+    }
+
+    @RequestMapping(value = "/presentations/{seminarId}/downloadPreFiles",method = RequestMethod.GET)
+    @ResponseBody
+    public PreFileDownloadVO SeminarPreFileDownloadPage(@PathVariable("seminarId") int seminarId){
+        return seminarService.getPreFileDownLoadVOBySeminarId(seminarId);
+
+
     }
 
 
@@ -58,5 +77,6 @@ public class SeminarController {
     @ResponseBody
     public SeminarInfoVO seminarById(@PathVariable("seminarid") int seminarId){
         return seminarService.getSeminarInfoVOBySeminarId(seminarId);
+
     }
 }

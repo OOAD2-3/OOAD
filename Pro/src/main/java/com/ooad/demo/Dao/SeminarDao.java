@@ -34,7 +34,7 @@ public class SeminarDao {
             for(Presentation presentation:
                 presentations){
                 teams.add(teamMapper.findById(presentation.getTeamId()));
-               // System.out.println(teamMapper.findById(presentation.getTeamId()).getTeamNumber());
+
             }
 
             seminar.setTeams(teams);
