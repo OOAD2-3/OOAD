@@ -40,7 +40,6 @@ public class SeminarController {
 
     @RequestMapping(value = "/presentations/{seminarId}/entrance", method = RequestMethod.GET)
     @ResponseBody
-
     public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarId") int seminarId){
         return seminarService.getSeminarPreVOBySeminarId(seminarId);
     }
@@ -50,8 +49,7 @@ public class SeminarController {
     public PreFileDownloadVO SeminarPreFileDownloadPage(@PathVariable("seminarId") int seminarId){
         return seminarService.getPreFileDownLoadVOBySeminarId(seminarId);
 
-    public SeminarPreVO SeminarPreVOInPrePage(){
-        return seminarService.getSeminarPreVOBySeminarId(tempSeminarId);
+
     }
 
 
