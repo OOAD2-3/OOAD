@@ -19,6 +19,9 @@ import com.ooad.demo.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class SeminarService {
     @Autowired
@@ -93,7 +96,7 @@ public class SeminarService {
      *            ！！！！暂时没有二进制流的下载！！！
      *                 讨论课id seminar_id
      *                 课程名 course_name
-     *                 展示材料 reportFileName, reportFileUrl
+     *                 报告材料 reportFileName, reportFileUrl
      * @Date: 22:54 2018/12/1
      */
     public ReportFileDownloadVO getReportFileDownliadVOBySeminarId(int seminarId){
@@ -103,5 +106,6 @@ public class SeminarService {
         reportFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(),false,false,false).getName());
         return reportFileDownloadVO;
     }
+
 
 }

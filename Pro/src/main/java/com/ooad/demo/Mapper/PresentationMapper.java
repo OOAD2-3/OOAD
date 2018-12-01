@@ -15,9 +15,14 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PresentationMapper {
+
+    //================查找==========================
     Presentation findById(Integer id);
     List<Presentation> findBySeminarId(Integer seminarId);
     List<Presentation> findByTeamId(Integer teamId);
     List<Presentation> findBycClassId(Integer cClassId);
     Presentation findByPreOrder(Integer preOrder);
+
+    //================修改==========================
+    void updateReportScoreById(Presentation presentation);
 }

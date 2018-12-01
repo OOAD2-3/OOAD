@@ -89,7 +89,6 @@ class MyPresentation{
     private String preFileName;
     private String preFileUrl;
 
-
     public MyPresentation(Presentation presentation){
 
         preOrder=presentation.getPreOrder();

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @Author: WinstonDeng
- * @Description: OOAD_Course_ManageSystem
+ * @Description: 对应讨论课报告下载界面，暂时没有做二进制流下载
  * @Date: Created in 22:44 2018/12/1
  * @Modified by:
  */
@@ -16,15 +16,14 @@ public class ReportFileDownloadVO {
     private int seminarId;
     private String courseName;
 
-    private List<String> reportFileUrls=new ArrayList<>();
-    private List<String> reportFileNames=new ArrayList<>();
+    private List<ReportPresentation> reportPresentations=new ArrayList<>();
 
+    //！！！！暂时没有做二进制流下载！！！！！
     public ReportFileDownloadVO (Seminar seminar){
         seminarId=seminar.getId();
         for(Presentation presentation:
                 seminar.getPresentations()){
-                reportFileNames.add(presentation.getPreFileName());
-                reportFileUrls.add(presentation.getPreFileUrl());
+                reportPresentations.add(new ReportPresentation(presentation));
         }
     }
 
@@ -44,19 +43,66 @@ public class ReportFileDownloadVO {
         this.courseName = courseName;
     }
 
-    public List<String> getReportFileUrls() {
-        return reportFileUrls;
+    public List<ReportPresentation> getReportPresentations() {
+        return reportPresentations;
     }
 
-    public void setReportFileUrls(List<String> reportFileUrls) {
-        this.reportFileUrls = reportFileUrls;
+    public void setReportPresentations(List<ReportPresentation> reportPresentations) {
+        this.reportPresentations = reportPresentations;
+    }
+}
+
+class ReportPresentation{
+    private int teamId;
+    private int preOrder;
+    private float reportScore;
+    private String reportFileName;
+    private String reportFileUrl;
+    public ReportPresentation(Presentation presentation){
+        teamId=presentation.getTeamId();
+        preOrder=presentation.getPreOrder();
+        reportScore=presentation.getReportScore();
+        reportFileName=presentation.getReportFileName();
+        reportFileUrl=presentation.getReportFileUrl();
     }
 
-    public List<String> getReportFileNames() {
-        return reportFileNames;
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setReportFileNames(List<String> reportFileNames) {
-        this.reportFileNames = reportFileNames;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    public int getPreOrder() {
+        return preOrder;
+    }
+
+    public void setPreOrder(int preOrder) {
+        this.preOrder = preOrder;
+    }
+
+    public float getReportScore() {
+        return reportScore;
+    }
+
+    public void setReportScore(float reportScore) {
+        this.reportScore = reportScore;
+    }
+
+    public String getReportFileName() {
+        return reportFileName;
+    }
+
+    public void setReportFileName(String reportFileName) {
+        this.reportFileName = reportFileName;
+    }
+
+    public String getReportFileUrl() {
+        return reportFileUrl;
+    }
+
+    public void setReportFileUrl(String reportFileUrl) {
+        this.reportFileUrl = reportFileUrl;
     }
 }

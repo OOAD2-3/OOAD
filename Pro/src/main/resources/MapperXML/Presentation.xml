@@ -33,4 +33,11 @@
     <select id="findByPreOrder" parameterType="Integer" resultMap="tab_presentation" resultType="com.ooad.demo.Entity.Presentation">
         SELECT * FROM presentation WHERE pre_order=#{preOrder}
     </select>
+    
+    <update id="updateReportScoreById" parameterType="com.ooad.demo.Entity.Presentation">
+        update presentation
+        set report_score=#{reportScore,jdbcType=FLOAT}
+        where id =#{id};
+    </update>
+
 </mapper>
