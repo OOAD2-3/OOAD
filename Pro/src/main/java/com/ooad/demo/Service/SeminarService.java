@@ -1,9 +1,11 @@
 package com.ooad.demo.Service;
 
+import com.ooad.demo.Dao.CourseDao;
 import com.ooad.demo.Dao.SeminarDao;
 
 import com.ooad.demo.Entity.Seminar;
 
+import com.ooad.demo.VO.PreFileDownloadVO;
 import com.ooad.demo.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ public class SeminarService {
     @Autowired
     SeminarDao seminarDao;
 
+    @Autowired
+    CourseDao courseDao;
 
 
     /**
@@ -26,25 +30,19 @@ public class SeminarService {
      *                  讨论课下的提问id,student_id
      * @Date: 9:18 2018/11/30
      */
-    /*
-    public List<SeminarPreVO> listSeminarsVOByCourseId(int courseId){
-        List<SeminarPreVO> seminarPreVOS =new ArrayList<>();
 
-        List<Seminar>seminars=seminarDao.listByCourseId(courseId,true);
-        for(Seminar seminar:
-            seminars){
-            //讨论课可见
-            if(seminar.isVisible()){
-               seminarPreVOS.add(new SeminarPreVO(seminar));
-            }
-        }
 
-        return seminarPreVOS;
-    }
-    */
     public SeminarPreVO getSeminarPreVOBySeminarId(int seminarId){
         Seminar seminar=seminarDao.getById(seminarId,true);
         return new SeminarPreVO(seminar);
+    }
+
+    public PreFileDownloadVO getPreFileDownLoadVOBySeminarId(int seminarId){
+        Seminar seminar=seminarDao.getById(seminarId,true);
+        PreFileDownloadVO preFileDownloadVO=new PreFileDownloadVO(seminar);
+        //只拿course名字
+        preFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(),false,false,false).getName());
+        return preFileDownloadVO;
     }
 
 }

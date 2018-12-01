@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @Author: WinstonDeng
- * @Description: OOAD_Course_ManageSystem
+ * @Description: 对应讨论课正在进行的界面
  * @Date: Created in 14:39 2018/11/30
  * @Modified by:
  */
@@ -75,12 +75,15 @@ class MyPresentation{
 
     private int preOrder;
     private float preScore;
-
+    private String preFileName;
+    private String preFileUrl;
 
     public MyPresentation(Presentation presentation){
 
         preOrder=presentation.getPreOrder();
         preScore=presentation.getPreScore();
+        preFileName=presentation.getPreFileName();
+        preFileUrl=presentation.getPreFileUrl();
     }
 
 
@@ -98,6 +101,22 @@ class MyPresentation{
 
     public void setPreScore(float preScore) {
         this.preScore = preScore;
+    }
+
+    public String getPreFileName() {
+        return preFileName;
+    }
+
+    public void setPreFileName(String preFileName) {
+        this.preFileName = preFileName;
+    }
+
+    public String getPreFileUrl() {
+        return preFileUrl;
+    }
+
+    public void setPreFileUrl(String preFileUrl) {
+        this.preFileUrl = preFileUrl;
     }
 }
 

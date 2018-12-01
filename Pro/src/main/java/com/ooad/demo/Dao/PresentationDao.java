@@ -5,6 +5,7 @@ import com.ooad.demo.Entity.Question;
 import com.ooad.demo.Entity.Seminar;
 import com.ooad.demo.Entity.Team;
 import com.ooad.demo.Mapper.PresentationMapper;
+import com.ooad.demo.Mapper.QuestionMapper;
 import com.ooad.demo.Mapper.SeminarMapper;
 import com.ooad.demo.Mapper.TeamMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class PresentationDao {
    @Autowired
     PresentationMapper presentationMapper;
 
-
+   @Autowired
+    QuestionMapper questionMapper;
 
    @Autowired
     SeminarMapper seminarMapper;
@@ -31,7 +33,7 @@ public class PresentationDao {
    public List<Presentation> listBySeminarId(int seminarId){
        return presentationMapper.findBySeminarId(seminarId);
    }
-/*
+
    public List<Presentation> listBySeminarId(int seminarId, boolean hasQuestion){
        List<Presentation> presentations=presentationMapper.findBySeminarId(seminarId);
 
@@ -39,10 +41,11 @@ public class PresentationDao {
             presentations){
 
            if(hasQuestion){
-               //List<Question> questions=
+               List<Question> questions=questionMapper.findByPresentationId(presentation.getId());
+               presentation.setQuestions(questions);
            }
        }
-
+        return presentations;
    }
-   */
+
 }
