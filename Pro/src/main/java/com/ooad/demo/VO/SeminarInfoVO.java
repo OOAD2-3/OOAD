@@ -2,18 +2,24 @@ package com.ooad.demo.VO;
 
 import com.ooad.demo.Entity.Seminar;
 
+import java.sql.Timestamp;
+
 public class SeminarInfoVO {
     private int seminarId;
     private String seminarTopic;
     private int seminarOrder;
     private String seminarIntro;
     private String seminarState;
+    private Timestamp signUpStartTime;
+    private Timestamp signUpEndTime;
 
     public SeminarInfoVO(Seminar seminar){
         seminarId=seminar.getId();
         seminarTopic=seminar.getTopic();
-        //seminarOrder
+        seminarOrder=seminar.getOrderNumber();
         seminarIntro=seminar.getIntro();
+        signUpStartTime=seminar.getSignUpStartTime();
+        signUpEndTime=seminar.getSignUpEndTime();
         if(seminar.isFinished())
             seminarState="已完成";
         else if(seminar.isStarted())
@@ -60,5 +66,21 @@ public class SeminarInfoVO {
 
     public void setSeminarState(String seminarState) {
         this.seminarState = seminarState;
+    }
+
+    public Timestamp getSignUpStartTime() {
+        return signUpStartTime;
+    }
+
+    public void setSignUpStartTime(Timestamp signUpStartTime) {
+        this.signUpStartTime = signUpStartTime;
+    }
+
+    public Timestamp getSignUpEndTime() {
+        return signUpEndTime;
+    }
+
+    public void setSignUpEndTime(Timestamp signUpEndTime) {
+        this.signUpEndTime = signUpEndTime;
     }
 }

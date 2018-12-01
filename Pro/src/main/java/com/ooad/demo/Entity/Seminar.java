@@ -8,7 +8,7 @@ public class Seminar {
     private int id;
     private int roundId;           //属于哪个round 默认为0 不属于任何一个
     private int courseId;          //属于哪个course
-
+    private int orderNumber;        //属于该course下哪一轮
     private String topic;           //讨论课主题
     private String intro;            //讨论课介绍
     private boolean visible;   //是否可见
@@ -25,7 +25,7 @@ public class Seminar {
 
     //关系
     private List<Presentation> presentations;
-    private List<Team> teams;
+
     //==================================================getter AND setter==================================================//
 
     public int getId() {
@@ -148,11 +148,12 @@ public class Seminar {
         this.presentations = presentations;
     }
 
-    public List<Team> getTeams() {
-        return teams;
+
+    public int getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
     }
 }
