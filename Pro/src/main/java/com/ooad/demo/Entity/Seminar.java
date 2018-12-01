@@ -26,7 +26,6 @@ public class Seminar {
     //关系
     private List<Presentation> presentations;
     private List<Team> teams;
-
     //==================================================getter AND setter==================================================//
 
     public int getId() {

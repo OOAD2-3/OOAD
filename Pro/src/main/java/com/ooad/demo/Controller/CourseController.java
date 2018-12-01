@@ -18,7 +18,7 @@ public class CourseController {
      * @Author:17Wang
      * @Time:14:07 2018/11/28
     */
-    private final int teacherId=1;
+    private final int tempTeacherId=1;
 
     @Autowired
     CourseService courseService;
@@ -28,10 +28,10 @@ public class CourseController {
      * @Author:17Wang
      * @Time:14:11 2018/11/28
      */
-    @RequestMapping(value = "/seminars/entrance",method = RequestMethod.GET)
+    @RequestMapping(value = "/seminars",method = RequestMethod.GET)
     @ResponseBody
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
-        return courseService.listSeminarsOverviewVOByTeacherId(teacherId);
+        return courseService.listSeminarsOverviewVOByTeacherId(tempTeacherId);
     }
 
     /**
@@ -39,7 +39,7 @@ public class CourseController {
      * @Author:17Wang
      * @Time:16:54 2018/11/30
     */
-    @RequestMapping(value = "/seminars/{courseid}/entrance",method = RequestMethod.GET)
+    @RequestMapping(value = "/{courseid}/seminars",method = RequestMethod.GET)
     @ResponseBody
     public SeminarsUnderRoundsVO RoundsInCoursePage(@PathVariable("courseid") int courseId){
         return courseService.SeminarsUnderRoundsVOByCourseId(courseId);

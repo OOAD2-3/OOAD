@@ -4,6 +4,7 @@ import com.ooad.demo.Dao.SeminarDao;
 
 import com.ooad.demo.Entity.Seminar;
 
+import com.ooad.demo.VO.SeminarInfoVO;
 import com.ooad.demo.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,15 @@ public class SeminarService {
     public SeminarPreVO getSeminarPreVOBySeminarId(int seminarId){
         Seminar seminar=seminarDao.getById(seminarId,true);
         return new SeminarPreVO(seminar);
+    }
+
+    /**
+     * @Description:开始讨论课按钮的界面，显示讨论课的部分基本信息，具体信息看SeminarInfoVO类
+     * @Author:17Wang
+     * @Time:20:51 2018/12/1
+    */
+    public SeminarInfoVO getSeminarInfoVOBySeminarId(int seminarId){
+        return new SeminarInfoVO(seminarDao.getById(seminarId, false));
     }
 
 }
