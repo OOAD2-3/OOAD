@@ -14,12 +14,10 @@ import com.ooad.demo.Entity.Team;
 import com.ooad.demo.VO.PreFileDownloadVO;
 import com.ooad.demo.VO.ReportFileDownloadVO;
 import com.ooad.demo.VO.SeminarInfoVO;
+import com.ooad.demo.VO.SeminarSubInfoVO;
 import com.ooad.demo.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class SeminarService {
@@ -74,6 +72,15 @@ public class SeminarService {
      * @Description:开始讨论课按钮的界面，显示讨论课的部分基本信息，具体信息看SeminarInfoVO类
      * @Author:17Wang
      * @Time:20:51 2018/12/1
+    */
+    public SeminarSubInfoVO getSeminarSubInfoVOBySeminarId(int seminarId){
+        return new SeminarSubInfoVO(seminarDao.getById(seminarId, false));
+    }
+
+    /**
+     * @Description:将SeminarEntity转换成SeminarInfoVO，主要是时间格式上的改变
+     * @Author:17Wang
+     * @Time:21:45 2018/12/1
     */
     public SeminarInfoVO getSeminarInfoVOBySeminarId(int seminarId){
         return new SeminarInfoVO(seminarDao.getById(seminarId, false));

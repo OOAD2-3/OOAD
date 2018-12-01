@@ -1,18 +1,19 @@
 package com.ooad.demo.Controller;
 
 
+import com.ooad.demo.Dao.SeminarDao;
+import com.ooad.demo.Entity.Seminar;
 import com.ooad.demo.Service.SeminarService;
 
 import com.ooad.demo.VO.PreFileDownloadVO;
 
 import com.ooad.demo.VO.ReportFileDownloadVO;
 import com.ooad.demo.VO.SeminarInfoVO;
-
+import com.ooad.demo.VO.SeminarSubInfoVO;
 import com.ooad.demo.VO.SeminarPreVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @Author: WinstonDeng
@@ -78,9 +79,20 @@ public class SeminarController {
      * @Author:17Wang
      * @Time:20:53 2018/12/1
     */
-    @RequestMapping(value = "/{seminarid}/info",method = RequestMethod.GET)
+    @RequestMapping(value = "/{seminarid}/subinfo",method = RequestMethod.GET)
     @ResponseBody
-    public SeminarInfoVO seminarInfoIVO(@PathVariable("seminarid") int seminarId){
+    public SeminarSubInfoVO seminarSubInfoIVO(@PathVariable("seminarid") int seminarId){
+        return seminarService.getSeminarSubInfoVOBySeminarId(seminarId);
+    }
+
+    /**
+     * @Description:返回一个Seminar的所有信息
+     * @Author:17Wang
+     * @Time:21:12 2018/12/1
+    */
+    @RequestMapping(value = "/{seminarid}",method = RequestMethod.GET)
+    @ResponseBody
+    public SeminarInfoVO seminarById(@PathVariable("seminarid") int seminarId){
         return seminarService.getSeminarInfoVOBySeminarId(seminarId);
 
     }
