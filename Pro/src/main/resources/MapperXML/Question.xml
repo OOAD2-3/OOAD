@@ -6,7 +6,7 @@
         <result property="studentId" column="student_id"/>
         <result property="questionScore" column="question_score"/>
 
-        <result property="ask" column="is_asked"/>
+        <result property="asked" column="is_asked"/>
 
     </resultMap>
 
