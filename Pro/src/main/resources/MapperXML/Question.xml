@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ooad.demo.Mapper.QuestionMapper">
     <resultMap id="tab_question" type="com.ooad.demo.Entity.Question">
-        <result property="presentationId" column="pre_id"/>
-        <result property="studentId" column="student_id"/>
+        <id property="id" column="id"/>
+        <result property="seminarId" column="pre_id"/>
+        <result property="teamId" column="student_id"/>
         <result property="questionScore" column="question_score"/>
-
-        <result property="ask" column="is_asked"/>
+        <result property="asked" column="is_asked"/>
 
     </resultMap>
 
@@ -18,8 +18,19 @@
         SELECT * FROM question WHERE seminar_id=#{seminarId} AND team_id=#{teamId}
     </select>
 
+    <insert id="insertBySeminarIdAndTeamIdAndQuestionScore" parameterType="com.ooad.demo.Entity.Question" useGeneratedKeys="true" keyProperty="id">
+        insert into question(seminar_id,team_id,question_score)
+        values (#{seminarId},#{teamId},#{questionScore})
+    </insert>
+
     <select id="findByTeamId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
         SELECT * FROM question WHERE team_id=#{teamId}
     </select>
 
+    <update id="updateQuestionScore" parameterType="com.ooad.demo.Entity.Question">
+        update question
+        set question_score=#{questionScore,jdbcType=FLOAT}
+        where seminar_id=#{seminarId}
+              and team_id=#{teamId}
+    </update>
 </mapper>

@@ -60,7 +60,7 @@ public class PresentationDao {
 
    /**
     * @Author: WinstonDeng
-    * @Description: 修改某一节讨论课的报告分数
+    * @Description: 修改某一节讨论课某组的报告分数
     * @Date: 23:54 2018/12/1
     */
    public boolean updatePresentationReportScoreBySemianrIdAndTeamId(int seminarId,int teamId, float reportScore){
@@ -82,7 +82,7 @@ public class PresentationDao {
 
    /**
     * @Author: WinstonDeng
-    * @Description: 修改某一节讨论课展示分数
+    * @Description: 修改某一节讨论课某组展示分数
     * @Date: 12:52 2018/12/2
     */
    public boolean updatePresentationPreScoreBySemianrIdAndTeamId(int seminarId,int teamId, float preScore){
