@@ -1,5 +1,6 @@
 package com.ooad.demo.Controller;
 
+import com.ooad.demo.Dao.PresentationDao;
 import com.ooad.demo.Service.PresentationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,9 @@ public class PresentationController {
     @Autowired
     PresentationService presentationService;
 
+    @Autowired
+    PresentationDao presentationDao;
+
     /**
      * @Author: WinstonDeng
      * @Description: 报告打分
@@ -24,7 +28,7 @@ public class PresentationController {
     @RequestMapping(value = "/reportscore",method = RequestMethod.PUT)
     @ResponseBody
     public boolean setReportScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float reportScore){
-        return presentationService.setReportScoreBySeminarIdAndTeamId(seminarId, teamId, reportScore);
+        return presentationDao.updatePresentationReportScoreBySemianrIdAndTeamId(seminarId, teamId, reportScore);
     }
 
     /**
@@ -35,6 +39,6 @@ public class PresentationController {
     @RequestMapping(value = "/prescore",method = RequestMethod.PUT)
     @ResponseBody
     public boolean setPreScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float preScore){
-        return presentationService.setPreScoreBySeminarIdAndTeamId(seminarId, teamId, preScore);
+        return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(seminarId, teamId, preScore);
     }
 }

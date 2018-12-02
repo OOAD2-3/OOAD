@@ -30,8 +30,6 @@ public interface PresentationMapper {
 
     Presentation findBySeminarIdAndTeamId(@Param("seminarId") Integer seminarId, @Param("teamId") Integer teamId);
 
-    Presentation findBySeminarIdAndCClassId(Integer seminarId, Integer cClassId);
-
     //================修改==========================
     void updateReportScore(Presentation presentation);
 

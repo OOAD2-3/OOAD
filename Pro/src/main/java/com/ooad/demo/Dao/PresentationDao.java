@@ -1,16 +1,12 @@
 package com.ooad.demo.Dao;
 
-import com.ooad.demo.Entity.Presentation;
-import com.ooad.demo.Entity.Question;
-import com.ooad.demo.Entity.Seminar;
-import com.ooad.demo.Entity.Team;
-import com.ooad.demo.Mapper.PresentationMapper;
-import com.ooad.demo.Mapper.QuestionMapper;
-import com.ooad.demo.Mapper.SeminarMapper;
-import com.ooad.demo.Mapper.TeamMapper;
+import com.ooad.demo.Entity.*;
+import com.ooad.demo.Mapper.*;
+import com.ooad.demo.POJO.BO.PresentationTeamBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,14 +26,8 @@ public class PresentationDao {
    @Autowired
     SeminarMapper seminarMapper;
 
-   /**
-    * @Author: WinstonDeng
-    * @Description: 获得讨论课下所有展示记录
-    * @Date: 23:53 2018/12/1
-    */
-   public List<Presentation> listBySeminarId(int seminarId){
-       return presentationMapper.findBySeminarId(seminarId);
-   }
+   @Autowired
+   TeamMapper teamMapper;
 
    /**
     * @Author: WinstonDeng
@@ -100,5 +90,27 @@ public class PresentationDao {
            return false;
        }
        return true;
+   }
+
+   /**
+    * @Description:连表查询，连的表是类名
+    * @Author:17Wang
+    * @Time:13:33 2018/12/2
+   */
+   public List<PresentationTeamBO> listPresentationTeamBOBySeminarIdAndCClassId(int seminarId,int cClassId) {
+       List<Presentation> presentations = listBySeminarId(seminarId, true);
+       List<PresentationTeamBO> presentationTeamBOS =new ArrayList<>();
+
+       for (Presentation presentation:
+            presentations) {
+           Team team=teamMapper.findById(presentation.getTeamId());
+
+           //判断这个小组在不在这个班级下
+           if(team.getcClassId()==cClassId){
+               presentationTeamBOS.add(new PresentationTeamBO(presentation,team));
+           }
+       }
+
+       return presentationTeamBOS;
    }
 }
