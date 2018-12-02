@@ -1,9 +1,7 @@
-package com.ooad.demo.VO;
+package com.ooad.demo.POJO.VO;
 
-import com.ooad.demo.Entity.Course;
 import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
-import com.ooad.demo.Entity.Team;
 
 import java.util.ArrayList;
 import java.util.List;

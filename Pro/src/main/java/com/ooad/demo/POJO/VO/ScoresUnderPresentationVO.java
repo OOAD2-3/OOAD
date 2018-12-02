@@ -1,4 +1,4 @@
-package com.ooad.demo.VO;
+package com.ooad.demo.POJO.VO;
 
 import com.ooad.demo.Entity.CClass;
 import com.ooad.demo.Entity.Seminar;

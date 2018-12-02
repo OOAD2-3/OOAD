@@ -4,18 +4,14 @@ import com.ooad.demo.Dao.CourseDao;
 import com.ooad.demo.Dao.SeminarDao;
 
 import com.ooad.demo.Dao.TeamDao;
-import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
 
 
-import com.ooad.demo.Entity.Team;
-
-
-import com.ooad.demo.VO.PreFileDownloadVO;
-import com.ooad.demo.VO.ReportFileDownloadVO;
-import com.ooad.demo.VO.SeminarInfoVO;
-import com.ooad.demo.VO.SeminarSubInfoVO;
-import com.ooad.demo.VO.SeminarPreVO;
+import com.ooad.demo.POJO.VO.PreFileDownloadVO;
+import com.ooad.demo.POJO.VO.ReportFileDownloadVO;
+import com.ooad.demo.POJO.VO.SeminarInfoVO;
+import com.ooad.demo.POJO.VO.SeminarSubInfoVO;
+import com.ooad.demo.POJO.VO.SeminarPreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
