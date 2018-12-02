@@ -41,8 +41,6 @@ public class SeminarService {
      *                  讨论课下的提问id,student_id
      * @Date: 9:18 2018/11/30
      */
-
-
     public SeminarPreVO getSeminarPreVOBySeminarId(int seminarId){
         Seminar seminar=seminarDao.getById(seminarId,true);
         SeminarPreVO seminarPreVO=new SeminarPreVO(seminar);
