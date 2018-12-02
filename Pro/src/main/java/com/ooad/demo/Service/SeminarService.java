@@ -1,9 +1,11 @@
 package com.ooad.demo.Service;
 
 import com.ooad.demo.Dao.CourseDao;
+import com.ooad.demo.Dao.PresentationDao;
 import com.ooad.demo.Dao.SeminarDao;
 
 import com.ooad.demo.Dao.TeamDao;
+import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
 
 
@@ -28,6 +30,9 @@ public class SeminarService {
 
     @Autowired
     TeamDao teamDao;
+
+    @Autowired
+    PresentationDao presentationDao;
 
     /**
      * @Author: WinstonDeng

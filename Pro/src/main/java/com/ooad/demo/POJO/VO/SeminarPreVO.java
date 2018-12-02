@@ -18,10 +18,10 @@ public class SeminarPreVO {
     private int seminarId;
     private String seminarTopic;
 
-    private List<MyPresentation> myPresentations=new ArrayList<>();
+    public List<MyPresentation> myPresentations=new ArrayList<>();
+    //因为VO成员类拿不出来，暂时只能这样配置teamId和teamNumber
     private List<Integer> teamIdList=new ArrayList<>();
     private List<String> teamNumberList=new ArrayList<>();
-
 
     public SeminarPreVO(Seminar seminar){
 
@@ -32,10 +32,7 @@ public class SeminarPreVO {
             myPresentations.add(new MyPresentation(presentation));
             teamIdList.add(presentation.getTeamId());
         }
-//        for (Team team:
-//            seminar.getTeams()){
-//            myTeams.add(new MyTeam(team));
-//        }
+
 
     }
 
@@ -82,12 +79,14 @@ public class SeminarPreVO {
 
 class MyPresentation{
 
+
     private int preOrder;
     private float preScore;
     private String preFileName;
     private String preFileUrl;
 
     public MyPresentation(Presentation presentation){
+
 
         preOrder=presentation.getPreOrder();
         preScore=presentation.getPreScore();
@@ -129,7 +128,7 @@ class MyPresentation{
         this.preFileUrl = preFileUrl;
     }
 
-
 }
+
 
 

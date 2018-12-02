@@ -16,12 +16,14 @@ public class Score {
     private float totalScore;
 
     /**
-     * @Description:计算分数 未完成
+     * @Description:计算分数 临时平均分
      * @Author:17Wang
-     * @Time:22:17 2018/12/1
+     * @ModifiedBy: WinstonDeng
+     * @Time:19:17 2018/12/2
     */
     public float calculate(){
-        return 0.1f;
+        //暂时按平均分算
+       return  (presentationScore+questionScore+reportScore)/3;
     }
     
     //==================================================getter AND setter==================================================//
