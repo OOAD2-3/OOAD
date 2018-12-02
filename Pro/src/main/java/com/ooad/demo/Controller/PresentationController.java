@@ -16,13 +16,25 @@ public class PresentationController {
     @Autowired
     PresentationService presentationService;
 
+    /**
+     * @Author: WinstonDeng
+     * @Description: 报告打分
+     * @Date: 12:59 2018/12/2
+     */
     @RequestMapping(value = "/reportscore",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setReportScoreByPresentationId(@RequestParam int presentationId,@RequestParam float reportScore){
-        return presentationService.setReportScoreByPresentationId(presentationId, reportScore);
-    }
-    /*
     public boolean setReportScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float reportScore){
         return presentationService.setReportScoreBySeminarIdAndTeamId(seminarId, teamId, reportScore);
-    }*/
+    }
+
+    /**
+     * @Author: WinstonDeng
+     * @Description: 展示打分
+     * @Date: 12:59 2018/12/2
+     */
+    @RequestMapping(value = "/prescore",method = RequestMethod.PUT)
+    @ResponseBody
+    public boolean setPreScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float preScore){
+        return presentationService.setPreScoreBySeminarIdAndTeamId(seminarId, teamId, preScore);
+    }
 }

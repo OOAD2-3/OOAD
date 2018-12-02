@@ -51,7 +51,11 @@ public class PresentationDao {
             presentations){
 
            if(hasQuestion){
+<<<<<<< HEAD
                List<Question> questions=questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
+=======
+               List<Question> questions=questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(),presentation.getTeamId());
+>>>>>>> 2d6e899889b11eaec6c76995c82869c2e0fc16e8
                presentation.setQuestions(questions);
            }
        }
@@ -63,18 +67,40 @@ public class PresentationDao {
     * @Description: 修改某一节讨论课的报告分数
     * @Date: 23:54 2018/12/1
     */
-   public boolean updatePresentationReportScoreById(int presentationId, float reportScore){
-       if(presentationMapper.findById(presentationId)==null){
-           System.out.println("更新reportScore错误，讨论课展示记录："+presentationId+" 不存在");
+   public boolean updatePresentationReportScoreBySemianrIdAndTeamId(int seminarId,int teamId, float reportScore){
+       if(presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId)==null){
+           System.out.println("更新reportScore错误，讨论课展示记录：seminarId:"+seminarId+" teamId:"+teamId+" 不存在");
            return false;
        }
        try {
-           Presentation presentation=presentationMapper.findById(presentationId);
+           Presentation presentation=presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId);
            presentation.setReportScore(reportScore);
            presentationMapper.updateReportScore(presentation);
 
        } catch (Exception e){
            System.out.println("更新reportScore错误 "+e.getCause()+" "+e.getMessage());
+           return false;
+       }
+       return true;
+   }
+
+   /**
+    * @Author: WinstonDeng
+    * @Description: 修改某一节讨论课展示分数
+    * @Date: 12:52 2018/12/2
+    */
+   public boolean updatePresentationPreScoreBySemianrIdAndTeamId(int seminarId,int teamId, float preScore){
+       if(presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId)==null){
+           System.out.println("更新preScore错误，讨论课展示记录：seminarId:"+seminarId+" teamId:"+teamId+" 不存在");
+           return false;
+       }
+       try {
+           Presentation presentation=presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId);
+           presentation.setPreScore(preScore);
+           presentationMapper.updatePreScore(presentation);
+
+       } catch (Exception e){
+           System.out.println("更新preScore错误 "+e.getCause()+" "+e.getMessage());
            return false;
        }
        return true;

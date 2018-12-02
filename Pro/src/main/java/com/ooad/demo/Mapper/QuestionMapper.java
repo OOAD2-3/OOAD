@@ -2,6 +2,7 @@ package com.ooad.demo.Mapper;
 
 import com.ooad.demo.Entity.Question;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,6 +17,6 @@ import java.util.List;
 @Repository
 public interface QuestionMapper {
     Question findById(Integer id);
-    List<Question> findBySeminarIdAndTeamId(Integer seminarId,Integer teamId);
+    List<Question> findBySeminarIdAndTeamId(@Param("seminarId") Integer seminarId,@Param("teamId") Integer teamId);
     List<Question> findByTeamId(Integer teamId);
 }

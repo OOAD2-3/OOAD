@@ -19,16 +19,25 @@ public class PresentationService {
     /**
      * @Author: WinstonDeng
      * @Description:  报告材料界面 打分
-     *                 展示记录id presentationId
+     *                 讨论课id seminarId
+     *                 队伍id  teamId
      *                 报告分数 reportScore
      * @Date: 0:08 2018/12/2
      */
-    public boolean setReportScoreByPresentationId(int presentationId,float reportScore){
-        return presentationDao.updatePresentationReportScoreById(presentationId, reportScore);
 
-    }
-    /*
     public boolean setReportScoreBySeminarIdAndTeamId(int seminarId,int teamId,float reportScore){
         return presentationDao.updatePresentationReportScoreBySemianrIdAndTeamId(seminarId,teamId,reportScore);
-    }*/
+    }
+
+    /**
+     * @Author: WinstonDeng
+     * @Description: 展示ppt界面 打分
+     *                 讨论课id seminarId
+     *                 队伍id teamId
+     *                 展示分数 preScore
+     * @Date: 12:55 2018/12/2
+     */
+    public boolean setPreScoreBySeminarIdAndTeamId(int seminarId,int teamId,float preScore){
+        return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(seminarId, teamId, preScore);
+    }
 }
