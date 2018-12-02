@@ -37,7 +37,8 @@
     <update id="updateReportScore" parameterType="com.ooad.demo.Entity.Presentation">
         update presentation
         set report_score=#{reportScore,jdbcType=FLOAT}
-        where id =#{id};
+        where seminar_id =#{seminarId}
+              and  team_id=#{teamId};
     </update>
 
 </mapper>

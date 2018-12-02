@@ -2,7 +2,9 @@ package com.ooad.demo.Mapper;
 
 import com.ooad.demo.Entity.Presentation;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -17,12 +19,12 @@ import java.util.List;
 public interface PresentationMapper {
 
     //================查找==========================
-    Presentation findById(Integer id);
+
     List<Presentation> findBySeminarId(Integer seminarId);
     List<Presentation> findByTeamId(Integer teamId);
     List<Presentation> findBycClassId(Integer cClassId);
     Presentation findByPreOrder(Integer preOrder);
-
+    Presentation findBySeminarIdAndTeamId(@Param("seminarId") Integer seminarId, @Param("teamId") Integer teamId);
 
     //================修改==========================
     void updateReportScore(Presentation presentation);

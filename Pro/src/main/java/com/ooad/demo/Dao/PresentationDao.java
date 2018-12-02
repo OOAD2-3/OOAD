@@ -51,7 +51,7 @@ public class PresentationDao {
             presentations){
 
            if(hasQuestion){
-               List<Question> questions=questionMapper.findByPresentationId(presentation.getId());
+               List<Question> questions=questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(),presentation.getTeamId());
                presentation.setQuestions(questions);
            }
        }
@@ -63,13 +63,13 @@ public class PresentationDao {
     * @Description: 修改某一节讨论课的报告分数
     * @Date: 23:54 2018/12/1
     */
-   public boolean updatePresentationReportScoreById(int presentationId, float reportScore){
-       if(presentationMapper.findById(presentationId)==null){
-           System.out.println("更新reportScore错误，讨论课展示记录："+presentationId+" 不存在");
+   public boolean updatePresentationReportScoreBySemianrIdAndTeamId(int seminarId,int teamId, float reportScore){
+       if(presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId)==null){
+           System.out.println("更新reportScore错误，讨论课展示记录：seminarId:"+seminarId+" teamId:"+teamId+" 不存在");
            return false;
        }
        try {
-           Presentation presentation=presentationMapper.findById(presentationId);
+           Presentation presentation=presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId);
            presentation.setReportScore(reportScore);
            presentationMapper.updateReportScore(presentation);
 
