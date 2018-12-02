@@ -2,7 +2,6 @@ package com.ooad.demo.Dao;
 
 import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
-import com.ooad.demo.Entity.Team;
 import com.ooad.demo.Mapper.PresentationMapper;
 import com.ooad.demo.Mapper.SeminarMapper;
 import com.ooad.demo.Mapper.TeamMapper;

@@ -1,6 +1,5 @@
-package com.ooad.demo.VO;
+package com.ooad.demo.POJO.VO;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ooad.demo.Entity.CClass;
 import com.ooad.demo.Entity.Course;
 import com.ooad.demo.Entity.Round;

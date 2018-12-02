@@ -2,8 +2,8 @@ package com.ooad.demo.Controller;
 
 import com.ooad.demo.Service.CourseService;
 
-import com.ooad.demo.VO.SeminarsOverviewVO;
-import com.ooad.demo.VO.SeminarsUnderRoundsVO;
+import com.ooad.demo.POJO.VO.SeminarsOverviewVO;
+import com.ooad.demo.POJO.VO.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

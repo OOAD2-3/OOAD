@@ -1,8 +1,12 @@
 package com.ooad.demo.Service;
 
 import com.ooad.demo.Dao.PresentationDao;
+import com.ooad.demo.POJO.BO.PresentationTeamBO;
+import com.ooad.demo.POJO.VO.ScoresUnderPresentationVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author: WinstonDeng
@@ -17,27 +21,11 @@ public class PresentationService {
     PresentationDao presentationDao;
 
     /**
-     * @Author: WinstonDeng
-     * @Description:  报告材料界面 打分
-     *                 讨论课id seminarId
-     *                 队伍id  teamId
-     *                 报告分数 reportScore
-     * @Date: 0:08 2018/12/2
-     */
-
-    public boolean setReportScoreBySeminarIdAndTeamId(int seminarId,int teamId,float reportScore){
-        return presentationDao.updatePresentationReportScoreBySemianrIdAndTeamId(seminarId,teamId,reportScore);
-    }
-
-    /**
-     * @Author: WinstonDeng
-     * @Description: 展示ppt界面 打分
-     *                 讨论课id seminarId
-     *                 队伍id teamId
-     *                 展示分数 preScore
-     * @Date: 12:55 2018/12/2
-     */
-    public boolean setPreScoreBySeminarIdAndTeamId(int seminarId,int teamId,float preScore){
-        return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(seminarId, teamId, preScore);
+     * @Description:将PresentationTeamBO转换成ScoresUnderPresentationVO前端需要的数据
+     * @Author:17Wang
+     * @Time:14:18 2018/12/2
+    */
+    public ScoresUnderPresentationVO listScoresUnderPresentationVOBySeminarIdAndCClassId(int seminarId,int cClassId){
+        return new ScoresUnderPresentationVO(presentationDao.listPresentationTeamBOBySeminarIdAndCClassId(seminarId, cClassId));
     }
 }

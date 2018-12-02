@@ -1,16 +1,14 @@
 package com.ooad.demo.Controller;
 
 
-import com.ooad.demo.Dao.SeminarDao;
-import com.ooad.demo.Entity.Seminar;
 import com.ooad.demo.Service.SeminarService;
 
-import com.ooad.demo.VO.PreFileDownloadVO;
+import com.ooad.demo.POJO.VO.PreFileDownloadVO;
 
-import com.ooad.demo.VO.ReportFileDownloadVO;
-import com.ooad.demo.VO.SeminarInfoVO;
-import com.ooad.demo.VO.SeminarSubInfoVO;
-import com.ooad.demo.VO.SeminarPreVO;
+import com.ooad.demo.POJO.VO.ReportFileDownloadVO;
+import com.ooad.demo.POJO.VO.SeminarInfoVO;
+import com.ooad.demo.POJO.VO.SeminarSubInfoVO;
+import com.ooad.demo.POJO.VO.SeminarPreVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +43,7 @@ public class SeminarController {
      * @Description: 正在进行的讨论课界面展示的信息
      * @Date: 22:59 2018/12/1
      */
-    @RequestMapping(value = "/presentations/{seminarId}/entrance", method = RequestMethod.GET)
+    @RequestMapping(value = "{seminarId}/presentations/", method = RequestMethod.GET)
     @ResponseBody
     public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarId") int seminarId){
         return seminarService.getSeminarPreVOBySeminarId(seminarId);
@@ -56,7 +54,7 @@ public class SeminarController {
      * @Description: 讨论课展示材料ppt下载界面展示的信息
      * @Date: 23:00 2018/12/1
      */
-    @RequestMapping(value = "/presentations/{seminarId}/downloadrrefiles",method = RequestMethod.GET)
+    @RequestMapping(value = "{seminarId}/presentations/prefiles",method = RequestMethod.GET)
     @ResponseBody
     public PreFileDownloadVO SeminarPreFileDownloadPage(@PathVariable("seminarId") int seminarId){
         return seminarService.getPreFileDownLoadVOBySeminarId(seminarId);
@@ -67,7 +65,7 @@ public class SeminarController {
      * @Description: 讨论课结束后报告材料下载界面展示的信息
      * @Date: 23:01 2018/12/1
      */
-    @RequestMapping(value = "/presentations/{seminarId}/downloadreportfiles",method = RequestMethod.GET)
+    @RequestMapping(value = "{seminarId}/presentations/reportfiles",method = RequestMethod.GET)
     @ResponseBody
     public ReportFileDownloadVO SeminarReportFileDownloadPage(@PathVariable("seminarId") int seminarId){
         return seminarService.getReportFileDownliadVOBySeminarId(seminarId);

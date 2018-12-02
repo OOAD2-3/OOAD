@@ -3,9 +3,8 @@ package com.ooad.demo.Service;
 import com.ooad.demo.Dao.CourseDao;
 import com.ooad.demo.Dao.RoundDao;
 import com.ooad.demo.Entity.Course;
-import com.ooad.demo.Entity.Round;
-import com.ooad.demo.VO.SeminarsOverviewVO;
-import com.ooad.demo.VO.SeminarsUnderRoundsVO;
+import com.ooad.demo.POJO.VO.SeminarsOverviewVO;
+import com.ooad.demo.POJO.VO.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

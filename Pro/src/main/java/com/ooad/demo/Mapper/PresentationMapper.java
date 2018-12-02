@@ -21,12 +21,17 @@ public interface PresentationMapper {
     //================查找==========================
 
     List<Presentation> findBySeminarId(Integer seminarId);
+
     List<Presentation> findByTeamId(Integer teamId);
+
     List<Presentation> findBycClassId(Integer cClassId);
+
     Presentation findByPreOrder(Integer preOrder);
+
     Presentation findBySeminarIdAndTeamId(@Param("seminarId") Integer seminarId, @Param("teamId") Integer teamId);
 
     //================修改==========================
     void updateReportScore(Presentation presentation);
+
     void updatePreScore(Presentation presentation);
 }
