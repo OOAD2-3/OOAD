@@ -71,7 +71,7 @@ public class PresentationDao {
        try {
            Presentation presentation=presentationMapper.findById(presentationId);
            presentation.setReportScore(reportScore);
-           presentationMapper.updateReportScoreById(presentation);
+           presentationMapper.updateReportScore(presentation);
 
        } catch (Exception e){
            System.out.println("更新reportScore错误 "+e.getCause()+" "+e.getMessage());

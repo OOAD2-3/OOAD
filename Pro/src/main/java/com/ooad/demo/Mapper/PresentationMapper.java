@@ -23,6 +23,7 @@ public interface PresentationMapper {
     List<Presentation> findBycClassId(Integer cClassId);
     Presentation findByPreOrder(Integer preOrder);
 
+
     //================修改==========================
-    void updateReportScoreById(Presentation presentation);
+    void updateReportScore(Presentation presentation);
 }

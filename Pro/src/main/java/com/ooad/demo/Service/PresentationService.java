@@ -27,4 +27,8 @@ public class PresentationService {
         return presentationDao.updatePresentationReportScoreById(presentationId, reportScore);
 
     }
+    /*
+    public boolean setReportScoreBySeminarIdAndTeamId(int seminarId,int teamId,float reportScore){
+        return presentationDao.updatePresentationReportScoreBySemianrIdAndTeamId(seminarId,teamId,reportScore);
+    }*/
 }

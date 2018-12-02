@@ -21,4 +21,8 @@ public class PresentationController {
     public boolean setReportScoreByPresentationId(@RequestParam int presentationId,@RequestParam float reportScore){
         return presentationService.setReportScoreByPresentationId(presentationId, reportScore);
     }
+    /*
+    public boolean setReportScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float reportScore){
+        return presentationService.setReportScoreBySeminarIdAndTeamId(seminarId, teamId, reportScore);
+    }*/
 }
