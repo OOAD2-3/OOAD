@@ -2,37 +2,35 @@ package com.ooad.demo.Entity;
 
 public class Question {
     //基本信息
-    private int id;
-    private int presentationId;  //属于哪个pre
-    private int studentId;         //属于哪个学生
+
+    private int seminarId;  //属于哪个讨论课
+    private int teamId;     //属于哪个队伍
+
+    //private int studentId;         //属于哪个学生
+
     private float questionScore;
     private boolean asked;
 
     //==================================================getter AND setter==================================================//
 
-    public int getId() {
-        return id;
+
+    public int getSeminarId() {
+        return seminarId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSeminarId(int seminarId) {
+        this.seminarId = seminarId;
     }
 
-    public int getPresentationId() {
-        return presentationId;
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setPresentationId(int presentationId) {
-        this.presentationId = presentationId;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
-    public int getStudentId() {
-        return studentId;
-    }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
 
     public float getQuestionScore() {
         return questionScore;

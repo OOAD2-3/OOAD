@@ -16,7 +16,15 @@ import java.util.List;
 @Mapper
 @Repository
 public interface QuestionMapper {
+
+    //=============================查找======================================
     Question findById(Integer id);
     List<Question> findBySeminarIdAndTeamId(@Param("seminarId") Integer seminarId,@Param("teamId") Integer teamId);
     List<Question> findByTeamId(Integer teamId);
+
+    //=============================修改======================================
+    void updateQuestionScore(Question question);
+
+    //=============================新增======================================
+    void insertBySeminarIdAndTeamIdAndQuestionScore(@Param("seminarId") Integer seminarId, @Param("teamId") Integer teamId, @Param("questionScore") Float questionScore);
 }
