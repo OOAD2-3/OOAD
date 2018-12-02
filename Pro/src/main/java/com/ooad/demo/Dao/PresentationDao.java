@@ -79,4 +79,26 @@ public class PresentationDao {
        }
        return true;
    }
+
+   /**
+    * @Author: WinstonDeng
+    * @Description: 修改某一节讨论课展示分数
+    * @Date: 12:52 2018/12/2
+    */
+   public boolean updatePresentationPreScoreBySemianrIdAndTeamId(int seminarId,int teamId, float preScore){
+       if(presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId)==null){
+           System.out.println("更新preScore错误，讨论课展示记录：seminarId:"+seminarId+" teamId:"+teamId+" 不存在");
+           return false;
+       }
+       try {
+           Presentation presentation=presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId);
+           presentation.setPreScore(preScore);
+           presentationMapper.updatePreScore(presentation);
+
+       } catch (Exception e){
+           System.out.println("更新preScore错误 "+e.getCause()+" "+e.getMessage());
+           return false;
+       }
+       return true;
+   }
 }

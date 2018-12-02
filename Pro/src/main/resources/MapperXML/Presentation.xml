@@ -41,4 +41,11 @@
               and  team_id=#{teamId};
     </update>
 
+    <update id="updatePreScore" parameterType="com.ooad.demo.Entity.Presentation">
+        update presentation
+        set pre_score=#{preScore,jdbcType=FLOAT}
+        where seminar_id =#{seminarId}
+              and  team_id=#{teamId};
+    </update>
+
 </mapper>

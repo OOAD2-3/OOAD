@@ -28,4 +28,5 @@ public interface PresentationMapper {
 
     //================修改==========================
     void updateReportScore(Presentation presentation);
+    void updatePreScore(Presentation presentation);
 }
