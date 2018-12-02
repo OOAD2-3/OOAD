@@ -2,7 +2,8 @@ package com.ooad.demo.POJO.VO;
 
 import com.ooad.demo.Entity.Seminar;
 
-import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class SeminarInfoVO {
     private int seminarId;
@@ -10,16 +11,20 @@ public class SeminarInfoVO {
     private int seminarOrder;
     private String seminarIntro;
     private String seminarState;
-    private Timestamp signUpStartTime;
-    private Timestamp signUpEndTime;
+
+    private String signUpStartTime;
+    private String signUpEndTime;
 
     public SeminarInfoVO(Seminar seminar){
         seminarId=seminar.getId();
         seminarTopic=seminar.getTopic();
         seminarOrder=seminar.getOrderNumber();
         seminarIntro=seminar.getIntro();
-        signUpStartTime=seminar.getSignUpStartTime();
-        signUpEndTime=seminar.getSignUpEndTime();
+        DateFormat df=new SimpleDateFormat("yyyy/MM/dd");
+
+        signUpStartTime=df.format(seminar.getSignUpStartTime());
+        signUpEndTime=df.format(seminar.getSignUpEndTime());
+
         if(seminar.isFinished())
             seminarState="已完成";
         else if(seminar.isStarted())
@@ -68,19 +73,19 @@ public class SeminarInfoVO {
         this.seminarState = seminarState;
     }
 
-    public Timestamp getSignUpStartTime() {
+    public String getSignUpStartTime() {
         return signUpStartTime;
     }
 
-    public void setSignUpStartTime(Timestamp signUpStartTime) {
+    public void setSignUpStartTime(String signUpStartTime) {
         this.signUpStartTime = signUpStartTime;
     }
 
-    public Timestamp getSignUpEndTime() {
+    public String getSignUpEndTime() {
         return signUpEndTime;
     }
 
-    public void setSignUpEndTime(Timestamp signUpEndTime) {
+    public void setSignUpEndTime(String signUpEndTime) {
         this.signUpEndTime = signUpEndTime;
     }
 }
