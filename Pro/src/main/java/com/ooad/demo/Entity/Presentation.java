@@ -21,6 +21,11 @@ public class Presentation {
     //关系
     private List<Question> questions;
 
+    /**
+     * @Description:计算提问的总得分
+     * @Author:17Wang
+     * @Time:12:54 2018/12/2
+    */
     public void calculateQuestionScore(){
         questionScore=0;
         for (Question question:

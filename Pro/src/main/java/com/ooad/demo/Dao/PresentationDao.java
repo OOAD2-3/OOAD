@@ -51,7 +51,7 @@ public class PresentationDao {
             presentations){
 
            if(hasQuestion){
-               List<Question> questions=questionMapper.findByPresentationId(presentation.getId());
+               List<Question> questions=questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
                presentation.setQuestions(questions);
            }
        }
