@@ -9,6 +9,7 @@ import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
 
 
+import com.ooad.demo.POJO.BO.PresentationTeamBO;
 import com.ooad.demo.POJO.VO.PreFileDownloadVO;
 import com.ooad.demo.POJO.VO.ReportFileDownloadVO;
 import com.ooad.demo.POJO.VO.SeminarInfoVO;
@@ -42,15 +43,13 @@ public class SeminarService {
      *                  讨论课下的提问id,student_id
      * @Date: 9:18 2018/11/30
      */
-    public SeminarPreVO getSeminarPreVOBySeminarId(int seminarId){
+    public SeminarPreVO getSeminarPreVOBySeminarIdAndCClassId(int seminarId,int cClassId){
         Seminar seminar=seminarDao.getById(seminarId,true);
-        SeminarPreVO seminarPreVO=new SeminarPreVO(seminar);
-        List<String> teamNumberList=new ArrayList<>();
-        //放置队伍编号
-        for(int i=0;i<seminarPreVO.getTeamIdList().size();i++){
-            teamNumberList.add(teamDao.getById(seminarPreVO.getTeamIdList().get(i),false,false).getName());
-        }
-        seminarPreVO.setTeamNumberList(teamNumberList);
+        List<PresentationTeamBO> presentationTeamBOS=presentationDao.listPresentationTeamBOBySeminarIdAndCClassId(seminarId,cClassId);
+        SeminarPreVO seminarPreVO=new SeminarPreVO(presentationTeamBOS);
+       //设置讨论课主题
+        seminarPreVO.setSeminarTopic(seminar.getTopic());
+
         return seminarPreVO;
     }
 

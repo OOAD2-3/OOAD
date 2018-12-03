@@ -2,6 +2,7 @@ package com.ooad.demo.POJO.VO;
 
 import com.ooad.demo.Entity.Presentation;
 import com.ooad.demo.Entity.Seminar;
+import com.ooad.demo.POJO.BO.PresentationTeamBO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,18 +20,15 @@ public class SeminarPreVO {
     private String seminarTopic;
 
     public List<MyPresentation> myPresentations=new ArrayList<>();
-    //因为VO成员类拿不出来，暂时只能这样配置teamId和teamNumber
-    private List<Integer> teamIdList=new ArrayList<>();
-    private List<String> teamNumberList=new ArrayList<>();
 
-    public SeminarPreVO(Seminar seminar){
 
-        seminarId=seminar.getId();
-        seminarTopic=seminar.getTopic();
-        for(Presentation presentation:
-            seminar.getPresentations()){
-            myPresentations.add(new MyPresentation(presentation));
-            teamIdList.add(presentation.getTeamId());
+    public SeminarPreVO(List<PresentationTeamBO> presentationTeamBOS){
+
+        seminarId=presentationTeamBOS.get(0).getPresentation().getSeminarId();
+
+        for(PresentationTeamBO presentationTeamBO
+                :presentationTeamBOS){
+            myPresentations.add(new MyPresentation(presentationTeamBO));
         }
 
 
@@ -60,41 +58,43 @@ public class SeminarPreVO {
         this.myPresentations = myPresentations;
     }
 
-    public List<Integer> getTeamIdList() {
-        return teamIdList;
-    }
 
-    public void setTeamIdList(List<Integer> teamIdList) {
-        this.teamIdList = teamIdList;
-    }
-
-    public List<String> getTeamNumberList() {
-        return teamNumberList;
-    }
-
-    public void setTeamNumberList(List<String> teamNumberList) {
-        this.teamNumberList = teamNumberList;
-    }
 }
 
 class MyPresentation{
 
-
+    private int teamId;
+    private String teamNumber;
     private int preOrder;
     private float preScore;
     private String preFileName;
     private String preFileUrl;
 
-    public MyPresentation(Presentation presentation){
-
-
-        preOrder=presentation.getPreOrder();
-        preScore=presentation.getPreScore();
-        preFileName=presentation.getPreFileName();
-        preFileUrl=presentation.getPreFileUrl();
+    public MyPresentation(PresentationTeamBO presentationTeamBO){
+        teamId=presentationTeamBO.getPresentation().getTeamId();
+        teamNumber=presentationTeamBO.getTeam().getTeamNumber();
+        preOrder=presentationTeamBO.getPresentation().getPreOrder();
+        preScore=presentationTeamBO.getPresentation().getPreScore();
+        preFileName=presentationTeamBO.getPresentation().getPreFileName();
+        preFileUrl=presentationTeamBO.getPresentation().getPreFileUrl();
 
     }
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    public String getTeamNumber() {
+        return teamNumber;
+    }
+
+    public void setTeamNumber(String teamNumber) {
+        this.teamNumber = teamNumber;
+    }
 
     public int getPreOrder() {
         return preOrder;

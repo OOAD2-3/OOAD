@@ -17,11 +17,6 @@ public class ScoreController {
     @Autowired
     ScoreService scoreService;
 
-    /**
-     * @Author: WinstonDeng
-     * @Description: 查看当前讨论课轮次下，所有小组各项总成绩 （差一个VO）
-     * @Date: 20:00 2018/12/2
-     */
 
 
     /**

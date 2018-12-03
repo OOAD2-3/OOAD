@@ -34,10 +34,10 @@ public class TeamDao {
             List<Presentation> presentations=presentationMapper.findByTeamId(teamId);
             team.setPresentations(presentations);
         }
-//        if(hasQuestion){
-//            List<Question> questions=questionMapper.findByTeamId(teamId);
-//            team.setQuestions(questions);
-//        }
+        if(hasQuestion){
+            List<Question> questions=questionMapper.findByTeamId(teamId);
+            team.setQuestions(questions);
+        }
         return team;
     }
 }

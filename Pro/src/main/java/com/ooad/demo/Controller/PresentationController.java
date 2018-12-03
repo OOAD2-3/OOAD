@@ -31,7 +31,7 @@ public class PresentationController {
     @RequestMapping(value = "/scores/report",method = RequestMethod.PUT)
     @ResponseBody
     public boolean setReportScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float reportScore){
-        return presentationDao.updatePresentationReportScoreBySemianrIdAndTeamId(seminarId, teamId, reportScore);
+        return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(seminarId, teamId, reportScore);
     }
 
     /**

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ooad.demo.Mapper.QuestionMapper">
     <resultMap id="tab_question" type="com.ooad.demo.Entity.Question">
-        <id property="id" column="id"/>
+
         <result property="seminarId" column="pre_id"/>
         <result property="teamId" column="student_id"/>
         <result property="questionScore" column="question_score"/>
@@ -10,9 +10,7 @@
 
     </resultMap>
 
-    <select id="findById" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
-        SELECT * FROM question WHERE id=#{id}
-    </select>
+
 
     <select id="findBySeminarIdAndTeamId" parameterType="Integer" resultMap="tab_question" resultType="com.ooad.demo.Entity.Question">
         SELECT * FROM question WHERE seminar_id=#{seminarId} AND team_id=#{teamId}

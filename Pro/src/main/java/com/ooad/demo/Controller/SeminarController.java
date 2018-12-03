@@ -43,10 +43,10 @@ public class SeminarController {
      * @Description: 正在进行的讨论课界面展示的信息
      * @Date: 22:59 2018/12/1
      */
-    @RequestMapping(value = "{seminarId}/presentations/", method = RequestMethod.GET)
+    @RequestMapping(value = "{seminarId}/cclasses/{cClassId}/presentations/", method = RequestMethod.GET)
     @ResponseBody
-    public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarId") int seminarId){
-        return seminarService.getSeminarPreVOBySeminarId(seminarId);
+    public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarId") int seminarId,@PathVariable("cClassId") int cClassId){
+        return seminarService.getSeminarPreVOBySeminarIdAndCClassId(seminarId,cClassId);
     }
 
     /**

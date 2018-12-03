@@ -18,7 +18,7 @@ import java.util.List;
 public interface QuestionMapper {
 
     //=============================查找======================================
-    Question findById(Integer id);
+
     List<Question> findBySeminarIdAndTeamId(@Param("seminarId") Integer seminarId,@Param("teamId") Integer teamId);
     List<Question> findByTeamId(Integer teamId);
 
