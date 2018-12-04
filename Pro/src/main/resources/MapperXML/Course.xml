@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ooad.demo.Mapper.CourseMapper">
-    <resultMap id="tab_course" type="com.ooad.demo.Entity.Course" >
+<mapper namespace="com.ooad.demo.mapper.CourseMapper">
+    <resultMap id="tab_course" type="com.ooad.demo.entity.Course" >
         <result property="teacherId" column="teacher_id"/>
         <result property="masterCourseId" column="master_course_id"/>
         <result property="shareTeam" column="is_share_team"/>
@@ -15,11 +15,11 @@
         <result property="reportWeight" column="report_weight"/>
         <result property="roundNumber" column="round_number"/>
     </resultMap>
-    <select id="findById" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.Course">
+    <select id="findById" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.entity.Course">
         SELECT * FROM course WHERE id = #{id}
     </select>
 
-    <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.Entity.Course">
+    <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.entity.Course">
         SELECT * FROM course WHERE  teacher_id = #{teacherId}
     </select>
 

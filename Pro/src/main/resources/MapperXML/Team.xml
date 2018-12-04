@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ooad.demo.Mapper.TeamMapper">
-    <resultMap id="tab_team" type="com.ooad.demo.Entity.Team">
+<mapper namespace="com.ooad.demo.mapper.TeamMapper">
+    <resultMap id="tab_team" type="com.ooad.demo.entity.Team">
         <result property="cClassId" column="cclass_id"/>
         <result property="teamNumber" column="team_num"/>
         <result property="name" column="name"/>
@@ -10,10 +10,10 @@
 
     </resultMap>
 
-    <select id="findById" parameterType="Integer" resultMap="tab_team" resultType="com.ooad.demo.Entity.Team">
+    <select id="findById" parameterType="Integer" resultMap="tab_team" resultType="com.ooad.demo.entity.Team">
         SELECT * FROM team WHERE id=#{id}
     </select>
-    <select id="findBycClassId" parameterType="Integer" resultMap="tab_team" resultType="com.ooad.demo.Entity.Team">
+    <select id="findBycClassId" parameterType="Integer" resultMap="tab_team" resultType="com.ooad.demo.entity.Team">
         SELECT * FROM team WHERE cclass_id=#{cClassId}
     </select>
 

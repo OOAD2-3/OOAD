@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ooad.demo.Mapper.RoundMapper">
-    <resultMap id="tab_round" type="com.ooad.demo.Entity.Round" >
+<mapper namespace="com.ooad.demo.mapper.RoundMapper">
+    <resultMap id="tab_round" type="com.ooad.demo.entity.Round" >
         <result property="courseId" column="course_id"/>
         <result property="calculatePreType" column="calculate_pre_type"/>
         <result property="calculateQueType" column="calculate_que_type"/>
         <result property="calculateRepType" column="calculate_rep_type"/>
         <result property="signUpNum" column="sign_up_num"/>
     </resultMap>
-    <select id="findById" parameterType="Integer" resultMap="tab_round" resultType="com.ooad.demo.Entity.Round">
+    <select id="findById" parameterType="Integer" resultMap="tab_round" resultType="com.ooad.demo.entity.Round">
         SELECT * FROM round WHERE  id= #{id}
     </select>
 
-    <select id="findByCourseId" parameterType="Integer" resultMap="tab_round" resultType="com.ooad.demo.Entity.Round">
+    <select id="findByCourseId" parameterType="Integer" resultMap="tab_round" resultType="com.ooad.demo.entity.Round">
         SELECT * FROM round WHERE course_id=#{courseId}
     </select>
 </mapper>
