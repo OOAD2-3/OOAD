@@ -1,5 +1,6 @@
 package com.ooad.demo.Controller;
 
+import com.ooad.demo.Entity.Score;
 import com.ooad.demo.Service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,12 +27,9 @@ public class ScoreController {
      */
     @RequestMapping(value = "/presentation",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setPresentationScoreInScorePage(@RequestParam("roundId") int roundId,
-                                                   @RequestParam("seminarId") int seminarId,
-                                                   @RequestParam("teamId") int teamId,
-                                                   @RequestParam("presentationScore") float presentationScore){
-        return scoreService.updatePresentataionScoreByRoundIdAndSeminarIdAndTeamId(roundId, seminarId,
-                teamId, presentationScore);
+    public boolean setPresentationScoreInScorePage(@RequestBody Score score){
+        return scoreService.updatePresentataionScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
+                score.getTeamId(), score.getPresentationScore());
     }
 
     /**
@@ -41,12 +39,9 @@ public class ScoreController {
      */
     @RequestMapping(value = "/report",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setReportScoreInScorePage(@RequestParam("roundId") int roundId,
-                                                   @RequestParam("seminarId") int seminarId,
-                                                   @RequestParam("teamId") int teamId,
-                                                   @RequestParam("reportScore") float reportScore){
-        return scoreService.updateReportScoreByRoundIdAndSeminarIdAndTeamId(roundId, seminarId,
-                teamId, reportScore);
+    public boolean setReportScoreInScorePage(@RequestBody Score score){
+        return scoreService.updateReportScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
+                score.getTeamId(), score.getReportScore());
     }
     /**
      * @Author: WinstonDeng
@@ -55,12 +50,9 @@ public class ScoreController {
      */
     @RequestMapping(value = "/question",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setQuestionScoreInScorePage(@RequestParam("roundId") int roundId,
-                                             @RequestParam("seminarId") int seminarId,
-                                             @RequestParam("teamId") int teamId,
-                                             @RequestParam("questionScore") float questionScore){
-        return scoreService.updateQuestionScoreByRoundIdAndSeminarIdAndTeamId(roundId, seminarId,
-                teamId, questionScore);
+    public boolean setQuestionScoreInScorePage(@RequestBody Score score){
+        return scoreService.updateQuestionScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
+                score.getTeamId(), score.getQuestionScore());
     }
 
     /**
