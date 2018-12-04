@@ -62,11 +62,8 @@ public class ScoreController {
      */
     @RequestMapping(value = "/total",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setTotalScoreInScorePage(@RequestParam("roundId") int roundId,
-                                               @RequestParam("seminarId") int seminarId,
-                                               @RequestParam("teamId") int teamId,
-                                               @RequestParam("totalScore") float totalScore){
-        return scoreService.updateTotalScoreByRoundIdAndSeminarIdAndTeamId(roundId, seminarId,
-                teamId, totalScore);
+    public boolean setTotalScoreInScorePage(@RequestBody Score score){
+        return scoreService.updateTotalScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
+                score.getTeamId(), score.getTotalScore());
     }
 }
