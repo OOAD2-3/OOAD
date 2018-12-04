@@ -11,6 +11,11 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 @Component
 public class SeminarDao {
     @Autowired

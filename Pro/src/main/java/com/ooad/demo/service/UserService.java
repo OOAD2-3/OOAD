@@ -5,6 +5,11 @@ import com.ooad.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 @Service
 public class UserService {
     @Autowired
@@ -14,7 +19,7 @@ public class UserService {
      * @Description:登录判断
      * @Author:17Wang
      * @Time:20:34 2018/12/4
-    */
+     */
     public boolean login(String userId,String password){
         User user=userMapper.findByUserId(userId);
         if(user.getPassword()==password){

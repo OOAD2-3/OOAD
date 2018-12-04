@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description:
  * @Author:17Wang
- * @Time:15:52 2018/11/30
-*/
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class SeminarsOverviewVO {
     private int courseId;
     private String courseName;

@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 @RestController
 @RequestMapping(value = "/courses")
 public class CourseController {

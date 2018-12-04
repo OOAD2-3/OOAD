@@ -2,6 +2,11 @@ package com.ooad.demo.entity;
 
 import java.util.List;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class Presentation {
     //基础信息
     private int seminarId;      //属于哪次讨论课

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
  * @Date: Created in 13:04 2018/12/2
  * @Modified by:
  */
-
 @Component
 public class QuestionDao {
     @Autowired

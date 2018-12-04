@@ -3,6 +3,11 @@ package com.ooad.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class Round {
     //基础信息
     private int id;

@@ -2,6 +2,11 @@ package com.ooad.demo.entity;
 
 import java.util.List;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class CClass {
     //基本信息
     private int id;

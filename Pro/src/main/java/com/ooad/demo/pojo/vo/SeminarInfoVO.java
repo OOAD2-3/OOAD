@@ -5,6 +5,11 @@ import com.ooad.demo.entity.Seminar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class SeminarInfoVO {
     private int seminarId;
     private String seminarTopic;

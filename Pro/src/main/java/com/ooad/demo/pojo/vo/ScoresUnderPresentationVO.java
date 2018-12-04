@@ -5,6 +5,11 @@ import com.ooad.demo.pojo.bo.PresentationTeamBO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class ScoresUnderPresentationVO {
     private int seminarId;      //属于哪次讨论课
     private int cClassId;        //属于哪个班级

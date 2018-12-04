@@ -2,6 +2,11 @@ package com.ooad.demo.pojo.vo;
 
 import com.ooad.demo.entity.Seminar;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class SeminarSubInfoVO {
     private int seminarId;
     private String seminarTopic;

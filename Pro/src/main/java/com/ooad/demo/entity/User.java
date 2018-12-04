@@ -1,5 +1,10 @@
 package com.ooad.demo.entity;
 
+/**
+ * @Author:17Wang
+ * @Date:22:20 2018/12/4
+ * @Description:
+ */
 public class User {
     private int id;
     private String userId;
