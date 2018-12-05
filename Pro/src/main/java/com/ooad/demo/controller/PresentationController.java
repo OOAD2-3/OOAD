@@ -27,7 +27,7 @@ public class PresentationController {
      * @Description: 报告打分
      * @Date: 12:59 2018/12/2
      */
-    @RequestMapping(value = "/scores/report",method = RequestMethod.PUT)
+    @PutMapping(value = "/scores/report")
     @ResponseBody
     public boolean setReportScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
         return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getReportScore());
@@ -38,7 +38,7 @@ public class PresentationController {
      * @Description: 展示打分
      * @Date: 12:59 2018/12/2
      */
-    @RequestMapping(value = "/scores/pre",method = RequestMethod.PUT)
+    @PutMapping(value = "/scores/pre")
     @ResponseBody
     public boolean setPreScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
         return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getPreScore());
@@ -49,7 +49,7 @@ public class PresentationController {
      * @Author:17Wang
      * @Time:14:26 2018/12/2
     */
-    @RequestMapping(value = "/scores",method = RequestMethod.GET)
+    @GetMapping(value = "/scores")
     @ResponseBody
     public ScoresUnderPresentationVO scoresUnderPresentationVOS(@RequestParam int seminarId,@RequestParam int classId){
         return presentationService.listScoresUnderPresentationVOBySeminarIdAndCClassId(seminarId, classId);

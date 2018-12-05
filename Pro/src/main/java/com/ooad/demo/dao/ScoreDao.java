@@ -45,11 +45,7 @@ public class ScoreDao {
      * @Date: 16:32 2018/12/2
      */
     public boolean updatePresentationScore(int roundId,int seminarId,int teamId, float presentationScore){
-        if(scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId)==null){
-            System.out.println("更新Score的presentationScore错误，roundId:"+roundId+" seminarId:"+seminarId
-            +" teamId:"+teamId+"对应的记录不存在");
-            return false;
-        }
+
         try {
             Score score=scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId);
             score.setPresentationScore(presentationScore);
@@ -70,11 +66,7 @@ public class ScoreDao {
      * @Date: 16:39 2018/12/2
      */
     public boolean updateReportScore(int roundId,int seminarId,int teamId, float reportScore){
-        if(scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId)==null){
-            System.out.println("更新Score的reportScore错误，roundId:"+roundId+" seminarId:"+seminarId
-                    +" teamId:"+teamId+"对应的记录不存在");
-            return false;
-        }
+
         try {
             Score score=scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId);
             score.setReportScore(reportScore);
@@ -94,11 +86,7 @@ public class ScoreDao {
      * @Date: 16:41 2018/12/2
      */
     public boolean updateQuestionScore(int roundId,int seminarId,int teamId, float questionScore){
-        if(scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId)==null){
-            System.out.println("更新Score的questionScore错误，roundId:"+roundId+" seminarId:"+seminarId
-                    +" teamId:"+teamId+"对应的记录不存在");
-            return false;
-        }
+
         try {
             Score score=scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId);
             score.setQuestionScore(questionScore);
@@ -118,11 +106,7 @@ public class ScoreDao {
      * @Date: 16:43 2018/12/2
      */
     public boolean updateTotalScore(int roundId,int seminarId,int teamId, float totalScore){
-        if(scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId)==null){
-            System.out.println("更新Score的totalScore错误，roundId:"+roundId+" seminarId:"+seminarId
-                    +" teamId:"+teamId+"对应的记录不存在");
-            return false;
-        }
+
         try {
             Score score=scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId);
             score.setTotalScore(totalScore);

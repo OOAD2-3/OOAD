@@ -24,7 +24,7 @@ public class ScoreController {
      * @Description: 修改展示成绩 presentationScore
      * @Date: 20:05 2018/12/2
      */
-    @RequestMapping(value = "/presentation",method = RequestMethod.PUT)
+    @PutMapping(value = "/presentation")
     @ResponseBody
     public boolean setPresentationScoreInScorePage(@RequestBody Score score){
         return scoreService.updatePresentataionScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
@@ -36,7 +36,7 @@ public class ScoreController {
      * @Description: 修改报告成绩 reportScore
      * @Date: 20:05 2018/12/2
      */
-    @RequestMapping(value = "/report",method = RequestMethod.PUT)
+    @PutMapping(value = "/report")
     @ResponseBody
     public boolean setReportScoreInScorePage(@RequestBody Score score){
         return scoreService.updateReportScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
@@ -47,7 +47,7 @@ public class ScoreController {
      * @Description: 修改提问成绩 questionScore
      * @Date: 20:05 2018/12/2
      */
-    @RequestMapping(value = "/question",method = RequestMethod.PUT)
+    @PutMapping(value = "/question")
     @ResponseBody
     public boolean setQuestionScoreInScorePage(@RequestBody Score score){
         return scoreService.updateQuestionScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
@@ -59,7 +59,7 @@ public class ScoreController {
      * @Description: 修改总成绩 totalScore
      * @Date: 20:05 2018/12/2
      */
-    @RequestMapping(value = "/total",method = RequestMethod.PUT)
+    @PutMapping(value = "/total")
     @ResponseBody
     public boolean setTotalScoreInScorePage(@RequestBody Score score){
         return scoreService.updateTotalScoreByRoundIdAndSeminarIdAndTeamId(score.getRoundId(), score.getSeminarId(),
