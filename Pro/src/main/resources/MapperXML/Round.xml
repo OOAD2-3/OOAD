@@ -3,6 +3,7 @@
 <mapper namespace="com.ooad.demo.mapper.RoundMapper">
     <resultMap id="tab_round" type="com.ooad.demo.entity.Round" >
         <result property="courseId" column="course_id"/>
+        <result property="order" column="order_num"/>
         <result property="calculatePreType" column="calculate_pre_type"/>
         <result property="calculateQueType" column="calculate_que_type"/>
         <result property="calculateRepType" column="calculate_rep_type"/>

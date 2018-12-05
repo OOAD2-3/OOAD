@@ -6,7 +6,6 @@ import com.ooad.demo.entity.Seminar;
  * @Author:17Wang
  * @Date:22:20 2018/12/4
  * Description:
- * 漏了轮次
  */
 public class SeminarSubInfoVO {
     private int seminarId;

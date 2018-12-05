@@ -1,10 +1,7 @@
 package com.ooad.demo.service;
 
-import com.ooad.demo.dao.CourseDao;
-import com.ooad.demo.dao.PresentationDao;
-import com.ooad.demo.dao.SeminarDao;
+import com.ooad.demo.dao.*;
 
-import com.ooad.demo.dao.TeamDao;
 import com.ooad.demo.entity.Seminar;
 
 
@@ -37,6 +34,9 @@ public class SeminarService {
 
     @Autowired
     PresentationDao presentationDao;
+
+    @Autowired
+    RoundDao roundDao;
 
     /**
      * @Author: WinstonDeng
@@ -87,7 +87,10 @@ public class SeminarService {
      * @Time:21:45 2018/12/1
     */
     public SeminarInfoVO getSeminarInfoVOBySeminarId(int seminarId){
-        return new SeminarInfoVO(seminarDao.getById(seminarId, false));
+        SeminarInfoVO seminarInfoVO=new SeminarInfoVO(seminarDao.getById(seminarId, false));
+        int roundOrder=roundDao.getById(seminarDao.getById(seminarId,false).getRoundId(),false).getOrder();
+        seminarInfoVO.setRoundOrder(roundOrder);
+        return seminarInfoVO;
 
     }
 

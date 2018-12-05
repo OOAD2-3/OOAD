@@ -16,7 +16,7 @@ public class SeminarInfoVO {
     private int seminarOrder;
     private String seminarIntro;
     private String seminarState;
-
+    private int roundOrder;
     private String signUpStartTime;
     private String signUpEndTime;
 
@@ -36,6 +36,14 @@ public class SeminarInfoVO {
             seminarState="已开始";
         else
             seminarState="未开始";
+    }
+
+    public int getRoundOrder() {
+        return roundOrder;
+    }
+
+    public void setRoundOrder(int roundOrder) {
+        this.roundOrder = roundOrder;
     }
 
     public int getSeminarId() {
