@@ -67,6 +67,8 @@ class MyPresentation{
     private float preScore;
     private String preFileName;
     private String preFileUrl;
+    private String reportFileName;
+    private String reportFileUrl;
 
     public MyPresentation(PresentationTeamBO presentationTeamBO){
         teamId=presentationTeamBO.getPresentation().getTeamId();
@@ -75,7 +77,8 @@ class MyPresentation{
         preScore=presentationTeamBO.getPresentation().getPreScore();
         preFileName=presentationTeamBO.getPresentation().getPreFileName();
         preFileUrl=presentationTeamBO.getPresentation().getPreFileUrl();
-
+        reportFileName=presentationTeamBO.getPresentation().getReportFileName();
+        reportFileUrl=presentationTeamBO.getPresentation().getReportFileUrl();
     }
 
     public int getTeamId() {
@@ -126,6 +129,21 @@ class MyPresentation{
         this.preFileUrl = preFileUrl;
     }
 
+    public String getReportFileName() {
+        return reportFileName;
+    }
+
+    public void setReportFileName(String reportFileName) {
+        this.reportFileName = reportFileName;
+    }
+
+    public String getReportFileUrl() {
+        return reportFileUrl;
+    }
+
+    public void setReportFileUrl(String reportFileUrl) {
+        this.reportFileUrl = reportFileUrl;
+    }
 }
 
 
