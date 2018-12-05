@@ -1,11 +1,20 @@
-package com.ooad.demo.entity;
+package com.ooad.demo.entity.security;
+
+import com.ooad.demo.entity.security.Role;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @Author:17Wang
  * @Date:22:20 2018/12/4
  * @Description:
  */
-public class User {
+public class User implements UserDetails {
     private int id;
     private String userId;
     private String password;
@@ -21,6 +30,47 @@ public class User {
      * 消息发送时间间隔
     */
     private int msgInterval;
+
+    private List<Role> roles;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return authorities;
+    }
+
+    @Override
+    public String getUsername() {
+        return userId;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return active;
+    }
 
     /* ==================================================getter AND setter==================================================*/
 
@@ -38,10 +88,6 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
@@ -94,5 +140,13 @@ public class User {
 
     public void setMsgInterval(int msgInterval) {
         this.msgInterval = msgInterval;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

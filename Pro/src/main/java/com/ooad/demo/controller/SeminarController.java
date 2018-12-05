@@ -43,7 +43,7 @@ public class SeminarController {
      * @Description: 正在进行的讨论课界面展示的信息
      * @Date: 22:59 2018/12/1
      */
-    @RequestMapping(value = "{seminarId}/cclasses/{cClassId}/presentations", method = RequestMethod.GET)
+    @RequestMapping(value = "/{seminarId}/cclasses/{cClassId}/presentations", method = RequestMethod.GET)
     @ResponseBody
     public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarId") int seminarId,@PathVariable("cClassId") int cClassId){
         return seminarService.getSeminarPreVOBySeminarIdAndCClassId(seminarId,cClassId);
@@ -54,7 +54,7 @@ public class SeminarController {
      * @Description: 讨论课展示材料ppt下载界面展示的信息
      * @Date: 23:00 2018/12/1
      */
-    @RequestMapping(value = "{seminarId}/presentations/prefiles",method = RequestMethod.GET)
+    @RequestMapping(value = "/{seminarId}/presentations/prefiles",method = RequestMethod.GET)
     @ResponseBody
     public PreFileDownloadVO SeminarPreFileDownloadPage(@PathVariable("seminarId") int seminarId){
         return seminarService.getPreFileDownLoadVOBySeminarId(seminarId);

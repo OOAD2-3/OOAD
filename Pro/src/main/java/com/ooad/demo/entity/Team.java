@@ -1,5 +1,7 @@
 package com.ooad.demo.entity;
 
+import com.ooad.demo.entity.security.User;
+
 import java.util.List;
 
 /**

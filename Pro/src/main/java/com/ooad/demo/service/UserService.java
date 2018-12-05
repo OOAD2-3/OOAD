@@ -1,8 +1,11 @@
 package com.ooad.demo.service;
 
-import com.ooad.demo.entity.User;
+import com.ooad.demo.entity.security.User;
 import com.ooad.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @Description:
  */
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
     @Autowired
     UserMapper userMapper;
 
@@ -34,5 +37,15 @@ public class UserService {
         }
 
         return false;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        User user=userMapper.findByUserId(s);
+        if (user==null){
+            throw new UsernameNotFoundException("用户名不对");
+        }
+
+        return user;
     }
 }

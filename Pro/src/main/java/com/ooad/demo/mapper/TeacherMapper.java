@@ -1,6 +1,6 @@
 package com.ooad.demo.mapper;
 
-import com.ooad.demo.entity.User;
+import com.ooad.demo.entity.security.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
