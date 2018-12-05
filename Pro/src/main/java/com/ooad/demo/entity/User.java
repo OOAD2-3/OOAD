@@ -9,14 +9,21 @@ public class User {
     private int id;
     private String userId;
     private String password;
-    private int identity;   //0是学生 1是老师
+    /**
+     * 0是学生 1是老师
+     */
+    private int identity;
     private String name;
     private String email;
     private String selfieUrl;
     private boolean active;
-    private int msgInterval;//消息发送时间间隔
+    /**
+     * 消息发送时间间隔
+    */
+    private int msgInterval;
 
-    //==================================================getter AND setter==================================================//
+    /* ==================================================getter AND setter==================================================*/
+
     public int getId() {
         return id;
     }

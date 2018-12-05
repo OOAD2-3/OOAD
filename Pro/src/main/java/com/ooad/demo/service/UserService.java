@@ -16,16 +16,22 @@ public class UserService {
     UserMapper userMapper;
 
     /**
-     * @Description:登录判断
+     * Description:登录判断
      * @Author:17Wang
-     * @Time:20:34 2018/12/4
-     */
-    public boolean login(String userId,String password){
+     * @Time:23:45 2018/12/4
+    */
+    public boolean login(String userId, String password){
         User user=userMapper.findByUserId(userId);
-        if(user.getPassword()==password){
-            return true;
+
+        //如果查询不到，说明账号输入错误，不存在该用户，登录失败，返回false
+        if(user==null) {
+            return false;
         }
-        //
+        //登录成功以后还要设置session信息，暂时不做
+        else if(user.getPassword().equals(password)){
+            return true;
+            //。。。
+        }
 
         return false;
     }

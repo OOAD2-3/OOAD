@@ -4,6 +4,8 @@ import com.ooad.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author:17Wang
  * @Date:22:20 2018/12/4
@@ -17,7 +19,7 @@ public class UserController {
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     @ResponseBody
-    public boolean login(@RequestParam("userid") String userId,@RequestParam("passname") String passName) {
-        return userService.login(userId, passName);
+    public boolean login(@RequestParam("userid") String userId, @RequestParam("password") String password) {
+        return userService.login(userId, password);
     }
 }
