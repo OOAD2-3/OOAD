@@ -24,9 +24,6 @@ public class SeminarDao {
     @Autowired
     PresentationMapper presentationMapper;
 
-    @Autowired
-    TeamMapper teamMapper;
-
     public Seminar getById(int seminarId,boolean hasPresentation){
         Seminar seminar=seminarMapper.findById(seminarId);
 
@@ -39,7 +36,7 @@ public class SeminarDao {
     }
 
     public List<Seminar> listByCourseId(int courseId,boolean hasPresentataion){
-        List<Seminar> seminars=new ArrayList<>();
+        List<Seminar> seminars=seminarMapper.findByCourseId(courseId);
         for(Seminar seminar:
             seminars){
             if(hasPresentataion){
@@ -48,6 +45,22 @@ public class SeminarDao {
             }
         }
         return seminars;
+    }
 
+    /**
+     * Description: 通过轮次搜索该轮次下的讨论课
+     * @Author: 17Wang
+     * @Time: 22:55 2018/12/5
+    */
+    public List<Seminar> listByRoundId(int roundId,boolean hasPresentataion){
+        List<Seminar> seminars=seminarMapper.findByRoundId(roundId);
+        for(Seminar seminar:
+                seminars){
+            if(hasPresentataion){
+                List<Presentation> presentations=presentationMapper.findBySeminarId(seminar.getId());
+                seminar.setPresentations(presentations);
+            }
+        }
+        return seminars;
     }
 }

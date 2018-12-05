@@ -45,7 +45,6 @@ public class ScoreDao {
      * @Date: 16:32 2018/12/2
      */
     public boolean updatePresentationScore(int roundId,int seminarId,int teamId, float presentationScore){
-
         try {
             Score score=scoreMapper.findByRoundIdAndSeminarIdAndTeamId(roundId,seminarId,teamId);
             score.setPresentationScore(presentationScore);
