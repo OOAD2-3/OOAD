@@ -33,7 +33,7 @@ public class CourseController {
      * @Author:17Wang
      * @Time:14:11 2018/11/28
      */
-    @RequestMapping(value = "/seminars",method = RequestMethod.GET)
+    @GetMapping(value = "/seminars")
     @ResponseBody
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
         return courseService.listSeminarsOverviewVOByTeacherId(tempTeacherId);
@@ -44,7 +44,7 @@ public class CourseController {
      * @Author:17Wang
      * @Time:16:54 2018/11/30
     */
-    @RequestMapping(value = "/{courseid}/seminars",method = RequestMethod.GET)
+    @GetMapping(value = "/{courseid}/seminars")
     @ResponseBody
     public SeminarsUnderRoundsVO RoundsInCoursePage(@PathVariable("courseid") int courseId){
         return courseService.SeminarsUnderRoundsVOByCourseId(courseId);

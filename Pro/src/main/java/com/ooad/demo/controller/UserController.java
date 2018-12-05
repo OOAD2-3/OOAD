@@ -25,7 +25,7 @@ public class UserController {
      * @Author: 17Wang
      * @Time:11:27 2018/12/5
     */
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @GetMapping(value = "/login")
     @ResponseBody
     public boolean login(@RequestParam("userid") String userId, @RequestParam("password") String password) {
         return userService.login(userId, password);
@@ -36,7 +36,7 @@ public class UserController {
      * @Author: 17Wang
      * @Time:11:27 2018/12/5
     */
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @PostMapping(value = "/login")
     @ResponseBody
     public String test(@RequestParam("username") String name,@RequestParam("password") String password){
         return "!@3";

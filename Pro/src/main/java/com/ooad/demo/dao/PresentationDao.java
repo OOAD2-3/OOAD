@@ -54,10 +54,7 @@ public class PresentationDao {
     * @Date: 23:54 2018/12/1
     */
    public boolean updatePresentationReportScoreBySeminarIdAndTeamId(int seminarId,int teamId, float reportScore){
-       if(presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId)==null){
-           System.out.println("更新reportScore错误，讨论课展示记录：seminarId:"+seminarId+" teamId:"+teamId+" 不存在");
-           return false;
-       }
+
        try {
            Presentation presentation=presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId);
            presentation.setReportScore(reportScore);
@@ -76,10 +73,7 @@ public class PresentationDao {
     * @Date: 12:52 2018/12/2
     */
    public boolean updatePresentationPreScoreBySemianrIdAndTeamId(int seminarId,int teamId, float preScore){
-       if(presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId)==null){
-           System.out.println("更新preScore错误，讨论课展示记录：seminarId:"+seminarId+" teamId:"+teamId+" 不存在");
-           return false;
-       }
+
        try {
            Presentation presentation=presentationMapper.findBySeminarIdAndTeamId(seminarId,teamId);
            presentation.setPreScore(preScore);
