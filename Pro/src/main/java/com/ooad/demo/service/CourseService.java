@@ -25,8 +25,8 @@ public class CourseService {
     RoundDao roundDao;
 
     /**
-     * @Description:给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
-     * @Author:17Wang
+     * Description:给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
+     * @Author: 17Wang
      * @Time:0:01 2018/11/28
     */
     public List<SeminarsOverviewVO> listSeminarsOverviewVOByTeacherId(int teacherId){
@@ -36,9 +36,9 @@ public class CourseService {
                 courses) {
 
             //是否属于从课程，若为从课程应该转换成主课程的
-            if(course.getMasterCourseId()==0)
+            if(course.getMasterCourseId()==0) {
                 seminarOverviewVOS.add(new SeminarsOverviewVO(course));
-            else {
+            } else {
                 Course subCourse = courseDao.getById(course.getMasterCourseId(), false, false, true);
                 subCourse.setId(course.getId());
                 subCourse.setName(course.getName());

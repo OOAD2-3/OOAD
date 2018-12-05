@@ -1,5 +1,6 @@
 package com.ooad.demo.controller;
 
+import com.ooad.demo.entity.Question;
 import com.ooad.demo.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,9 @@ public class QuestionController {
      * @Description:  新增某一节讨论课某组的提问分数(讨论课进行中打分)
      * @Date: 13:46 2018/12/2
      */
-    @RequestMapping(value = "/questionscore",method = RequestMethod.POST)
+    @RequestMapping(value = "/score",method = RequestMethod.POST)
     @ResponseBody
-    public boolean setQuestionScoreBySeminarIdAndTeamId(@RequestParam("seminarId") int seminarId,@RequestParam("teamId") int teamId,@RequestParam("questionScore") float questionScore){
-        return questionService.addQuestionScoreBySeminarIdAndTeamId(seminarId, teamId, questionScore);
+    public boolean setQuestionScoreBySeminarIdAndTeamId(@RequestBody Question question){
+        return questionService.addQuestionScoreBySeminarIdAndTeamId(question.getSeminarId(), question.getTeamId(), question.getQuestionScore());
     }
 }
