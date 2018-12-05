@@ -1,6 +1,7 @@
 package com.ooad.demo.controller;
 
 import com.ooad.demo.dao.PresentationDao;
+import com.ooad.demo.entity.Presentation;
 import com.ooad.demo.pojo.vo.ScoresUnderPresentationVO;
 import com.ooad.demo.service.PresentationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class PresentationController {
      */
     @RequestMapping(value = "/scores/report",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setReportScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float reportScore){
-        return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(seminarId, teamId, reportScore);
+    public boolean setReportScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
+        return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getReportScore());
     }
 
     /**
@@ -39,8 +40,8 @@ public class PresentationController {
      */
     @RequestMapping(value = "/scores/pre",method = RequestMethod.PUT)
     @ResponseBody
-    public boolean setPreScoreBySeminarIdAndTeamId(@RequestParam int seminarId,@RequestParam int teamId, @RequestParam float preScore){
-        return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(seminarId, teamId, preScore);
+    public boolean setPreScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
+        return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getPreScore());
     }
     
     /**
