@@ -1,4 +1,4 @@
-package com.ooad.demo.config;
+package com.ooad.demo.security;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

@@ -1,7 +1,7 @@
 package com.ooad.demo.dao;
 
-import com.ooad.demo.entity.security.Menu;
-import com.ooad.demo.entity.security.Role;
+import com.ooad.demo.entity.Menu;
+import com.ooad.demo.entity.Role;
 import com.ooad.demo.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

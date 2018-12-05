@@ -1,6 +1,6 @@
 package com.ooad.demo.service;
 
-import com.ooad.demo.entity.security.User;
+import com.ooad.demo.entity.User;
 import com.ooad.demo.mapper.TeacherMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

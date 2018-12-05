@@ -1,4 +1,4 @@
-package com.ooad.demo.config;
+package com.ooad.demo.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ooad.demo.pojo.RespInfo;

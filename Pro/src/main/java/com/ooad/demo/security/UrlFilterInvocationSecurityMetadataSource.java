@@ -1,9 +1,8 @@
-package com.ooad.demo.config;
+package com.ooad.demo.security;
 
 import com.ooad.demo.dao.MenuDao;
-import com.ooad.demo.entity.security.Menu;
-import com.ooad.demo.entity.security.Role;
-import com.ooad.demo.mapper.MenuMapper;
+import com.ooad.demo.entity.Menu;
+import com.ooad.demo.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;

@@ -1,6 +1,6 @@
 package com.ooad.demo.utils;
 
-import com.ooad.demo.entity.security.User;
+import com.ooad.demo.entity.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**

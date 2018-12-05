@@ -1,4 +1,4 @@
-package com.ooad.demo.entity.security;
+package com.ooad.demo.entity;
 
 /**
  * @Author: 17Wang

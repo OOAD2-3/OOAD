@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ooad.demo.mapper.MenuMapper">
-    <resultMap id="tab_menu" type="com.ooad.demo.entity.security.Menu" >
+    <resultMap id="tab_menu" type="com.ooad.demo.entity.Menu" >
         <result property="keepAlive" column="keep_alive"/>
         <result property="requireAuth" column="require_auth"/>
         <result property="parentId" column="parent_id"/>

@@ -1,4 +1,4 @@
-package com.ooad.demo.entity.security;
+package com.ooad.demo.entity;
 
 import java.util.List;
 

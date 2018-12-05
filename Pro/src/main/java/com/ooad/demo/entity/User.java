@@ -1,6 +1,5 @@
-package com.ooad.demo.entity.security;
+package com.ooad.demo.entity;
 
-import com.ooad.demo.entity.security.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

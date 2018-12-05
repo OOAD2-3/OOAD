@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ooad.demo.mapper.UserMapper">
-    <resultMap id="tab_user" type="com.ooad.demo.entity.security.User" >
+    <resultMap id="tab_user" type="com.ooad.demo.entity.User" >
         <result property="userId" column="user_id"/>
         <result property="selfieUrl" column="selfie_url"/>
         <result property="active" column="is_active"/>
         <result property="msgInterval" column="msg_interval"/>
     </resultMap>
 
-    <select id="findById" parameterType="Integer" resultMap="tab_user" resultType="com.ooad.demo.entity.security.User">
+    <select id="findById" parameterType="Integer" resultMap="tab_user" resultType="com.ooad.demo.entity.User">
         SELECT * FROM user WHERE id = #{id}
     </select>
 
-    <select id="findByUserId" parameterType="java.lang.String" resultMap="tab_user" resultType="com.ooad.demo.entity.security.User">
+    <select id="findByUserId" parameterType="java.lang.String" resultMap="tab_user" resultType="com.ooad.demo.entity.User">
         SELECT * FROM user WHERE user_id=#{userId}
     </select>
 </mapper>

@@ -1,6 +1,6 @@
 package com.ooad.demo.mapper;
 
-import com.ooad.demo.entity.security.Menu;
+import com.ooad.demo.entity.Menu;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
