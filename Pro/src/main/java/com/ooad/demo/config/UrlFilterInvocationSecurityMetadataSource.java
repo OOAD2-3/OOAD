@@ -1,5 +1,6 @@
 package com.ooad.demo.config;
 
+import com.ooad.demo.dao.MenuDao;
 import com.ooad.demo.entity.security.Menu;
 import com.ooad.demo.entity.security.Role;
 import com.ooad.demo.mapper.MenuMapper;
@@ -33,7 +34,7 @@ import java.util.List;
 @Component
 public class UrlFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     @Autowired
-    MenuMapper menuMapper;
+    MenuDao menuDao;
 
     AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -41,10 +42,11 @@ public class UrlFilterInvocationSecurityMetadataSource implements FilterInvocati
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         //获取请求地址
         String requestUrl = ((FilterInvocation) o).getRequestUrl();
+        //这个if判断怕是有点问题...
         if ("/users/login".equals(requestUrl)) {
             return null;
         }
-        List<Menu> menus = menuMapper.listMenu();
+        List<Menu> menus = menuDao.listAll();
         for (Menu menu : menus) {
             if (antPathMatcher.match(menu.getUrl(), requestUrl) && menu.getRoles().size() > 0) {
                 List<Role> roles = menu.getRoles();

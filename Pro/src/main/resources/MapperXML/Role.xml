@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ooad.demo.mapper.RoleMapper">
+    <resultMap id="tab_role" type="com.ooad.demo.entity.security.Role" >
+        <result property="nameZW" column="name_zw"/>
+    </resultMap>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="tab_role">
+        SELECT * FROM role WHERE id=#{id}
+    </select>
+
+    <select id="listRoleIdByMenuId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT role_id FROM menu_role WHERE menu_id=#{menuId}
+    </select>
+</mapper>

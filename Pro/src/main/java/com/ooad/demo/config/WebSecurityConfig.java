@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService);
+        //auth.userDetailsService(userService);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        /*http.authorizeRequests()
                 .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
                     @Override
                     public <O extends FilterSecurityInterceptor> O postProcess(O o) {
@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 })
                 .and()
-                .formLogin()/*.loginPage("/login_p")*/.loginProcessingUrl("/users/login")
+                .formLogin()*//*.loginPage("/login_p")*//*.loginProcessingUrl("/users/login")
                 .usernameParameter("username").passwordParameter("password")
                 .failureHandler(authenticationAccessFailureHandler)
                 .successHandler(authenticationAccessSuccessHandler)
@@ -71,7 +71,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll()
                 .and().csrf().disable()
-                .exceptionHandling().accessDeniedHandler(authenticationAccessDeniedHandler);
+                .exceptionHandling().accessDeniedHandler(authenticationAccessDeniedHandler);*/
+
+        http.authorizeRequests()
+                .antMatchers("/**/**").permitAll()
+                .anyRequest().permitAll()
+                .and()
+                .csrf().disable();
     }
 
 
