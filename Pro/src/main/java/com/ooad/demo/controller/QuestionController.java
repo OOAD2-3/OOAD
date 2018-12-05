@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * @Modified by:
  */
 @RestController
-@RequestMapping(value = "/questions")
+@RequestMapping("/questions")
 public class QuestionController {
     @Autowired
     QuestionService questionService;
@@ -22,7 +22,7 @@ public class QuestionController {
      * @Description:  新增某一节讨论课某组的提问分数(讨论课进行中打分)
      * @Date: 13:46 2018/12/2
      */
-    @PostMapping(value = "/score")
+    @PostMapping("/score")
     @ResponseBody
     public boolean setQuestionScoreBySeminarIdAndTeamId(@RequestBody Question question){
         return questionService.addQuestionScoreBySeminarIdAndTeamId(question.getSeminarId(), question.getTeamId(), question.getQuestionScore());

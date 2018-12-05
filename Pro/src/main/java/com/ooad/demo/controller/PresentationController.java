@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @Modified by:
  */
 @RestController
-@RequestMapping(value = "/presentations")
+@RequestMapping("/presentations")
 public class PresentationController {
     @Autowired
     PresentationService presentationService;
@@ -27,7 +27,7 @@ public class PresentationController {
      * @Description: 报告打分
      * @Date: 12:59 2018/12/2
      */
-    @PutMapping(value = "/scores/report")
+    @PutMapping("/scores/report")
     @ResponseBody
     public boolean setReportScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
         return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getReportScore());
@@ -38,7 +38,7 @@ public class PresentationController {
      * @Description: 展示打分
      * @Date: 12:59 2018/12/2
      */
-    @PutMapping(value = "/scores/pre")
+    @PutMapping("/scores/pre")
     @ResponseBody
     public boolean setPreScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
         return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getPreScore());

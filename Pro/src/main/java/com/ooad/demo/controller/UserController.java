@@ -15,7 +15,7 @@ import java.io.IOException;
  * @Description:
  */
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     UserService userService;
@@ -25,7 +25,7 @@ public class UserController {
      * @Author: 17Wang
      * @Time:11:27 2018/12/5
     */
-    @GetMapping(value = "/login")
+    @GetMapping("/login")
     @ResponseBody
     public boolean login(@RequestParam("userid") String userId, @RequestParam("password") String password) {
         return userService.login(userId, password);
@@ -47,7 +47,7 @@ public class UserController {
      * @Author: 17Wang
      * @Time: 21:14 2018/12/5
     */
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    @GetMapping("/test")
     @ResponseBody
     public String test2(){
         return "!@3";

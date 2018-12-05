@@ -43,7 +43,7 @@ public class SeminarController {
      * @Description: 正在进行的讨论课界面展示的信息
      * @Date: 22:59 2018/12/1
      */
-    @GetMapping(value = "/{seminarid}/cclasses/{cclassid}/presentations")
+    @GetMapping("/{seminarid}/cclasses/{cclassid}/presentations")
     @ResponseBody
     public SeminarPreVO SeminarPreVOInPrePage(@PathVariable("seminarid") int seminarId,@PathVariable("cclassid") int cClassId){
         return seminarService.getSeminarPreVOBySeminarIdAndCClassId(seminarId,cClassId);
@@ -54,7 +54,7 @@ public class SeminarController {
      * @Description: 讨论课展示材料ppt下载界面展示的信息
      * @Date: 23:00 2018/12/1
      */
-    @GetMapping(value = "/{seminarid}/presentations/prefiles")
+    @GetMapping("/{seminarid}/presentations/prefiles")
     @ResponseBody
     public PreFileDownloadVO SeminarPreFileDownloadPage(@PathVariable("seminarid") int seminarId){
         return seminarService.getPreFileDownLoadVOBySeminarId(seminarId);
@@ -65,7 +65,7 @@ public class SeminarController {
      * @Description: 讨论课结束后报告材料下载界面展示的信息
      * @Date: 23:01 2018/12/1
      */
-    @GetMapping(value = "/{seminarid}/presentations/reportfiles")
+    @GetMapping("/{seminarid}/presentations/reportfiles")
     @ResponseBody
     public ReportFileDownloadVO SeminarReportFileDownloadPage(@PathVariable("seminarid") int seminarId){
         return seminarService.getReportFileDownliadVOBySeminarId(seminarId);
@@ -77,7 +77,7 @@ public class SeminarController {
      * @Author:17Wang
      * @Time:20:53 2018/12/1
     */
-    @GetMapping(value = "/{seminarid}/subinfo")
+    @GetMapping("/{seminarid}/subinfo")
     @ResponseBody
     public SeminarSubInfoVO seminarSubInfoIVO(@PathVariable("seminarid") int seminarId){
         return seminarService.getSeminarSubInfoVOBySeminarId(seminarId);
@@ -88,7 +88,7 @@ public class SeminarController {
      * @Author:17Wang
      * @Time:21:12 2018/12/1
     */
-    @GetMapping(value = "/{seminarid}")
+    @GetMapping("/{seminarid}")
     @ResponseBody
     public SeminarInfoVO seminarById(@PathVariable("seminarid") int seminarId){
         return seminarService.getSeminarInfoVOBySeminarId(seminarId);

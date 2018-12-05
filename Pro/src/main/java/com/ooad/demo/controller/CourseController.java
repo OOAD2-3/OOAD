@@ -15,7 +15,7 @@ import java.util.List;
  * @Description:
  */
 @RestController
-@RequestMapping(value = "/courses")
+@RequestMapping("/courses")
 public class CourseController {
 
     /**
@@ -33,7 +33,7 @@ public class CourseController {
      * @Author:17Wang
      * @Time:14:11 2018/11/28
      */
-    @GetMapping(value = "/seminars")
+    @GetMapping("/seminars")
     @ResponseBody
     public List<SeminarsOverviewVO> SeminarOverviewInCoursePage(){
         return courseService.listSeminarsOverviewVOByTeacherId(tempTeacherId);
@@ -44,7 +44,7 @@ public class CourseController {
      * @Author:17Wang
      * @Time:16:54 2018/11/30
     */
-    @GetMapping(value = "/{courseid}/seminars")
+    @GetMapping("/{courseid}/seminars")
     @ResponseBody
     public SeminarsUnderRoundsVO RoundsInCoursePage(@PathVariable("courseid") int courseId){
         return courseService.SeminarsUnderRoundsVOByCourseId(courseId);
