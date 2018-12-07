@@ -14,7 +14,18 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CourseMapper {
+    //================查找==========================
+    /**
+     * 通过id查找表所有字段
+     * @param id
+     * @return Course
+     */
     Course findById(Integer id);
 
+    /**
+     * 通过teacherId查找表所有字段
+     * @param teacherId
+     * @return List<Course>
+     */
     List<Course> findByTeacherId(Integer teacherId);
 }

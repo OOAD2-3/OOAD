@@ -14,6 +14,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MenuMapper {
+    //================查找==========================
+    /**
+     * 查找表所有字段
+     * @return List<Menu>
+     */
     List<Menu> listAll();
 
 }

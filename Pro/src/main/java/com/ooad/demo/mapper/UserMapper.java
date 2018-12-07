@@ -12,6 +12,18 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface UserMapper {
+    //======================查找=====================
+    /**
+     * 通过id查找表的所有字段
+     * @param id
+     * @return User
+     */
     User findById(int id);
+
+    /**
+     * 通过userId查找表的所有字段
+     * @param userId
+     * @return User
+     */
     User findByUserId(String userId);
 }
