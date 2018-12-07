@@ -1,5 +1,6 @@
 package com.ooad.demo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,12 +22,12 @@ public class CClass {
     //关系
     /**
      * 班级下的队伍
-    */
-    private List<Team> teams;
+     */
+    private List<Team> teams = new ArrayList<>();
     /**
      * 班级下的讨论课
      */
-    private List<Seminar> seminars;
+    private List<Seminar> seminars = new ArrayList<>();
     /**
      * 班级所属的课程
      */

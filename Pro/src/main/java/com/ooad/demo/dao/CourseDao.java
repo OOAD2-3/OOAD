@@ -63,7 +63,8 @@ public class CourseDao {
     }
 
     /**
-     * @Description:通过teacherId获取该teacher下的所有Course，三个布尔值参数可以设置对应的查询表
+     * Description:通过teacherId获取该teacher下的所有Course，三个布尔值参数可以设置对应的查询表
+     *
      * @Author:17Wang
      * @Time:23:23 2018/11/27
      */

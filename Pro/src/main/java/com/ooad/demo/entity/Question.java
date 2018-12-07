@@ -50,7 +50,6 @@ public class Question {
         this.teamId = teamId;
     }
 
-
     public float getQuestionScore() {
         return questionScore;
     }

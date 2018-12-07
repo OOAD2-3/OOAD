@@ -29,20 +29,18 @@ public class User implements UserDetails {
      * 消息发送时间间隔
     */
     private int msgInterval;
-
     /**
      * 用户有的课程
      */
-    private List<Course> courses;
+    private List<Course> courses=new ArrayList<>();
     /**
      * 学生拥有的小组
      */
     private Team team;
-
     /**
      * 属于什么角色，secruity
      */
-    private List<Role> roles;
+    private List<Role> roles=new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

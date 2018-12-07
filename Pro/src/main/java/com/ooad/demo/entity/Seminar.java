@@ -1,6 +1,7 @@
 package com.ooad.demo.entity;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,11 +61,11 @@ public class Seminar {
     /**
      * 讨论课下的所有展示
      */
-    private List<Presentation> presentations;
+    private List<Presentation> presentations = new ArrayList<>();
     /**
      * 讨论课所属的所有班级
      */
-    private List<CClass> cClasses;
+    private List<CClass> cClasses = new ArrayList<>();
     /**
      * 讨论课所属的课程
      */

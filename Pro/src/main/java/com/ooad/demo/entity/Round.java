@@ -22,7 +22,6 @@ public class Round {
     private int calculateQueType;
     private int calculateRepType;
     private int signUpNum;
-
     /**
      * 轮次下的讨论课
      */

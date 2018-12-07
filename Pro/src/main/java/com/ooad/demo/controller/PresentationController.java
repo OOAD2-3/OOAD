@@ -19,9 +19,6 @@ public class PresentationController {
     @Autowired
     PresentationService presentationService;
 
-    @Autowired
-    PresentationDao presentationDao;
-
     /**
      * @Author: WinstonDeng
      * @Description: 报告打分
@@ -30,7 +27,7 @@ public class PresentationController {
     @PutMapping("/scores/report")
     @ResponseBody
     public boolean setReportScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
-        return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getReportScore());
+        return presentationService.updatePresentationReportScoreBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getReportScore());
     }
 
     /**
@@ -41,7 +38,7 @@ public class PresentationController {
     @PutMapping("/scores/pre")
     @ResponseBody
     public boolean setPreScoreBySeminarIdAndTeamId(@RequestBody Presentation presentation){
-        return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getPreScore());
+        return presentationService.updatePresentationPreScoreBySemianrIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId(), presentation.getPreScore());
     }
     
     /**
