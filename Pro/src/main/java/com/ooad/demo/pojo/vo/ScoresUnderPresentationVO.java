@@ -1,6 +1,6 @@
 package com.ooad.demo.pojo.vo;
 
-import com.ooad.demo.pojo.bo.PresentationTeamBO;
+import com.ooad.demo.entity.Presentation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,18 +11,24 @@ import java.util.List;
  * @Description:
  */
 public class ScoresUnderPresentationVO {
-    private int seminarId;      //属于哪次讨论课
-    private int cClassId;        //属于哪个班级
+    /**
+     * 属于哪次讨论课
+     */
+    private int seminarId;
+    /**
+     * 属于哪个班级
+     */
+    private int cClassId;
 
     List<MyTeamScore> myScores=new ArrayList<>();
 
-    public ScoresUnderPresentationVO(List<PresentationTeamBO> presentationTeamBOS){
-        seminarId=presentationTeamBOS.get(0).getPresentation().getSeminarId();
-        cClassId= presentationTeamBOS.get(0).getTeam().getcClassId();
+    public ScoresUnderPresentationVO(List<Presentation> presentations){
+        seminarId=presentations.get(0).getSeminarId();
+        cClassId= presentations.get(0).getTeam().getcClassId();
 
-        for (PresentationTeamBO presentationTeamBO:
-             presentationTeamBOS) {
-            myScores.add(new MyTeamScore(presentationTeamBO));
+        for (Presentation presentation:
+             presentations) {
+            myScores.add(new MyTeamScore(presentation));
         }
     }
 
@@ -52,18 +58,33 @@ public class ScoresUnderPresentationVO {
 }
 
 class MyTeamScore{
-    private String teamNumber;      //组号
-    private float preScore;       //展示得分
-    private float reportScore;    //书面报告得分
-    private float questionScore;  //提问总得分
-    private float totalScore;      //总得分
+    /**
+     * 组号
+     */
+    private String teamNumber;
+    /**
+     * 展示得分
+     */
+    private float preScore;
+    /**
+     * 书面报告得分
+     */
+    private float reportScore;
+    /**
+     * 提问总得分
+     */
+    private float questionScore;
+    /**
+     * 总得分
+     */
+    private float totalScore;
 
-    public MyTeamScore(PresentationTeamBO presentationTeamBO) {
-        teamNumber=presentationTeamBO.getTeam().getTeamNumber();
-        preScore=presentationTeamBO.getPresentation().getPreScore();
-        reportScore=presentationTeamBO.getPresentation().getReportScore();
-        questionScore=presentationTeamBO.getPresentation().getQuestionScore();
-        totalScore=presentationTeamBO.getPresentation().getTotalScore();
+    public MyTeamScore(Presentation presentation) {
+        teamNumber=presentation.getTeam().getTeamNumber();
+        preScore=presentation.getPreScore();
+        reportScore=presentation.getReportScore();
+        questionScore=presentation.getQuestionScore();
+        totalScore=presentation.getTotalScore();
     }
 
     public String getTeamNumber() {

@@ -15,5 +15,6 @@ import java.util.List;
 @Repository
 public interface CourseMapper {
     Course findById(Integer id);
+
     List<Course> findByTeacherId(Integer teacherId);
 }

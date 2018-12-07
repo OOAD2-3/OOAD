@@ -64,7 +64,11 @@ public class Seminar {
     /**
      * 讨论课所属的所有班级
      */
-    private List<Course> courses;
+    private List<CClass> cClasses;
+    /**
+     * 讨论课所属的课程
+     */
+    private Course course;
     /**
      * 讨论课所属的轮次
      */
@@ -200,12 +204,20 @@ public class Seminar {
         this.orderNumber = orderNumber;
     }
 
-    public List<Course> getCourses() {
-        return courses;
+    public List<CClass> getcClasses() {
+        return cClasses;
     }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
+    public void setcClasses(List<CClass> cClasses) {
+        this.cClasses = cClasses;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public Round getRound() {

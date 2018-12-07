@@ -126,4 +126,12 @@ public class Team {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
+    public CClass getcClass() {
+        return cClass;
+    }
+
+    public void setcClass(CClass cClass) {
+        this.cClass = cClass;
+    }
 }

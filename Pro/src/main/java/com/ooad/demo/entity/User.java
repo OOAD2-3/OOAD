@@ -31,18 +31,18 @@ public class User implements UserDetails {
     private int msgInterval;
 
     /**
-     * 属于什么角色，secruity
-     */
-    private List<Role> roles;
-
-    /**
      * 用户有的课程
      */
     private List<Course> courses;
     /**
      * 学生拥有的小组
      */
-    private List<Team> teams;
+    private Team team;
+
+    /**
+     * 属于什么角色，secruity
+     */
+    private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -169,11 +169,11 @@ public class User implements UserDetails {
         this.courses = courses;
     }
 
-    public List<Team> getTeams() {
-        return teams;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

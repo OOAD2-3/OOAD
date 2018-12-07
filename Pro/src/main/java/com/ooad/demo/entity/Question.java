@@ -29,7 +29,7 @@ public class Question {
     /**
      * 展示信息
      */
-    private Presentation presentation;
+    private Seminar seminar;
 
     //==================================================getter AND setter==================================================//
 
@@ -75,11 +75,11 @@ public class Question {
         this.team = team;
     }
 
-    public Presentation getPresentation() {
-        return presentation;
+    public Seminar getSeminar() {
+        return seminar;
     }
 
-    public void setPresentation(Presentation presentation) {
-        this.presentation = presentation;
+    public void setSeminar(Seminar seminar) {
+        this.seminar = seminar;
     }
 }

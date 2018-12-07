@@ -9,16 +9,17 @@ import java.util.List;
  * @Description:
  */
 public class Course {
-    //基本信息
     private int id;
-    private int teacherId;              //属于哪个老师
+    /**
+     * 属于哪个老师
+     */
+    private int teacherId;
     private int masterCourseId;
     private String name;
     private String intro;
     private boolean shareTeam;
     private boolean shareSeminar;
 
-    //课程规则
     private int minTeamMember;
     private int maxTeamMember;
     private Timestamp startTeamTime;
@@ -43,7 +44,12 @@ public class Course {
     /**
      * 教师信息
     */
-    private User user;
+    private User teacher;
+
+    /**
+     * 课程下的所有学生
+     */
+    private List<User> students;
 
     //==================================================getter AND setter==================================================//
 
@@ -191,11 +197,19 @@ public class Course {
         this.rounds = rounds;
     }
 
-    public User getUser() {
-        return user;
+    public User getTeacher() {
+        return teacher;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
+    public List<User> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<User> students) {
+        this.students = students;
     }
 }

@@ -15,6 +15,8 @@ import java.util.List;
 @Repository
 public interface SeminarMapper {
     Seminar findById(Integer id);
+
     List<Seminar> findByCourseId(Integer courseId);
+
     List<Seminar> findByRoundId(Integer roundId);
 }

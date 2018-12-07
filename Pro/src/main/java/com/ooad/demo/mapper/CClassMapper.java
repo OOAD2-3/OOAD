@@ -14,6 +14,17 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CClassMapper {
+    /**
+     * 通过id查找表所有字段
+     * @param id
+     * @return CClass
+     */
     CClass findById(Integer id);
+
+    /**
+     * 通过courseId查找表所有字段
+     * @param courseId
+     * @return
+     */
     List<CClass> findByCourseId(Integer courseId);
 }
