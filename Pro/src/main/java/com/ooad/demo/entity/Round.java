@@ -9,19 +9,31 @@ import java.util.List;
  * @Description:
  */
 public class Round {
-    //基础信息
     private int id;
-    private int courseId;           //所属课程id
-    private int order;               //轮次
+    /**
+     * 所属课程id
+     */
+    private int courseId;
+    /**
+     * 第几轮次
+     */
+    private int order;
     private int calculatePreType;
     private int calculateQueType;
     private int calculateRepType;
     private int signUpNum;
 
-    //关系
+    /**
+     * 轮次下的讨论课
+     */
     private List<Seminar> seminars=new ArrayList<>();
+    /**
+     * 轮次的课程信息
+     */
+    private Course course;
 
     //==================================================getter AND setter==================================================//
+
     public int getId() {
         return id;
     }
@@ -78,12 +90,19 @@ public class Round {
         this.signUpNum = signUpNum;
     }
 
-    //关系
     public List<Seminar> getSeminars() {
         return seminars;
     }
 
     public void setSeminars(List<Seminar> seminars) {
         this.seminars = seminars;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

@@ -6,9 +6,18 @@ package com.ooad.demo.entity;
  * @Time:22:14 2018/12/1
 */
 public class Score {
-    private int seminarId;      //属于哪个讨论课
-    private int teamId;        //属于哪个team
-    private int roundId;        //属于哪个round
+    /**
+     * 属于哪个讨论课
+     */
+    private int seminarId;
+    /**
+     * 属于哪个team
+     */
+    private int teamId;
+    /**
+     * 属于哪个round
+     */
+    private int roundId;
 
     private float presentationScore;
     private float questionScore;

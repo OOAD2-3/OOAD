@@ -8,18 +8,50 @@ import java.util.List;
  * @Description:
  */
 public class Team {
-    //基本信息
     private int id;
-    private int cClassId;      //属于哪个班
-    private String teamNumber; //组号，自动生成
+    /**
+     * 属于哪个班
+     */
+    private int cClassId;
+    /**
+     * 组号，自动生成
+     */
+    private String teamNumber;
+    /**
+     * 组名
+     */
     private String name;
-    private int leaderId;      //组长id
-    private boolean valid;   //该小组是否合法
-
-    //关系
-    private List<User> users;       //学生
+    /**
+     * 组长id
+     */
+    private int leaderId;
+    /**
+     * 是否合法
+     */
+    private boolean valid;
+    /**
+     * 小组成员
+     */
+    private List<User> users;
+    /**
+     * 小组所有的展示
+     */
     private List<Presentation> presentations;
+    /**
+     * 小组所有的提问
+     */
     private List<Question> questions;
+
+    /*
+    小组所属课程
+    不需要
+    private Course course;
+    */
+
+    /**
+     * 小组所属班级
+     */
+    private CClass cClass;
 
     //==================================================getter AND setter==================================================//
 

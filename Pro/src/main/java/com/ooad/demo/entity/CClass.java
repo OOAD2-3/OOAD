@@ -10,13 +10,27 @@ import java.util.List;
 public class CClass {
     //基本信息
     private int id;
-    private int courseId;               //属于哪个课程
+    /**
+     * 属于哪个课程
+     */
+    private int courseId;
     private String name;
     private String place;
     private String time;
 
     //关系
-    List<Team> teams;
+    /**
+     * 班级下的队伍
+    */
+    private List<Team> teams;
+    /**
+     * 班级下的讨论课
+     */
+    private List<Seminar> seminars;
+    /**
+     * 班级所属的课程
+     */
+    private Course course;
 
     //==================================================getter AND setter==================================================//
     public int getId() {
@@ -65,5 +79,21 @@ public class CClass {
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public List<Seminar> getSeminars() {
+        return seminars;
+    }
+
+    public void setSeminars(List<Seminar> seminars) {
+        this.seminars = seminars;
     }
 }

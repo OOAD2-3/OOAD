@@ -9,27 +9,66 @@ import java.util.List;
  * @Description:
  */
 public class Seminar {
-    //基本信息
-    private int id;
-    private int roundId;           //属于哪个round 默认为0 不属于任何一个
-    private int courseId;          //属于哪个course
-    private int orderNumber;        //属于该course下哪一轮
-    private String topic;           //讨论课主题
-    private String intro;            //讨论课介绍
-    private boolean visible;   //是否可见
-    private boolean share;       //是否共享
-    private Timestamp startTime;    //讨论课开始时间
-    private boolean finished;    //是否结束
-    private boolean started;     //是否开始
 
-    //规则
+    private int id;
+    /**
+     * 属于哪个round 默认为0 不属于任何一个
+     */
+    private int roundId;
+    /**
+     * 属于哪个course
+     */
+    private int courseId;
+    /**
+     * 属于该course下哪一轮
+     */
+    private int orderNumber;
+    /**
+     * 讨论课主题
+     */
+    private String topic;
+    /**
+     * 讨论课介绍
+     */
+    private String intro;
+    /**
+     * 是否可见
+     */
+    private boolean visible;
+    /**
+     * 是否共享
+     */
+    private boolean share;
+    /**
+     * 讨论课开始时间
+     */
+    private Timestamp startTime;
+    /**
+     * 是否结束
+     */
+    private boolean finished;
+    /**
+     * 是否开始
+     */
+    private boolean started;
+
     private int teamNumLimit;
     private Timestamp reportDDL;
     private Timestamp signUpStartTime;
     private Timestamp signUpEndTime;
 
-    //关系
+    /**
+     * 讨论课下的所有展示
+     */
     private List<Presentation> presentations;
+    /**
+     * 讨论课所属的所有班级
+     */
+    private List<Course> courses;
+    /**
+     * 讨论课所属的轮次
+     */
+    private Round round;
 
     //==================================================getter AND setter==================================================//
 
@@ -153,12 +192,27 @@ public class Seminar {
         this.presentations = presentations;
     }
 
-
     public int getOrderNumber() {
         return orderNumber;
     }
 
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
     }
 }

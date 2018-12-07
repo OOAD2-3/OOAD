@@ -6,15 +6,30 @@ package com.ooad.demo.entity;
  * @Description:
  */
 public class Question {
-    //基本信息
-
-    private int seminarId;  //属于哪个讨论课
-    private int teamId;     //属于哪个队伍
-
-    //private int studentId;         //属于哪个学生
-
+    /**
+     * 属于哪个讨论课
+     */
+    private int seminarId;
+    /**
+     * 属于哪个队伍
+     */
+    private int teamId;
+    /**
+     * 提问分数
+     */
     private float questionScore;
+    /**
+     * 是否被提问，可能不需要
+     */
     private boolean asked;
+    /**
+     * 小组信息
+     */
+    private Team team;
+    /**
+     * 展示信息
+     */
+    private Presentation presentation;
 
     //==================================================getter AND setter==================================================//
 
@@ -36,7 +51,6 @@ public class Question {
     }
 
 
-
     public float getQuestionScore() {
         return questionScore;
     }
@@ -51,5 +65,21 @@ public class Question {
 
     public void setAsked(boolean asked) {
         this.asked = asked;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Presentation getPresentation() {
+        return presentation;
+    }
+
+    public void setPresentation(Presentation presentation) {
+        this.presentation = presentation;
     }
 }

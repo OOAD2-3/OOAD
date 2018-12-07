@@ -23,8 +23,18 @@ public class Presentation {
     private String reportFileName;//书面报告文件名
     private String reportFileUrl;//书面报告文件路径
 
-    //关系
+    /**
+     * 展示的提问
+     */
     private List<Question> questions;
+    /**
+     * 展示的讨论课信息
+     */
+    private Seminar seminar;
+    /**
+     * 展示的队伍信息
+     */
+    private Team team;
 
     /**
      * @Description:计算提问的总得分
@@ -145,5 +155,21 @@ public class Presentation {
 
     public void setTotalScore(float totalScore) {
         this.totalScore = totalScore;
+    }
+
+    public Seminar getSeminar() {
+        return seminar;
+    }
+
+    public void setSeminar(Seminar seminar) {
+        this.seminar = seminar;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

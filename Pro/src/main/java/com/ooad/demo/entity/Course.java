@@ -28,10 +28,22 @@ public class Course {
     private double reportWeight;
     private int roundNumber;
 
-    //关系
+    /**
+     * 课程下的班级
+     */
     private List<CClass> cClasses;
+    /**
+     * 课程下的讨论课
+     */
     private List<Seminar> seminars;
+    /**
+     * 课程下的轮次
+     */
     private List<Round> rounds;
+    /**
+     * 教师信息
+    */
+    private User user;
 
     //==================================================getter AND setter==================================================//
 
@@ -177,5 +189,13 @@ public class Course {
 
     public void setRounds(List<Round> rounds) {
         this.rounds = rounds;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
