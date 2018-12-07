@@ -17,8 +17,6 @@ public class ScoreController {
     @Autowired
     ScoreService scoreService;
 
-
-
     /**
      * @Author: WinstonDeng
      * @Description: 修改展示成绩 presentationScore
