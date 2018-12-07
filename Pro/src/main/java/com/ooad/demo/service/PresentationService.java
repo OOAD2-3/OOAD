@@ -28,10 +28,10 @@ public class PresentationService {
      * @Description:将PresentationTeamBO转换成ScoresUnderPresentationVO前端需要的数据
      * @Author:17Wang
      * @Time:14:18 2018/12/2
-    */
-    public ScoresUnderPresentationVO listScoresUnderPresentationVOBySeminarIdAndCClassId(int seminarId,int cClassId){
-        List<Presentation> presentations = presentationDao.listBySeminarId(seminarId, false,true,true);
-        List<Presentation> myPresentations=new ArrayList<>();
+     */
+    public ScoresUnderPresentationVO listScoresUnderPresentationVOBySeminarIdAndCClassId(int seminarId, int cClassId) {
+        List<Presentation> presentations = presentationDao.listBySeminarId(seminarId, false, true, true);
+        List<Presentation> myPresentations = new ArrayList<>();
 
         for (Presentation presentation : presentations) {
             Team team = teamDao.getById(presentation.getTeamId(), false, false, false, true);

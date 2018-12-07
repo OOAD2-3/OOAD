@@ -1,7 +1,10 @@
 package com.ooad.demo.controller;
 
+import com.ooad.demo.entity.User;
 import com.ooad.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,10 +39,11 @@ public class UserController {
      * @Author: 17Wang
      * @Time:11:27 2018/12/5
     */
-    @PostMapping("/login")
+    @PostMapping("/test")
     @ResponseBody
-    public String test1(@RequestParam("username") String name,@RequestParam("password") String password){
-        return "!@3";
+    public ResponseEntity<Object> test1(){
+
+        return ResponseEntity.status(400).body(null);
     }
 
     /**
@@ -47,9 +51,10 @@ public class UserController {
      * @Author: 17Wang
      * @Time: 21:14 2018/12/5
     */
-    @GetMapping("/test")
+    @PostMapping("/test1")
     @ResponseBody
-    public String test2(){
+    public String test2(HttpServletResponse response){
+        response.setStatus(400);
         return "!@3";
     }
 }

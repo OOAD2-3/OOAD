@@ -1,7 +1,7 @@
 package com.ooad.demo.service;
 
 import com.ooad.demo.entity.User;
-import com.ooad.demo.mapper.TeacherMapper;
+import com.ooad.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeacherService {
     @Autowired
-    TeacherMapper teacherMapper;
+    private UserMapper userMapper;
 
     public User listAllTeacher(int id){
-        return teacherMapper.findById(id);
+        return userMapper.findById(id);
     }
 }

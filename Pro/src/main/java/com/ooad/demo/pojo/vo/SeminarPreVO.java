@@ -1,6 +1,6 @@
 package com.ooad.demo.pojo.vo;
 
-import com.ooad.demo.pojo.bo.PresentationTeamBO;
+import com.ooad.demo.entity.Presentation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +20,12 @@ public class SeminarPreVO {
     public List<MyPresentation> myPresentations=new ArrayList<>();
 
 
-    public SeminarPreVO(List<PresentationTeamBO> presentationTeamBOS){
+    public SeminarPreVO(List<Presentation> presentations){
 
-        seminarId=presentationTeamBOS.get(0).getPresentation().getSeminarId();
+        seminarId=presentations.get(0).getSeminarId();
 
-        for(PresentationTeamBO presentationTeamBO
-                :presentationTeamBOS){
-            myPresentations.add(new MyPresentation(presentationTeamBO));
+        for(Presentation presentation :presentations){
+            myPresentations.add(new MyPresentation(presentation));
         }
 
 
@@ -70,15 +69,15 @@ class MyPresentation{
     private String reportFileName;
     private String reportFileUrl;
 
-    public MyPresentation(PresentationTeamBO presentationTeamBO){
-        teamId=presentationTeamBO.getPresentation().getTeamId();
-        teamNumber=presentationTeamBO.getTeam().getTeamNumber();
-        preOrder=presentationTeamBO.getPresentation().getPreOrder();
-        preScore=presentationTeamBO.getPresentation().getPreScore();
-        preFileName=presentationTeamBO.getPresentation().getPreFileName();
-        preFileUrl=presentationTeamBO.getPresentation().getPreFileUrl();
-        reportFileName=presentationTeamBO.getPresentation().getReportFileName();
-        reportFileUrl=presentationTeamBO.getPresentation().getReportFileUrl();
+    public MyPresentation(Presentation presentation){
+        teamId=presentation.getTeamId();
+        teamNumber=presentation.getTeam().getTeamNumber();
+        preOrder=presentation.getPreOrder();
+        preScore=presentation.getPreScore();
+        preFileName=presentation.getPreFileName();
+        preFileUrl=presentation.getPreFileUrl();
+        reportFileName=presentation.getReportFileName();
+        reportFileUrl=presentation.getReportFileUrl();
     }
 
     public int getTeamId() {
