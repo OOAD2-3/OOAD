@@ -14,6 +14,18 @@ import java.util.List;
 @Mapper
 @Repository
 public interface RoleMapper {
+    //================查找==========================
+    /**
+     * 通过menuId查找role表的所有字段
+     * @param menuId
+     * @return  List<Integer>
+     */
     List<Integer> listRoleIdByMenuId(int menuId);
+
+    /**
+     * 通过id查找role表的所有字段
+     * @param id
+     * @return  Role
+     */
     Role getById(int id);
 }

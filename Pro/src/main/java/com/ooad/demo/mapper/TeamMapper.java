@@ -15,7 +15,19 @@ import java.util.List;
 @Mapper
 @Repository
 public interface TeamMapper {
+    //=======================查找=====================
+    /**
+     * 通过id查找表的所有字段
+     * @param id
+     * @return Team
+     */
     Team findById(Integer id);
+
+    /**
+     * 通过cClassId查找表的所有字段
+     * @param cClassId
+     * @return List<Team>
+     */
     List<Team> findBycClassId(Integer cClassId);
 
 }
