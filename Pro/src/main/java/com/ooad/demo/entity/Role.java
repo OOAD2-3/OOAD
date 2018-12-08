@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Role {
     private int id;
-    private String name;
+    private String roleName;
     private String nameZW;
 
     List<User> users = new ArrayList<>();
@@ -26,12 +26,12 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getNameZW() {

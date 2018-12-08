@@ -29,13 +29,16 @@ public class CourseDao {
     @Autowired
     private RoundMapper roundMapper;
 
+    @Autowired
+    private TeamMapper teamMapper;
+
     /**
      * Description:通过id获取Course，三个布尔值参数可以设置对应的查询表
      *
      * @Author:17Wang
      * @Time:14:44 2018/11/28
      */
-    public Course getById(int id, boolean hasClasses, boolean hasRounds, boolean hasSeminars, boolean hasTeacher, boolean hasStudents) {
+    public Course getById(int id, boolean hasClasses, boolean hasRounds, boolean hasSeminars, boolean hasTeacher) {
         Course course = courseMapper.findById(id);
 
         if (hasClasses) {
@@ -54,10 +57,6 @@ public class CourseDao {
             User teacher = userMapper.findById(course.getTeacherId());
             course.setTeacher(teacher);
         }
-        if (hasStudents) {
-            //需要连表查询
-            //待完成
-        }
 
         return course;
     }
@@ -68,7 +67,7 @@ public class CourseDao {
      * @Author:17Wang
      * @Time:23:23 2018/11/27
      */
-    public List<Course> listByTeacherId(int teacherId, boolean hasClasses, boolean hasRounds, boolean hasSeminars, boolean hasTeacher, boolean hasStudents) {
+    public List<Course> listByTeacherId(int teacherId, boolean hasClasses, boolean hasRounds, boolean hasSeminars, boolean hasTeacher) {
         List<Course> courses = courseMapper.findByTeacherId(teacherId);
 
         for (Course course :
@@ -88,10 +87,6 @@ public class CourseDao {
             if (hasTeacher) {
                 User teacher = userMapper.findById(course.getTeacherId());
                 course.setTeacher(teacher);
-            }
-            if (hasStudents) {
-                //需要连表查询
-                //待完成
             }
         }
 

@@ -43,11 +43,10 @@ public class Team {
      */
     private List<Question> questions = new ArrayList<>();
 
-    /*
-    小组所属课程
-    不需要
+    /**
+     * 小组所属课程
+     */
     private Course course;
-    */
 
     /**
      * 小组所属班级
@@ -126,6 +125,14 @@ public class Team {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public CClass getcClass() {

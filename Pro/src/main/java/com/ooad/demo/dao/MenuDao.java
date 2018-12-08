@@ -28,7 +28,7 @@ public class MenuDao {
      * @Time: 21:19 2018/12/5
     */
     public List<Menu> listAll(){
-        List<Menu> menus=menuMapper.listAll();
+        List<Menu> menus=menuMapper.findAll();
         for(Menu menu:menus){
             List<Integer> roleId=roleDao.listRoleIdByMenuId(menu.getId());
             List<Role> roles=new ArrayList<>();

@@ -63,10 +63,6 @@ public class Seminar {
      */
     private List<Presentation> presentations = new ArrayList<>();
     /**
-     * 讨论课所属的所有班级
-     */
-    private List<CClass> cClasses = new ArrayList<>();
-    /**
      * 讨论课所属的课程
      */
     private Course course;
@@ -203,14 +199,6 @@ public class Seminar {
 
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
-    }
-
-    public List<CClass> getcClasses() {
-        return cClasses;
-    }
-
-    public void setcClasses(List<CClass> cClasses) {
-        this.cClasses = cClasses;
     }
 
     public Course getCourse() {

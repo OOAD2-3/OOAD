@@ -35,7 +35,7 @@ public class UserDao {
      * @Author: 17Wang
      * @Time: 15:35 2018/12/7
      */
-    public User getById(int id, boolean hasCourses, boolean hasTeam, boolean hasRoles) {
+    public User getById(int id, boolean hasCourses, boolean hasTeam) {
         User user = userMapper.findById(id);
 
         if (hasCourses) {
@@ -44,10 +44,6 @@ public class UserDao {
         }
         if (hasTeam) {
             //这里需要连关系表team_student
-            //待完成
-        }
-        if (hasRoles) {
-            //这里需要连关系表role_student
             //待完成
         }
 
@@ -60,8 +56,8 @@ public class UserDao {
      * @Author: 17Wang
      * @Time: 15:45 2018/12/7
      */
-    public User getByUserId(String userId, boolean hasCourses, boolean hasTeam, boolean hasRoles) {
-        User user = userMapper.findByUserId(userId);
+    public User getByAccount(String account, boolean hasCourses, boolean hasTeam) {
+        User user = userMapper.findByAccount(account);
 
         if (hasCourses) {
             //这里需要连关系表course_student
@@ -71,11 +67,16 @@ public class UserDao {
             //这里需要连关系表team_student
             //待完成
         }
-        if (hasRoles) {
-            //这里需要连关系表role_student
-            //待完成
-        }
 
         return user;
+    }
+
+    /**
+     * Description:
+     * @Author: 17Wang
+     * @Time: 22:22 2018/12/7
+     */
+    public User getUserRoleById(int userId){
+        return userMapper.findUserRoleByUserId(userId);
     }
 }

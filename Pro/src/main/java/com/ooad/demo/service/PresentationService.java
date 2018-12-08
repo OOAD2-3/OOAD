@@ -26,7 +26,7 @@ public class PresentationService {
     private TeamDao teamDao;
 
     /**
-     * Description:更新报告成绩
+     * Description: 更新报告成绩
      * @Author: 17Wang
      * @Time: 21:18 2018/12/7
     */
@@ -35,7 +35,7 @@ public class PresentationService {
     }
 
     /**
-     * Description:更新展示成绩
+     * Description: 更新展示成绩
      * @Author: 17Wang
      * @Time: 21:23 2018/12/7
     */
@@ -44,7 +44,7 @@ public class PresentationService {
     }
 
     /**
-     * Description:将PresentationTeamBO转换成ScoresUnderPresentationVO前端需要的数据
+     * Description: 将PresentationTeamBO转换成ScoresUnderPresentationVO前端需要的数据
      * @Author:17Wang
      * @Time:14:18 2018/12/2
      */

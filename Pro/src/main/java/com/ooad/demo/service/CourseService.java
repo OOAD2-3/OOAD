@@ -25,14 +25,14 @@ public class CourseService {
     RoundDao roundDao;
 
     /**
-     * Description:给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
+     * Description: 给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
      *
      * @Author: 17Wang
      * @Time:0:01 2018/11/28
      */
     public List<SeminarsOverviewVO> listSeminarsOverviewVOByTeacherId(int teacherId) {
         List<SeminarsOverviewVO> seminarOverviewVOS = new ArrayList<>();
-        List<Course> courses = courseDao.listByTeacherId(teacherId, true, true, true, false, false);
+        List<Course> courses = courseDao.listByTeacherId(teacherId, true, true, true, false);
         for (Course course :
                 courses) {
 
@@ -40,7 +40,7 @@ public class CourseService {
             if (course.getMasterCourseId() == 0) {
                 seminarOverviewVOS.add(new SeminarsOverviewVO(course));
             } else {
-                Course subCourse = courseDao.getById(course.getMasterCourseId(), false, false, true, false, false);
+                Course subCourse = courseDao.getById(course.getMasterCourseId(), false, false, true, false);
                 subCourse.setId(course.getId());
                 subCourse.setName(course.getName());
                 subCourse.setMasterCourseId(course.getMasterCourseId());
@@ -53,12 +53,12 @@ public class CourseService {
     }
 
     /**
-     * @Description:给某个课程的讨论课界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的轮次和轮次所包括的讨论课
+     * Description: 给某个课程的讨论课界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的轮次和轮次所包括的讨论课
      * @Author:17Wang
      * @Time:23:49 2018/11/29
      */
     public SeminarsUnderRoundsVO SeminarsUnderRoundsVOByCourseId(int courseId) {
-        Course course = courseDao.getById(courseId, true, true, false, false, false);
+        Course course = courseDao.getById(courseId, true, true, false, false);
         SeminarsUnderRoundsVO seminarsUnderRoundsVOS = new SeminarsUnderRoundsVO(course);
         return seminarsUnderRoundsVOS;
     }

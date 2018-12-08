@@ -1,5 +1,7 @@
 package com.ooad.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +17,7 @@ import java.util.List;
  */
 public class User implements UserDetails {
     private int id;
-    private String userId;
+    private String account;
     private String password;
     /**
      * 0是学生 1是老师
@@ -27,12 +29,12 @@ public class User implements UserDetails {
     private boolean active;
     /**
      * 消息发送时间间隔
-    */
+     */
     private int msgInterval;
     /**
      * 用户有的课程
      */
-    private List<Course> courses=new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();
     /**
      * 学生拥有的小组
      */
@@ -40,20 +42,11 @@ public class User implements UserDetails {
     /**
      * 属于什么角色，secruity
      */
-    private List<Role> roles=new ArrayList<>();
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;
-    }
+    private List<Role> roles = new ArrayList<>();
 
     @Override
     public String getUsername() {
-        return userId;
+        return account;
     }
 
     @Override
@@ -62,21 +55,35 @@ public class User implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+        }
+        return authorities;
+    }
+
+    @Override
+    @JsonIgnore
     public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isEnabled() {
         return active;
     }
@@ -91,12 +98,12 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getAccount() {
+        return account;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public void setPassword(String password) {

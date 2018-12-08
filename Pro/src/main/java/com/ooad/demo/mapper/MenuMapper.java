@@ -14,6 +14,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MenuMapper {
-    List<Menu> listAll();
+    List<Menu> findAll();
 
+    List<Menu> findMenuRoleByMenuId(int menuId);
 }
