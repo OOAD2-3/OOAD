@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @Description:
  */
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
     @Autowired
     UserMapper userMapper;
 
@@ -23,8 +23,8 @@ public class UserService implements UserDetailsService {
      * @Author:17Wang
      * @Time:23:45 2018/12/4
     */
-    public boolean login(String userId, String password){
-        User user=userMapper.findByUserId(userId);
+    public boolean login(String account, String password){
+        User user=userMapper.findByAccount(account);
 
         //如果查询不到，说明账号输入错误，不存在该用户，登录失败，返回false
         if(user==null) {
@@ -37,15 +37,5 @@ public class UserService implements UserDetailsService {
         }
 
         return false;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user=userMapper.findByUserId(s);
-        if (user==null){
-            throw new UsernameNotFoundException("用户名不对");
-        }
-
-        return user;
     }
 }

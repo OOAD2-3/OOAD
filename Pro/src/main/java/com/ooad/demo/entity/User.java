@@ -15,7 +15,7 @@ import java.util.List;
  * @Date:22:20 2018/12/4
  * @Description:
  */
-public class User implements UserDetails {
+public class User {
     private int id;
     private String account;
     private String password;
@@ -44,50 +44,6 @@ public class User implements UserDetails {
      */
     private List<Role> roles = new ArrayList<>();
 
-    @Override
-    public String getUsername() {
-        return account;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    @JsonIgnore
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
-        }
-        return authorities;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isEnabled() {
-        return active;
-    }
-
     /* ==================================================getter AND setter==================================================*/
 
     public int getId() {
@@ -104,6 +60,10 @@ public class User implements UserDetails {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
@@ -158,14 +118,6 @@ public class User implements UserDetails {
         this.msgInterval = msgInterval;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
     public List<Course> getCourses() {
         return courses;
     }
@@ -180,5 +132,13 @@ public class User implements UserDetails {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

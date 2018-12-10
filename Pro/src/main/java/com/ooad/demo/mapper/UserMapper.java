@@ -28,4 +28,6 @@ public interface UserMapper {
     User findByAccount(String account);
 
     User findUserRoleByUserId(int userId);
+
+    User findUserRoleByUsername(String username);
 }

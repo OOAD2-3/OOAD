@@ -79,4 +79,8 @@ public class UserDao {
     public User getUserRoleById(int userId){
         return userMapper.findUserRoleByUserId(userId);
     }
+
+    public User getUserRoleByUsername(String username){
+        return userMapper.findUserRoleByUsername(username);
+    }
 }

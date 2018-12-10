@@ -1,17 +1,21 @@
 package com.ooad.demo.test;
 
+import com.ooad.demo.config.jwt.JwtUser;
+import com.ooad.demo.config.jwt.JwtUserDetailsService;
+import com.ooad.demo.dao.MenuDao;
 import com.ooad.demo.dao.UserDao;
+import com.ooad.demo.entity.Menu;
 import com.ooad.demo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.StreamingHttpOutputMessage;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Author: 17Wang
@@ -19,20 +23,27 @@ import javax.servlet.http.HttpServletResponse;
  * Description:
  */
 @RestController
+@RequestMapping("/common")
 public class TestController {
     @Autowired
-    private UserDao userDao;
+    private JwtUserDetailsService jwtUserDetailsService;
 
     @GetMapping("/test")
     @ResponseBody
-    public User test(@RequestParam("userid") int userId){
-        System.out.println(1);
-        return userDao.getUserRoleById(userId);
+    public JwtUser test(@RequestParam("username") String username){
+        return jwtUserDetailsService.loadUserByUsername(username);
     }
 
     @GetMapping("/test1")
     @ResponseBody
-    public User test1(@RequestParam("userid") int userId, HttpServletRequest request, HttpServletResponse response){
-        return userDao.getById(userId, false, false);
+    public JwtUser test1(@RequestParam("username") String username){
+        return jwtUserDetailsService.loadUserByUsername(username);
+    }
+
+    @GetMapping("/test2")
+    @PreAuthorize("hasRole('ROLE_teacher')")
+    @ResponseBody
+    public JwtUser test2(@RequestParam("username") String username){
+        return jwtUserDetailsService.loadUserByUsername(username);
     }
 }

@@ -28,10 +28,10 @@ public class UserController {
      * @Author: 17Wang
      * @Time:11:27 2018/12/5
     */
-    @GetMapping("/login")
+    @PostMapping("/login")
     @ResponseBody
-    public boolean login(@RequestParam("userid") String userId, @RequestParam("password") String password) {
-        return userService.login(userId, password);
+    public boolean login(@RequestParam("username") String userName, @RequestParam("password") String password) {
+        return userService.login(userName, password);
     }
 
     /**
@@ -39,11 +39,10 @@ public class UserController {
      * @Author: 17Wang
      * @Time:11:27 2018/12/5
     */
-    @PostMapping("/test")
+    @GetMapping("/login")
     @ResponseBody
-    public ResponseEntity<Object> test1(){
-
-        return ResponseEntity.status(400).body(null);
+    public boolean login2(@RequestParam("username") String userName, @RequestParam("password") String password) {
+        return userService.login(userName, password);
     }
 
     /**
