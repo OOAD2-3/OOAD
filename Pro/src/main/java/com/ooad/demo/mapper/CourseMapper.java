@@ -16,7 +16,6 @@ import java.util.List;
 @Mapper
 @Repository
 public interface CourseMapper {
-    //================查找==========================
     /**
      * 通过id查找表所有字段
      * @param id
@@ -34,7 +33,14 @@ public interface CourseMapper {
     /**
      * 删除课程
      * @param id
-     * @throws SQLException
+     * @return 是否删除成功
      */
-    void deleteById(int id) throws SQLException;
+    boolean deleteById(int id);
+
+    /**
+     * 新增课程
+     * @param course
+     * @return 插入的行数
+     */
+    int addOne(Course course);
 }

@@ -7,19 +7,6 @@ package com.ooad.demo.controller.handler;
  * @Date: 13:29 2018/12/12
  */
 public class ErrorInfo<T> {
-    /**
-     * id格式错误
-     */
-    public static final Integer ID_FORMAT_ERROR = 400;
-    /**
-     * 需要权限错误
-     */
-    public static final Integer AUTHORIZATION_ERROR = 403;
-    /**
-     * 资源没找到错误
-     */
-    public static final Integer NOT_FOUND_ERROR = 404;
-
 
     private Integer code;
     private String message;

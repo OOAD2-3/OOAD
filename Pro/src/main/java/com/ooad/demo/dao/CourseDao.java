@@ -1,10 +1,13 @@
 package com.ooad.demo.dao;
 
+import com.ooad.demo.controller.handler.ErrorInfo;
+import com.ooad.demo.controller.handler.MyException;
 import com.ooad.demo.entity.*;
 import com.ooad.demo.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -114,5 +117,39 @@ public class CourseDao {
         return courses;
     }
 
+    /**
+     * Description:删除课程
+     *
+     * @Author: 17Wang
+     * @Time: 15:24 2018/12/12
+     */
+    public boolean deleteById(int id) throws MyException {
+        if (getById(id) == null) {
+            throw new MyException("删除课程失败！没有存在该id的行", MyException.NOT_FOUND_ERROR);
+        } else {
+            //删除失败
+            try {
+                courseMapper.deleteById(id);
+            }catch (Exception e){
+                throw new MyException("删除课程失败！数据库执行错误", MyException.NOT_FOUND_ERROR);
+            }
+        }
+        return true;
+    }
 
+    /**
+     * Description:新增课程
+     *
+     * @Author: 17Wang
+     * @Time: 16:30 2018/12/12
+     */
+    public boolean addOne(Course course) throws MyException {
+        try {
+            courseMapper.addOne(course);
+        }catch (Exception e){
+            throw new MyException("新增课程失败！数据库执行错误", MyException.ERROR);
+        }
+
+        return true;
+    }
 }

@@ -28,9 +28,6 @@ public class CourseService {
     CourseDao courseDao;
 
     @Autowired
-    CourseMapper courseMapper;
-
-    @Autowired
     RoundDao roundDao;
 
     @Autowired
@@ -70,7 +67,7 @@ public class CourseService {
      * @Time:23:49 2018/11/29
      */
     public SeminarsUnderRoundsVO SeminarsUnderRoundsVOByCourseId(int courseId) {
-        Course course = courseDao.getById(courseId, CourseDao.HAS_CLASSES,CourseDao.HAS_ROUNDS);
+        Course course = courseDao.getById(courseId, CourseDao.HAS_CLASSES, CourseDao.HAS_ROUNDS);
         SeminarsUnderRoundsVO seminarsUnderRoundsVOS = new SeminarsUnderRoundsVO(course);
         return seminarsUnderRoundsVOS;
     }
@@ -98,14 +95,15 @@ public class CourseService {
      * @Time: 13:42 2018/12/12
      */
     public boolean deleteById(int id) throws MyException {
-        try {
-            courseMapper.deleteById(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("删除出错");
-            throw new MyException("删除失败", ErrorInfo.NOT_FOUND_ERROR);
-        }
+        return courseDao.deleteById(id);
+    }
 
-        return true;
+    /**
+     * Description: 新增课程
+     * @Author: 17Wang
+     * @Time: 17:11 2018/12/12
+     */
+    public boolean addCourse(Course course) throws MyException {
+        return courseDao.addOne(course);
     }
 }
