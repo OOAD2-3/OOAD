@@ -83,4 +83,21 @@ public class CClassDao {
 
         return cClasses;
     }
+    /**
+     * Description: 新建班级
+     * @Author: WinstonDeng
+     * @Date: 10:49 2018/12/12
+     */
+    final static int HAS_TEAMS=0;
+    final static int HAS_SEMINARS=1;
+    final static int HAS_COURSE=2;
+    public boolean addCClass(int courseId, CClass cClass) throws Exception {
+        try {
+            cClass.setCourseId(courseId);
+            cClassMapper.insertcClass(cClass);
+        }catch (Exception e){
+            throw new Exception("新建课程错误");
+        }
+        return true;
+    }
 }

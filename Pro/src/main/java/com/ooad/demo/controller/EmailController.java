@@ -19,7 +19,7 @@ public class EmailController {
 
     @RequestMapping("/sendemail")
     public String sendEmail() throws JsonProcessingException {
-        boolean isSend = EmailUtils.sendEmail("ooadEmail邮件测试", new String[]{"1520166121@qq.com"}, null, "<h3><a>6不6，舒服了</a></h3>", null);
+        boolean isSend = EmailUtils.sendEmail("ooadEmail邮件测试", new String[]{"842237857@qq.com"}, null, "<h3><a>6不6，舒服了</a></h3>", null);
         return "发送邮件:" + isSend;
     }
 

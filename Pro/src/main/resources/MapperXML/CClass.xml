@@ -11,4 +11,8 @@
     <select id="findByCourseId" parameterType="Integer" resultMap="tab_class" resultType="com.ooad.demo.entity.CClass">
         SELECT * FROM cclass WHERE  course_id= #{courseId}
     </select>
+    <insert id="insertcClass" parameterType="com.ooad.demo.entity.CClass" useGeneratedKeys="true" keyProperty="id">
+        insert into cclass(course_id, name, place, "time")
+        values (#{courseId},#{name},#{place},#{time})
+    </insert>
 </mapper>

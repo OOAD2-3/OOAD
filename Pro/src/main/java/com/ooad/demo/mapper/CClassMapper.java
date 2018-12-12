@@ -28,4 +28,6 @@ public interface CClassMapper {
      * @return
      */
     List<CClass> findByCourseId(Integer courseId);
+    //================插入=========================
+    void insertcClass(CClass cClass);
 }

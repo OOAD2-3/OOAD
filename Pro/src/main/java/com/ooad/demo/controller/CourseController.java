@@ -1,10 +1,12 @@
 package com.ooad.demo.controller;
 
+import com.ooad.demo.entity.CClass;
 import com.ooad.demo.service.CourseService;
 
 import com.ooad.demo.pojo.vo.SeminarsOverviewVO;
 import com.ooad.demo.pojo.vo.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,5 +52,21 @@ public class CourseController {
         return courseService.SeminarsUnderRoundsVOByCourseId(courseId);
     }
 
+    /**
+     * Description: 课程下新建班级
+     * @Author: WinstonDeng
+     * @Date: 11:11 2018/12/12
+     */
+    @PostMapping("/{courseId}/class")
+    @ResponseBody
+    public ResponseEntity<Boolean> createcClassInCoursePage(@PathVariable("courseId") int courseId, @RequestBody CClass cClass){
+       boolean flag;
+       try {
+           flag=courseService.createCClass(courseId,cClass);
+       }catch (Exception e){
+           return ResponseEntity.status(401).body(false);
+       }
+       return ResponseEntity.ok().body(flag);
+    }
 
 }
