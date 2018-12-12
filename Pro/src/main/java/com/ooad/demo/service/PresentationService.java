@@ -27,29 +27,32 @@ public class PresentationService {
 
     /**
      * Description: 更新报告成绩
+     *
      * @Author: 17Wang
      * @Time: 21:18 2018/12/7
-    */
-    public boolean updatePresentationReportScoreBySeminarIdAndTeamId(int seminarId, int teamId, float reportScore){
-        return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(seminarId,teamId,reportScore);
+     */
+    public boolean updatePresentationReportScoreBySeminarIdAndTeamId(int seminarId, int teamId, float reportScore) {
+        return presentationDao.updatePresentationReportScoreBySeminarIdAndTeamId(seminarId, teamId, reportScore);
     }
 
     /**
      * Description: 更新展示成绩
+     *
      * @Author: 17Wang
      * @Time: 21:23 2018/12/7
-    */
-    public boolean updatePresentationPreScoreBySemianrIdAndTeamId(int seminarId, int teamId, float preScore){
+     */
+    public boolean updatePresentationPreScoreBySemianrIdAndTeamId(int seminarId, int teamId, float preScore) {
         return presentationDao.updatePresentationPreScoreBySemianrIdAndTeamId(seminarId, teamId, preScore);
     }
 
     /**
      * Description: 将PresentationTeamBO转换成ScoresUnderPresentationVO前端需要的数据
+     *
      * @Author:17Wang
      * @Time:14:18 2018/12/2
      */
     public ScoresUnderPresentationVO listScoresUnderPresentationVOBySeminarIdAndCClassId(int seminarId, int cClassId) {
-        List<Presentation> presentations = presentationDao.listBySeminarId(seminarId, false, true, true);
+        List<Presentation> presentations = presentationDao.listBySeminarId(seminarId, PresentationDao.HAS_SEMINAR, PresentationDao.HAS_TEAM);
         List<Presentation> myPresentations = new ArrayList<>();
 
         for (Presentation presentation : presentations) {
