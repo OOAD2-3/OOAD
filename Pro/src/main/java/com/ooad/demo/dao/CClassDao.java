@@ -1,6 +1,6 @@
 package com.ooad.demo.dao;
 
-import com.ooad.demo.controller.handler.MyException;
+import com.ooad.demo.exception.MyException;
 import com.ooad.demo.entity.CClass;
 import com.ooad.demo.entity.Course;
 import com.ooad.demo.entity.Seminar;

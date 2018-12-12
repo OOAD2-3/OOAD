@@ -1,13 +1,11 @@
 package com.ooad.demo.dao;
 
-import com.ooad.demo.controller.handler.ErrorInfo;
-import com.ooad.demo.controller.handler.MyException;
+import com.ooad.demo.exception.MyException;
 import com.ooad.demo.entity.*;
 import com.ooad.demo.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**

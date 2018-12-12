@@ -1,18 +1,15 @@
 package com.ooad.demo.service;
 
-import com.ooad.demo.controller.handler.ErrorInfo;
-import com.ooad.demo.controller.handler.MyException;
+import com.ooad.demo.exception.MyException;
 import com.ooad.demo.dao.CClassDao;
 import com.ooad.demo.dao.CourseDao;
 import com.ooad.demo.dao.RoundDao;
 import com.ooad.demo.entity.CClass;
 import com.ooad.demo.entity.Course;
-import com.ooad.demo.mapper.CourseMapper;
 import com.ooad.demo.pojo.vo.SeminarsOverviewVO;
 import com.ooad.demo.pojo.vo.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;

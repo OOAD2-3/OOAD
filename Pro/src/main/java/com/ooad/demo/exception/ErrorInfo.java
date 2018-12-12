@@ -1,4 +1,4 @@
-package com.ooad.demo.controller.handler;
+package com.ooad.demo.exception;
 
 /**
  * Description:
