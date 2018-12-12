@@ -28,21 +28,32 @@ public class RoundDao {
     private CourseMapper courseMapper;
 
     /**
+     * 讨论课信息
+     */
+    public static final int HAS_SEMINARS = 0;
+    /**
+     * 课程信息
+     */
+    public static final int HAS_COURSE = 1;
+
+    /**
      * Description: 通过Id获取该轮次的信息，和轮次里的所有讨论课
      *
      * @Author:17Wang
      * @Time: 23:37 2018/11/29
      */
-    public Round getById(int id, boolean hasSeminars, boolean hasCourse) {
+    public Round getById(int id, int... hasSomething) {
         Round round = roundMapper.findById(id);
 
-        if (hasSeminars) {
-            List<Seminar> seminars = seminarMapper.findByRoundId(round.getId());
-            round.setSeminars(seminars);
-        }
-        if (hasCourse) {
-            Course course = courseMapper.findById(round.getCourseId());
-            round.setCourse(course);
+        for (int i : hasSomething) {
+            if (i == HAS_SEMINARS) {
+                List<Seminar> seminars = seminarMapper.findByRoundId(id);
+                round.setSeminars(seminars);
+            }
+            if (i == HAS_COURSE) {
+                Course course = courseMapper.findById(round.getCourseId());
+                round.setCourse(course);
+            }
         }
 
         return round;
@@ -54,17 +65,19 @@ public class RoundDao {
      * @Author:17Wang
      * @Time: 23:36 2018/11/29
      */
-    public List<Round> listByCourseId(int courseId, boolean hasSeminars, boolean hasCourse) {
+    public List<Round> listByCourseId(int courseId, int... hasSomething) {
         List<Round> rounds = roundMapper.findByCourseId(courseId);
 
         for (Round round : rounds) {
-            if (hasSeminars) {
-                List<Seminar> seminars = seminarMapper.findByRoundId(round.getId());
-                round.setSeminars(seminars);
-            }
-            if (hasCourse) {
-                Course course = courseMapper.findById(round.getCourseId());
-                round.setCourse(course);
+            for (int i : hasSomething) {
+                if (i == HAS_SEMINARS) {
+                    List<Seminar> seminars = seminarMapper.findByRoundId(round.getId());
+                    round.setSeminars(seminars);
+                }
+                if (i == HAS_COURSE) {
+                    Course course = courseMapper.findById(round.getCourseId());
+                    round.setCourse(course);
+                }
             }
         }
 
