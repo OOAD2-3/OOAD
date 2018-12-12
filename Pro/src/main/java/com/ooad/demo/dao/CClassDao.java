@@ -33,25 +33,40 @@ public class CClassDao {
     private CourseMapper courseMapper;
 
     /**
+     * 是否添加队伍信息
+     */
+    public static final int HAS_TEAMS = 0;
+    /**
+     * 是否添加讨论课信息
+     */
+    public static final int HAS_SEMINARS = 1;
+    /**
+     * 是否添加课程信息
+     */
+    public static final int HAS_COURSE = 2;
+
+    /**
      * Description:
      *
      * @Author: 17Wang
      * @Time: 14:42 2018/12/7
      */
-    public CClass getById(int id, boolean hasTeams, boolean hasSeminars, boolean hasCourse) {
+    public CClass getById(int id, int... hasSomething) {
         CClass cClass = cClassMapper.findById(id);
 
-        if (hasTeams) {
-            List<Team> teams = teamMapper.findBycClassId(id);
-            cClass.setTeams(teams);
-        }
-        if (hasSeminars) {
-            List<Seminar> seminars=seminarMapper.findByCourseId(cClass.getCourseId());
-            cClass.setSeminars(seminars);
-        }
-        if (hasCourse) {
-            Course course=courseMapper.findById(cClass.getCourseId());
-            cClass.setCourse(course);
+        for (int i : hasSomething) {
+            if (i == HAS_TEAMS) {
+                List<Team> teams = teamMapper.findBycClassId(id);
+                cClass.setTeams(teams);
+            }
+            if (i == HAS_SEMINARS) {
+                List<Seminar> seminars = seminarMapper.findByCourseId(cClass.getCourseId());
+                cClass.setSeminars(seminars);
+            }
+            if (i == HAS_COURSE) {
+                Course course = courseMapper.findById(cClass.getCourseId());
+                cClass.setCourse(course);
+            }
         }
 
         return cClass;
@@ -63,39 +78,40 @@ public class CClassDao {
      * @Author: 17Wang
      * @Time: 15:00 2018/12/7
      */
-    public List<CClass> listByCourseId(int courseId, boolean hasTeams, boolean hasSeminars, boolean hasCourse) {
+    public List<CClass> listByCourseId(int courseId, int... hasSomething) {
         List<CClass> cClasses = cClassMapper.findByCourseId(courseId);
 
         for (CClass cClass : cClasses) {
-            if (hasTeams) {
-                List<Team> teams = teamMapper.findBycClassId(cClass.getId());
-                cClass.setTeams(teams);
-            }
-            if (hasSeminars) {
-                List<Seminar> seminars=seminarMapper.findByCourseId(cClass.getCourseId());
-                cClass.setSeminars(seminars);
-            }
-            if (hasCourse) {
-                Course course=courseMapper.findById(cClass.getCourseId());
-                cClass.setCourse(course);
+            for (int i : hasSomething) {
+                if (i == HAS_TEAMS) {
+                    List<Team> teams = teamMapper.findBycClassId(cClass.getId());
+                    cClass.setTeams(teams);
+                }
+                if (i == HAS_SEMINARS) {
+                    List<Seminar> seminars = seminarMapper.findByCourseId(cClass.getCourseId());
+                    cClass.setSeminars(seminars);
+                }
+                if (i == HAS_COURSE) {
+                    Course course = courseMapper.findById(cClass.getCourseId());
+                    cClass.setCourse(course);
+                }
             }
         }
 
         return cClasses;
     }
+
     /**
      * Description: 新建班级
+     *
      * @Author: WinstonDeng
      * @Date: 10:49 2018/12/12
      */
-    final static int HAS_TEAMS=0;
-    final static int HAS_SEMINARS=1;
-    final static int HAS_COURSE=2;
     public boolean addCClass(int courseId, CClass cClass) throws Exception {
         try {
             cClass.setCourseId(courseId);
             cClassMapper.insertcClass(cClass);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("新建课程错误");
         }
         return true;
