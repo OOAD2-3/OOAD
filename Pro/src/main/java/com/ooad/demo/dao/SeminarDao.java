@@ -47,7 +47,7 @@ public class SeminarDao {
         }
         //从课程问题，待改动
         if(hasCourse){
-            Course course=courseDao.getById(seminar.getCourseId(), true , false, false,false);
+            Course course=courseDao.getById(seminar.getCourseId(), CourseDao.HAS_CLASSES);
             seminar.setCourse(course);
         }
         if(hasRound){
@@ -72,7 +72,7 @@ public class SeminarDao {
                 seminar.setPresentations(presentations);
             }
             if(hasCourse){
-                Course course=courseDao.getById(seminar.getCourseId(), true , false, false,false);
+                Course course=courseDao.getById(seminar.getCourseId(), CourseDao.HAS_CLASSES);
                 seminar.setCourse(course);
             }
             if(hasRound){
@@ -98,7 +98,7 @@ public class SeminarDao {
                 seminar.setPresentations(presentations);
             }
             if(hasCourse){
-                Course course=courseDao.getById(seminar.getCourseId(), true , false, false,false);
+                Course course=courseDao.getById(seminar.getCourseId(), CourseDao.HAS_CLASSES);
                 seminar.setCourse(course);
             }
             if(hasRound){

@@ -71,7 +71,7 @@ public class SeminarService {
         Seminar seminar = seminarDao.getById(seminarId, true, false, false);
         PreFileDownloadVO preFileDownloadVO = new PreFileDownloadVO(seminar);
         //只拿course名字
-        preFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(), false, false, false, false).getName());
+        preFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId()).getName());
         return preFileDownloadVO;
     }
 
@@ -114,7 +114,7 @@ public class SeminarService {
 
         ReportFileDownloadVO reportFileDownloadVO = new ReportFileDownloadVO(seminar);
         //只拿course名字
-        reportFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId(), false, false, false,false).getName());
+        reportFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId()).getName());
         return reportFileDownloadVO;
     }
 
