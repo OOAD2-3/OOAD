@@ -68,7 +68,7 @@ public class SeminarService {
      * @Date: 22:52 2018/12/1
      */
     public PreFileDownloadVO getPreFileDownLoadVOBySeminarId(int seminarId) {
-        Seminar seminar = seminarDao.getById(seminarId, true, false, false);
+        Seminar seminar = seminarDao.getById(seminarId, SeminarDao.HAS_PRESENTATIONS);
         PreFileDownloadVO preFileDownloadVO = new PreFileDownloadVO(seminar);
         //只拿course名字
         preFileDownloadVO.setCourseName(courseDao.getById(seminar.getCourseId()).getName());
@@ -81,7 +81,7 @@ public class SeminarService {
      * @Time:20:51 2018/12/1
      */
     public SeminarSubInfoVO getSeminarSubInfoVOBySeminarId(int seminarId) {
-        return new SeminarSubInfoVO(seminarDao.getById(seminarId, false, false, false));
+        return new SeminarSubInfoVO(seminarDao.getById(seminarId));
     }
 
 
@@ -91,10 +91,10 @@ public class SeminarService {
      * @Time:21:45 2018/12/1
      */
     public SeminarInfoVO getSeminarInfoVOBySeminarId(int seminarId) {
-        Seminar seminar = seminarDao.getById(seminarId, false, false, false);
+        Seminar seminar = seminarDao.getById(seminarId);
 
         SeminarInfoVO seminarInfoVO = new SeminarInfoVO(seminar);
-        int roundOrder = roundDao.getById(seminar.getRoundId(), false, false).getOrder();
+        int roundOrder = roundDao.getById(seminar.getRoundId()).getOrder();
         seminarInfoVO.setRoundOrder(roundOrder);
         return seminarInfoVO;
     }
@@ -110,7 +110,7 @@ public class SeminarService {
      * @Date: 22:54 2018/12/1
      */
     public ReportFileDownloadVO getReportFileDownliadVOBySeminarId(int seminarId) {
-        Seminar seminar = seminarDao.getById(seminarId, true,false,false);
+        Seminar seminar = seminarDao.getById(seminarId, SeminarDao.HAS_PRESENTATIONS);
 
         ReportFileDownloadVO reportFileDownloadVO = new ReportFileDownloadVO(seminar);
         //只拿course名字
