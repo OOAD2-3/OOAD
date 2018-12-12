@@ -97,5 +97,10 @@ public class CourseController {
         return ResponseEntity.ok().body(flag);
     }
 
+    /**
+     * Description: 课程下删除班级，api标准组做不到
+     * @Author: 17Wang
+     * @Time: 17:45 2018/12/12
+     */
 
 }

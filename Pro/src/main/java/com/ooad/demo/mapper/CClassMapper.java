@@ -28,6 +28,17 @@ public interface CClassMapper {
      * @return
      */
     List<CClass> findByCourseId(Integer courseId);
-    //================插入=========================
+
+    /**
+     * 新增班级
+     * @param cClass
+     */
     void insertcClass(CClass cClass);
+
+    /**
+     * 删除班级
+     * @param id
+     * @return 是否删除成功
+     */
+    boolean deleteById(int id);
 }

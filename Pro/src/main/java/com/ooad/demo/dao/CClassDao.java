@@ -1,5 +1,6 @@
 package com.ooad.demo.dao;
 
+import com.ooad.demo.controller.handler.MyException;
 import com.ooad.demo.entity.CClass;
 import com.ooad.demo.entity.Course;
 import com.ooad.demo.entity.Seminar;
@@ -115,5 +116,23 @@ public class CClassDao {
             throw new Exception("新建课程错误");
         }
         return true;
+    }
+
+    /**
+     * Description: 删除班级
+     *
+     * @Author: 17Wang
+     * @Time: 17:47 2018/12/12
+     */
+    public boolean deleteById(int id) throws MyException {
+        if (getById(id) == null) {
+            throw new MyException("删除班级失败！没有存在该id的行", MyException.NOT_FOUND_ERROR);
+        } else {
+            try {
+                return cClassMapper.deleteById(id);
+            } catch (Exception e) {
+                throw new MyException("删除班级失败！数据库执行错误", MyException.NOT_FOUND_ERROR);
+            }
+        }
     }
 }
