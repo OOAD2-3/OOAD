@@ -1,5 +1,7 @@
 package com.ooad.demo.controller;
 
+import com.ooad.demo.controller.handler.ErrorInfo;
+import com.ooad.demo.controller.handler.MyException;
 import com.ooad.demo.entity.CClass;
 import com.ooad.demo.service.CourseService;
 
@@ -29,6 +31,12 @@ public class CourseController {
 
     @Autowired
     CourseService courseService;
+
+    @DeleteMapping("/{courseId}")
+    @ResponseBody
+    public ResponseEntity<Boolean> deleteCourse(@PathVariable("courseId") int courseId) throws MyException {
+        return ResponseEntity.status(204).body(courseService.deleteById(courseId));
+    }
 
     /**
      * @Description:快捷进入讨论课界面需要的数据

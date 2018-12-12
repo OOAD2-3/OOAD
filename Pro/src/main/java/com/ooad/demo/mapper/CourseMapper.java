@@ -2,8 +2,10 @@ package com.ooad.demo.mapper;
 
 import com.ooad.demo.entity.Course;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -28,4 +30,11 @@ public interface CourseMapper {
      * @return List<Course>
      */
     List<Course> findByTeacherId(Integer teacherId);
+
+    /**
+     * 删除课程
+     * @param id
+     * @throws SQLException
+     */
+    void deleteById(int id) throws SQLException;
 }

@@ -20,8 +20,12 @@
     </select>
 
     <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.entity.Course">
-        SELECT * FROM course WHERE  teacher_id = #{teacherId}
+        SELECT * FROM course WHERE teacher_id = #{teacherId}
     </select>
+
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM course WHERE id=#{id}
+    </delete>
 
 
 </mapper>
