@@ -3,7 +3,6 @@ package com.ooad.demo.config.security;
 import org.springframework.stereotype.Component;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +22,12 @@ public class RbacAuthorityDecision {
 
         Object userInfo = authentication.getPrincipal();
 
-        boolean hasPermission  = false;
+        boolean hasPermission = false;
+
+        System.out.println(request.getRequestURI());
+        if (request.getMethod() == "OPTIONS") {
+            return true;
+        }
 
         if (userInfo instanceof UserDetails) {
 

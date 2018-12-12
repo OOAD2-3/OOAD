@@ -6,6 +6,8 @@ import com.ooad.demo.dao.MenuDao;
 import com.ooad.demo.dao.UserDao;
 import com.ooad.demo.entity.Menu;
 import com.ooad.demo.entity.User;
+import com.ooad.demo.pojo.RespInfo;
+import com.ooad.demo.utils.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.StreamingHttpOutputMessage;
@@ -30,8 +32,16 @@ public class TestController {
 
     @GetMapping("/test")
     @ResponseBody
-    public JwtUser test(@RequestParam("username") String username){
-        return jwtUserDetailsService.loadUserByUsername(username);
+    public RespInfo test(@RequestParam("username") String username){
+        RespInfo respInfo=new RespInfo();
+        respInfo.setStatus(200);
+        respInfo.setMsg("Login Success!");
+
+        //生成token
+        String jwtToken = JwtTokenUtil.generateToken(username, 300);
+        respInfo.setJwtToken(jwtToken);
+
+        return respInfo;
     }
 
     @GetMapping("/test1")

@@ -26,6 +26,7 @@ public class MyAccessDeniedHandler implements AccessDeniedHandler {
         respInfo.setStatus(300);
         respInfo.setMsg("Need Authorities");
 
+        httpServletResponse.setStatus(300);
         httpServletResponse.getWriter().write(JSON.toJSONString(respInfo));
     }
 }

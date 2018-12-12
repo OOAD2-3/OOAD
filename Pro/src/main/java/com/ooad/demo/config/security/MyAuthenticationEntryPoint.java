@@ -26,6 +26,7 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
         respInfo.setStatus(400);
         respInfo.setMsg("Need Authorities");
 
+        httpServletResponse.setStatus(400);
         httpServletResponse.getWriter().write(JSON.toJSONString(respInfo));
     }
 }
