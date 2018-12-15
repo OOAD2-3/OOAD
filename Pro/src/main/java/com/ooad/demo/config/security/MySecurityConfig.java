@@ -1,26 +1,19 @@
 package com.ooad.demo.config.security;
 
+
 import com.ooad.demo.config.jwt.JwtAuthenticationTokenFilter;
 import com.ooad.demo.config.jwt.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsUtils;
-
-import javax.servlet.http.HttpServlet;
 
 /**
  * Description:
@@ -70,7 +63,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
+        http.cors().and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
 
@@ -89,9 +82,10 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .loginProcessingUrl("/loginabc").usernameParameter("username").passwordParameter("password")
 
-                .successHandler(myAuthenticationSuccessHandler) // 登录成功
-                .failureHandler(myAuthenticationFailureHandler) // 登录失败
-                //.defaultSuccessUrl("/common/test?username=24320162202918")
+                // 登录成功
+                .successHandler(myAuthenticationSuccessHandler)
+                // 登录失败
+                .failureHandler(myAuthenticationFailureHandler)
                 .permitAll()
 
                 .and()
