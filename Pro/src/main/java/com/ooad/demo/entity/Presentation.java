@@ -1,5 +1,6 @@
 package com.ooad.demo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class Presentation {
     /**
      * 展示的提问
      */
-    private List<Question> questions;
+    private List<Question> questions = new ArrayList<>();
     /**
      * 展示的讨论课信息
      */
@@ -40,11 +41,11 @@ public class Presentation {
      * @Description:计算提问的总得分
      * @Author:17Wang
      * @Time:12:54 2018/12/2
-    */
-    public void calculateQuestionScore(){
-        questionScore=0;
-        for (Question question:
-             questions) {
+     */
+    public void calculateQuestionScore() {
+        questionScore = 0;
+        for (Question question :
+                questions) {
             questionScore += question.getQuestionScore();
         }
         questionScore /= questions.size();
@@ -54,8 +55,8 @@ public class Presentation {
      * @Description:通过round的规则计算总得分
      * @Author:17Wang
      * @Time:14:12 2018/12/2
-    */
-    public void caculateTotalScore(Round round){
+     */
+    public void caculateTotalScore(Round round) {
         //待完成
     }
 

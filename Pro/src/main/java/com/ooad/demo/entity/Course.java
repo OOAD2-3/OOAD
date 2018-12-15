@@ -1,6 +1,7 @@
 package com.ooad.demo.entity;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,24 +33,24 @@ public class Course {
     /**
      * 课程下的班级
      */
-    private List<CClass> cClasses;
+    private List<CClass> cClasses = new ArrayList<>();
     /**
      * 课程下的讨论课
      */
-    private List<Seminar> seminars;
+    private List<Seminar> seminars = new ArrayList<>();
     /**
      * 课程下的轮次
      */
-    private List<Round> rounds;
+    private List<Round> rounds = new ArrayList<>();
     /**
      * 教师信息
-    */
+     */
     private User teacher;
 
     /**
-     * 课程下的所有学生
+     *
      */
-    private List<User> students;
+    private List<Team> teams=new ArrayList<>();
 
     //==================================================getter AND setter==================================================//
 
@@ -205,11 +206,11 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public List<User> getStudents() {
-        return students;
+    public List<Team> getTeams() {
+        return teams;
     }
 
-    public void setStudents(List<User> students) {
-        this.students = students;
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 }

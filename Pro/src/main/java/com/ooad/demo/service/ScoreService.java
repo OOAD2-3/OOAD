@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScoreService {
     @Autowired
-    ScoreDao scoreDao;
+    private ScoreDao scoreDao;
 
     /**
      * @Author: WinstonDeng

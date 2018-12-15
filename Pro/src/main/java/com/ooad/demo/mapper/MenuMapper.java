@@ -14,6 +14,13 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MenuMapper {
+
+    List<Menu> findAll();
+    /**
+     * 查找表所有字段
+     * @return List<Menu>
+     */
     List<Menu> listAll();
 
+    List<Menu> findMenuRoleByMenuId(int menuId);
 }

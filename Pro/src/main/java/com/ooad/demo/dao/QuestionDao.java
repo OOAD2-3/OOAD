@@ -29,22 +29,33 @@ public class QuestionDao {
     private SeminarMapper seminarMapper;
 
     /**
+     * 讨论课信息
+     */
+    public static final int HAS_SEMINAR = 0;
+    /**
+     * 小组信息
+     */
+    public static final int HAS_TEAM = 1;
+
+    /**
      * Description:通过seminarId和teamId查找所有的提问信息
      *
      * @Author: 17Wang
      * @Time: 14:57 2018/12/7
      */
-    public List<Question> listBySeminarIdAndTeamId(int seminarId, int teamId, boolean hasSeminar, boolean hasTeam) {
+    public List<Question> listBySeminarIdAndTeamId(int seminarId, int teamId, int... hasSomething) {
         List<Question> questions = questionMapper.findBySeminarIdAndTeamId(seminarId, teamId);
 
         for (Question question : questions) {
-            if (hasSeminar) {
-                Seminar seminar = seminarMapper.findById(seminarId);
-                question.setSeminar(seminar);
-            }
-            if (hasTeam) {
-                Team team = teamMapper.findById(teamId);
-                question.setTeam(team);
+            for (int i : hasSomething) {
+                if (i == HAS_SEMINAR) {
+                    Seminar seminar = seminarMapper.findById(seminarId);
+                    question.setSeminar(seminar);
+                }
+                if (i == HAS_TEAM) {
+                    Team team = teamMapper.findById(teamId);
+                    question.setTeam(team);
+                }
             }
         }
 
@@ -57,17 +68,19 @@ public class QuestionDao {
      * @Author: 17Wang
      * @Time: 15:04 2018/12/7
      */
-    public List<Question> listByTeamId(int teamId, boolean hasSeminar, boolean hasTeam) {
+    public List<Question> listByTeamId(int teamId, int... hasSomething) {
         List<Question> questions = questionMapper.findByTeamId(teamId);
 
         for (Question question : questions) {
-            if (hasSeminar) {
-                Seminar seminar = seminarMapper.findById(question.getSeminarId());
-                question.setSeminar(seminar);
-            }
-            if (hasTeam) {
-                Team team = teamMapper.findById(teamId);
-                question.setTeam(team);
+            for (int i : hasSomething) {
+                if (i == HAS_SEMINAR) {
+                    Seminar seminar = seminarMapper.findById(question.getSeminarId());
+                    question.setSeminar(seminar);
+                }
+                if (i == HAS_TEAM) {
+                    Team team = teamMapper.findById(teamId);
+                    question.setTeam(team);
+                }
             }
         }
 

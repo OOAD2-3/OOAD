@@ -1,5 +1,6 @@
 package com.ooad.demo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,8 +18,9 @@ public class Menu {
     private boolean requireAuth;
     private int parentId;
 
-    private List<Role> roles;
-    private List<Menu> children;
+    private List<Role> roles = new ArrayList<>();
+    private List<Menu> childrenMenu = new ArrayList<>();
+    private Menu parentMenu;
     /* ==================================================getter AND setter==================================================*/
 
     public int getId() {
@@ -93,11 +95,19 @@ public class Menu {
         this.roles = roles;
     }
 
-    public List<Menu> getChildren() {
-        return children;
+    public List<Menu> getChildrenMenu() {
+        return childrenMenu;
     }
 
-    public void setChildren(List<Menu> children) {
-        this.children = children;
+    public void setChildrenMenu(List<Menu> childrenMenu) {
+        this.childrenMenu = childrenMenu;
+    }
+
+    public Menu getParentMenu() {
+        return parentMenu;
+    }
+
+    public void setParentMenu(Menu parentMenu) {
+        this.parentMenu = parentMenu;
     }
 }

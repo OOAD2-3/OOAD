@@ -34,57 +34,71 @@ public class SeminarDao {
     private RoundMapper roundMapper;
 
     /**
+     * 展示信息
+     */
+    public static final int HAS_PRESENTATIONS = 0;
+    /**
+     * 课程信息
+     */
+    public static final int HAS_COURSE = 1;
+    /**
+     * 轮次信息
+     */
+    public static final int HAS_ROUND = 2;
+
+    /**
      * Description:
+     *
      * @Author: 17Wang
      * @Time: 14:52 2018/12/7
-    */
-    public Seminar getById(int seminarId,boolean hasPresentations,boolean hasCourse,boolean hasCClass,boolean hasRound){
-        Seminar seminar=seminarMapper.findById(seminarId);
+     */
+    public Seminar getById(int seminarId, int... hasSomething) {
+        Seminar seminar = seminarMapper.findById(seminarId);
 
-        if(hasPresentations){
-            List<Presentation> presentations=presentationMapper.findBySeminarId(seminarId);
-            seminar.setPresentations(presentations);
-        }
-        if(hasCourse){
-            Course course=courseDao.getById(seminar.getCourseId(), true , false, false,false,false);
-            seminar.setCourse(course);
-
-            if(hasCClass){
-                seminar.setcClasses(course.getcClasses());
+        for (int i : hasSomething) {
+            if (i == HAS_PRESENTATIONS) {
+                List<Presentation> presentations = presentationMapper.findBySeminarId(seminarId);
+                seminar.setPresentations(presentations);
+            }
+            //从课程问题，待改动
+            if (i == HAS_COURSE) {
+                Course course = courseDao.getById(seminar.getCourseId(), CourseDao.HAS_CLASSES);
+                seminar.setCourse(course);
+            }
+            if (i == HAS_ROUND) {
+                Round round = roundMapper.findById(seminar.getRoundId());
+                seminar.setRound(round);
             }
         }
-        if(hasRound){
-            Round round=roundMapper.findById(seminar.getRoundId());
-            seminar.setRound(round);
-        }
+
 
         return seminar;
     }
 
     /**
      * Description:
+     *
      * @Author: 17Wang
      * @Time: 14:52 2018/12/7
-    */
-    public List<Seminar> listByCourseId(int courseId,boolean hasPresentations,boolean hasCourse,boolean hasCClass,boolean hasRound){
-        List<Seminar> seminars=seminarMapper.findByCourseId(courseId);
+     */
+    public List<Seminar> listByCourseId(int courseId, int... hasSomething) {
+        List<Seminar> seminars = seminarMapper.findByCourseId(courseId);
 
-        for(Seminar seminar: seminars){
-            if(hasPresentations){
-                List<Presentation> presentations=presentationMapper.findBySeminarId(seminar.getId());
-                seminar.setPresentations(presentations);
-            }
-            if(hasCourse){
-                Course course=courseDao.getById(seminar.getCourseId(), true , false, false,false,false);
-                seminar.setCourse(course);
-
-                if(hasCClass){
-                    seminar.setcClasses(course.getcClasses());
+        for (Seminar seminar : seminars) {
+            for (int i : hasSomething) {
+                if (i == HAS_PRESENTATIONS) {
+                    List<Presentation> presentations = presentationMapper.findBySeminarId(seminar.getId());
+                    seminar.setPresentations(presentations);
                 }
-            }
-            if(hasRound){
-                Round round=roundMapper.findById(seminar.getRoundId());
-                seminar.setRound(round);
+                //从课程问题，待改动
+                if (i == HAS_COURSE) {
+                    Course course = courseDao.getById(seminar.getCourseId(), CourseDao.HAS_CLASSES);
+                    seminar.setCourse(course);
+                }
+                if (i == HAS_ROUND) {
+                    Round round = roundMapper.findById(seminar.getRoundId());
+                    seminar.setRound(round);
+                }
             }
         }
 
@@ -93,28 +107,28 @@ public class SeminarDao {
 
     /**
      * Description: 通过轮次搜索该轮次下的讨论课
+     *
      * @Author: 17Wang
      * @Time: 22:55 2018/12/5
-    */
-    public List<Seminar> listByRoundId(int roundId,boolean hasPresentations,boolean hasCourse,boolean hasCClass,boolean hasRound){
-        List<Seminar> seminars=seminarMapper.findByRoundId(roundId);
+     */
+    public List<Seminar> listByRoundId(int roundId, int... hasSomething) {
+        List<Seminar> seminars = seminarMapper.findByRoundId(roundId);
 
-        for(Seminar seminar: seminars){
-            if(hasPresentations){
-                List<Presentation> presentations=presentationMapper.findBySeminarId(seminar.getId());
-                seminar.setPresentations(presentations);
-            }
-            if(hasCourse){
-                Course course=courseDao.getById(seminar.getCourseId(), true , false, false,false,false);
-                seminar.setCourse(course);
-
-                if(hasCClass){
-                    seminar.setcClasses(course.getcClasses());
+        for (Seminar seminar : seminars) {
+            for (int i : hasSomething) {
+                if (i == HAS_PRESENTATIONS) {
+                    List<Presentation> presentations = presentationMapper.findBySeminarId(seminar.getId());
+                    seminar.setPresentations(presentations);
                 }
-            }
-            if(hasRound){
-                Round round=roundMapper.findById(seminar.getRoundId());
-                seminar.setRound(round);
+                //从课程问题，待改动
+                if (i == HAS_COURSE) {
+                    Course course = courseDao.getById(seminar.getCourseId(), CourseDao.HAS_CLASSES);
+                    seminar.setCourse(course);
+                }
+                if (i == HAS_ROUND) {
+                    Round round = roundMapper.findById(seminar.getRoundId());
+                    seminar.setRound(round);
+                }
             }
         }
 

@@ -1,5 +1,6 @@
 package com.ooad.demo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,21 +33,20 @@ public class Team {
     /**
      * 小组成员
      */
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
     /**
      * 小组所有的展示
      */
-    private List<Presentation> presentations;
+    private List<Presentation> presentations = new ArrayList<>();
     /**
      * 小组所有的提问
      */
-    private List<Question> questions;
+    private List<Question> questions = new ArrayList<>();
 
-    /*
-    小组所属课程
-    不需要
+    /**
+     * 小组所属课程
+     */
     private Course course;
-    */
 
     /**
      * 小组所属班级
@@ -125,6 +125,14 @@ public class Team {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public CClass getcClass() {

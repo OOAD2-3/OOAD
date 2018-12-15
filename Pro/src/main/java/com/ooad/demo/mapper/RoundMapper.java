@@ -14,6 +14,18 @@ import java.util.List;
 @Mapper
 @Repository
 public interface RoundMapper {
+    //================查找==========================
+    /**
+     * 通过id查找round表的所有字段
+     * @param id
+     * @return  Round
+     */
     Round findById(Integer id);
+
+    /**
+     * 通过courseId查找round表的所有字段
+     * @param courseId
+     * @return  List<Round>
+     */
     List<Round> findByCourseId(Integer courseId);
 }

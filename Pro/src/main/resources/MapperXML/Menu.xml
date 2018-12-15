@@ -6,8 +6,17 @@
         <result property="requireAuth" column="require_auth"/>
         <result property="parentId" column="parent_id"/>
     </resultMap>
-    <select id="listAll" resultMap="tab_menu">
+    <select id="findAll" resultMap="tab_menu">
         SELECT * FROM menu
+    </select>
+
+    <select id="findMenuRoleByMenuId" resultMap="tab_menu">
+        SELECT *
+        FROM menu m LEFT JOIN menu_role mr
+            ON m.id=mr.menu_id
+        LEFT JOIN role r
+            ON mr.role_id=r.id
+        WHERE m.id={menuId}
     </select>
 
 

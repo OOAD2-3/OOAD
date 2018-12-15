@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ooad.demo.mapper.CClassMapper">
-    <resultMap id="tab_class" type="com.ooad.demo.entity.CClass" >
+    <resultMap id="tab_class" type="com.ooad.demo.entity.CClass">
         <result property="courseId" column="course_id"/>
     </resultMap>
     <select id="findById" parameterType="Integer" resultMap="tab_class" resultType="com.ooad.demo.entity.CClass">
@@ -11,4 +11,15 @@
     <select id="findByCourseId" parameterType="Integer" resultMap="tab_class" resultType="com.ooad.demo.entity.CClass">
         SELECT * FROM cclass WHERE  course_id= #{courseId}
     </select>
+
+    <select id="findByCourseIdAndCClassName" parameterType="Integer" resultMap="tab_class" resultType="com.ooad.demo.entity.CClass">
+        select *
+        from cclass
+        where course_id=#{courseId}
+              and name=#{name}
+    </select>
+    <insert id="insertCClass" parameterType="com.ooad.demo.entity.CClass" useGeneratedKeys="true" keyProperty="id">
+        insert into cclass(course_id, name, place, time)
+        values (#{courseId},#{name},#{place},#{time})
+    </insert>
 </mapper>

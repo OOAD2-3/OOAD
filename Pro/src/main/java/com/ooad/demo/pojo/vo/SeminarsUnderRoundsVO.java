@@ -17,20 +17,18 @@ public class SeminarsUnderRoundsVO {
     private int courseId;
     private String courseName;
 
-    private List<MyRound> myRounds=new ArrayList<>();
-    private List<MyClass> myClasses=new ArrayList<>();
+    private List<MyRound> myRounds = new ArrayList<>();
+    private List<MyClass> myClasses = new ArrayList<>();
 
-    public SeminarsUnderRoundsVO(Course course){
-        courseId=course.getId();
-        courseName=course.getName();
+    public SeminarsUnderRoundsVO(Course course) {
+        courseId = course.getId();
+        courseName = course.getName();
 
-        for (CClass cClass
-                : course.getcClasses()) {
+        for (CClass cClass : course.getcClasses()) {
             myClasses.add(new MyClass(cClass));
         }
 
-        for (Round round:
-             course.getRounds()) {
+        for (Round round : course.getRounds()) {
             myRounds.add(new MyRound(round));
         }
     }
@@ -68,18 +66,18 @@ public class SeminarsUnderRoundsVO {
     }
 }
 
-class MyRound{
+class MyRound {
     private int roundId;
     private int roundOrder;
 
-    private List<MySeminar> mySeminars=new ArrayList<>();
+    private List<MySeminar> mySeminars = new ArrayList<>();
 
-    public MyRound(Round round){
-        roundId=round.getId();
-        roundOrder=round.getOrder();
+    public MyRound(Round round) {
+        roundId = round.getId();
+        roundOrder = round.getOrder();
 
-        for (Seminar seminar:
-             round.getSeminars()) {
+        for (Seminar seminar :
+                round.getSeminars()) {
             mySeminars.add(new MySeminar(seminar));
         }
     }

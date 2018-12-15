@@ -30,13 +30,11 @@ public class SeminarsOverviewVO {
         courseName = course.getName();
         masterCourseId = course.getMasterCourseId();
 
-        for (CClass cClass
-                : course.getcClasses()) {
+        for (CClass cClass : course.getcClasses()) {
             myClasses.add(new MyClass(cClass));
         }
 
-        for (Seminar seminar
-                : course.getSeminars()) {
+        for (Seminar seminar : course.getSeminars()) {
             //只显示可以显示的讨论课
             if (seminar.isVisible())
                 mySeminars.add(new MySeminar(seminar));

@@ -51,10 +51,9 @@ public class UserController {
      * @Author: 17Wang
      * @Time: 21:14 2018/12/5
     */
-    @PostMapping("/test1")
+    @GetMapping("/test1")
     @ResponseBody
-    public String test2(HttpServletResponse response){
-        response.setStatus(400);
+    public String test2(@RequestParam("id") int id){ ;
         return "!@3";
     }
 }
