@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ooad.demo.mapper.CourseMapper">
-    <resultMap id="tab_course" type="com.ooad.demo.entity.Course" >
+    <resultMap id="tab_course" type="com.ooad.demo.entity.Course">
         <result property="teacherId" column="teacher_id"/>
         <result property="masterCourseId" column="master_course_id"/>
         <result property="shareTeam" column="is_share_team"/>
@@ -19,9 +19,21 @@
         SELECT * FROM course WHERE id = #{id}
     </select>
 
-    <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course" resultType="com.ooad.demo.entity.Course">
-        SELECT * FROM course WHERE  teacher_id = #{teacherId}
+    <select id="findByTeacherId" parameterType="Integer" resultMap="tab_course"
+            resultType="com.ooad.demo.entity.Course">
+        SELECT * FROM course WHERE teacher_id = #{teacherId}
     </select>
 
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM course WHERE id=#{id}
+    </delete>
 
+    <insert id="addOne" parameterType="com.ooad.demo.entity.Course">
+        INSERT INTO
+        course(teacher_id, name, intro,min_team_member, max_team_member,
+        start_team_time, end_team_time, presentation_weight, question_weight, report_weight)
+        VALUE
+        (#{teacherId},#{name},#{intro},#{minTeamMember},#{maxTeamMember},
+        #{startTeamTime},#{endTeamTime},#{presentationWeight},#{questionWeight},#{reportWeight})
+    </insert>
 </mapper>

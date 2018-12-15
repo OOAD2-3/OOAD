@@ -45,4 +45,12 @@ public interface CClassMapper {
      * @return 新增的cclass记录主键
      */
     int insertCClass(CClass cClass);
+
+    /**
+     * 删除班级
+     * @param id
+     * @return 是否删除成功
+     */
+    boolean deleteById(int id);
+
 }

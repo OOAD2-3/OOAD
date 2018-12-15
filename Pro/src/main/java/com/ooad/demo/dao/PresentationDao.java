@@ -31,6 +31,19 @@ public class PresentationDao {
     private TeamMapper teamMapper;
 
     /**
+     * 提问信息
+     */
+    public static final int HAS_QUESTIONS = 0;
+    /**
+     * 讨论课信息
+     */
+    public static final int HAS_SEMINAR = 1;
+    /**
+     * 队伍信息
+     */
+    public static final int HAS_TEAM = 2;
+
+    /**
      * Description: 获得讨论课下所有展示记录 可以设置是否含问题
      * Description: 修改
      *
@@ -38,20 +51,22 @@ public class PresentationDao {
      * @Author: 17Wang
      * @Time: 15:08 2018/12/7
      */
-    public List<Presentation> listBySeminarId(int seminarId, boolean hasQuestions, boolean hasSeminar, boolean hasTeam) {
+    public List<Presentation> listBySeminarId(int seminarId, int... hasSomething) {
         List<Presentation> presentations = presentationMapper.findBySeminarId(seminarId);
         for (Presentation presentation : presentations) {
-            if (hasQuestions) {
-                List<Question> questions = questionMapper.findBySeminarIdAndTeamId(seminarId, presentation.getTeamId());
-                presentation.setQuestions(questions);
-            }
-            if (hasSeminar) {
-                Seminar seminar = seminarMapper.findById(seminarId);
-                presentation.setSeminar(seminar);
-            }
-            if (hasTeam) {
-                Team team = teamMapper.findById(presentation.getTeamId());
-                presentation.setTeam(team);
+            for (int i : hasSomething) {
+                if (i == HAS_QUESTIONS) {
+                    List<Question> questions = questionMapper.findBySeminarIdAndTeamId(seminarId, presentation.getTeamId());
+                    presentation.setQuestions(questions);
+                }
+                if (i == HAS_SEMINAR) {
+                    Seminar seminar = seminarMapper.findById(seminarId);
+                    presentation.setSeminar(seminar);
+                }
+                if (i == HAS_TEAM) {
+                    Team team = teamMapper.findById(presentation.getTeamId());
+                    presentation.setTeam(team);
+                }
             }
         }
 
@@ -64,21 +79,23 @@ public class PresentationDao {
      * @Author: 17Wang
      * @Time: 15:26 2018/12/7
      */
-    public List<Presentation> listByTeamId(int teamId, boolean hasQuestions, boolean hasSeminar, boolean hasTeam) {
+    public List<Presentation> listByTeamId(int teamId, int ...hasSomething) {
         List<Presentation> presentations = presentationMapper.findByTeamId(teamId);
 
         for (Presentation presentation : presentations) {
-            if (hasQuestions) {
-                List<Question> questions = questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
-                presentation.setQuestions(questions);
-            }
-            if (hasSeminar) {
-                Seminar seminar = seminarMapper.findById(presentation.getSeminarId());
-                presentation.setSeminar(seminar);
-            }
-            if (hasTeam) {
-                Team team = teamMapper.findById(presentation.getTeamId());
-                presentation.setTeam(team);
+            for (int i : hasSomething) {
+                if (i == HAS_QUESTIONS) {
+                    List<Question> questions = questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
+                    presentation.setQuestions(questions);
+                }
+                if (i == HAS_SEMINAR) {
+                    Seminar seminar = seminarMapper.findById(presentation.getSeminarId());
+                    presentation.setSeminar(seminar);
+                }
+                if (i == HAS_TEAM) {
+                    Team team = teamMapper.findById(presentation.getTeamId());
+                    presentation.setTeam(team);
+                }
             }
         }
 
@@ -91,50 +108,27 @@ public class PresentationDao {
      * @Author: 17Wang
      * @Time: 15:27 2018/12/7
      */
-    public List<Presentation> listBycClassId(int cClassId, boolean hasQuestions, boolean hasSeminar, boolean hasTeam) {
+    public List<Presentation> listBycClassId(int cClassId, int ...hasSomething) {
         List<Presentation> presentations = presentationMapper.findBycClassId(cClassId);
 
         for (Presentation presentation : presentations) {
-            if (hasQuestions) {
-                List<Question> questions = questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
-                presentation.setQuestions(questions);
-            }
-            if (hasSeminar) {
-                Seminar seminar = seminarMapper.findById(presentation.getSeminarId());
-                presentation.setSeminar(seminar);
-            }
-            if (hasTeam) {
-                Team team = teamMapper.findById(presentation.getTeamId());
-                presentation.setTeam(team);
+            for (int i : hasSomething) {
+                if (i == HAS_QUESTIONS) {
+                    List<Question> questions = questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
+                    presentation.setQuestions(questions);
+                }
+                if (i == HAS_SEMINAR) {
+                    Seminar seminar = seminarMapper.findById(presentation.getSeminarId());
+                    presentation.setSeminar(seminar);
+                }
+                if (i == HAS_TEAM) {
+                    Team team = teamMapper.findById(presentation.getTeamId());
+                    presentation.setTeam(team);
+                }
             }
         }
 
         return presentations;
-    }
-
-    /**
-     * Description:通过preOrder获得presentation
-     *
-     * @Author: 17Wang
-     * @Time: 15:28 2018/12/7
-     */
-    public Presentation getByPreOrder(int preOrder, boolean hasQuestions, boolean hasSeminar, boolean hasTeam) {
-        Presentation presentation = presentationMapper.findByPreOrder(preOrder);
-
-        if (hasQuestions) {
-            List<Question> questions = questionMapper.findBySeminarIdAndTeamId(presentation.getSeminarId(), presentation.getTeamId());
-            presentation.setQuestions(questions);
-        }
-        if (hasSeminar) {
-            Seminar seminar = seminarMapper.findById(presentation.getSeminarId());
-            presentation.setSeminar(seminar);
-        }
-        if (hasTeam) {
-            Team team = teamMapper.findById(presentation.getTeamId());
-            presentation.setTeam(team);
-        }
-
-        return presentation;
     }
 
     /**

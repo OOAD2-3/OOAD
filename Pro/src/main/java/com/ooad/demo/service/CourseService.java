@@ -1,5 +1,6 @@
 package com.ooad.demo.service;
 
+import com.ooad.demo.exception.MyException;
 import com.ooad.demo.dao.CClassDao;
 import com.ooad.demo.dao.CourseDao;
 import com.ooad.demo.dao.RoundDao;
@@ -27,6 +28,8 @@ public class CourseService {
     @Autowired
     private RoundDao roundDao;
 
+    @Autowired
+    CClassDao cClassDao;
 
     /**
      * Description: 给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
@@ -36,15 +39,14 @@ public class CourseService {
      */
     public List<SeminarsOverviewVO> listSeminarsOverviewVOByTeacherId(int teacherId) {
         List<SeminarsOverviewVO> seminarOverviewVOS = new ArrayList<>();
-        List<Course> courses = courseDao.listByTeacherId(teacherId, true, true, true, false);
-        for (Course course :
-                courses) {
+        List<Course> courses = courseDao.listByTeacherId(teacherId, CourseDao.HAS_CLASSES, CourseDao.HAS_SEMINARS);
+        for (Course course : courses) {
 
             //是否属于从课程，若为从课程应该转换成主课程的
             if (course.getMasterCourseId() == 0) {
                 seminarOverviewVOS.add(new SeminarsOverviewVO(course));
             } else {
-                Course subCourse = courseDao.getById(course.getMasterCourseId(), false, false, true, false);
+                Course subCourse = courseDao.getById(course.getMasterCourseId(), CourseDao.HAS_SEMINARS);
                 subCourse.setId(course.getId());
                 subCourse.setName(course.getName());
                 subCourse.setMasterCourseId(course.getMasterCourseId());
@@ -58,13 +60,48 @@ public class CourseService {
 
     /**
      * Description: 给某个课程的讨论课界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的轮次和轮次所包括的讨论课
+     *
      * @Author:17Wang
      * @Time:23:49 2018/11/29
      */
     public SeminarsUnderRoundsVO SeminarsUnderRoundsVOByCourseId(int courseId) {
-        Course course = courseDao.getById(courseId, true, true, false, false);
+        Course course = courseDao.getById(courseId, CourseDao.HAS_CLASSES, CourseDao.HAS_ROUNDS);
         SeminarsUnderRoundsVO seminarsUnderRoundsVOS = new SeminarsUnderRoundsVO(course);
         return seminarsUnderRoundsVOS;
     }
 
+    /**
+     * Description: 创建课程
+     *
+     * @Author: WinstonDeng
+     * @Date: 11:34 2018/12/12
+     */
+    public boolean createCClass(int courseId, CClass cClass) {
+        try {
+            cClassDao.addCClass(courseId, cClass);
+        } catch (Exception e) {
+            System.out.println("service error");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Description: 删除课程
+     *
+     * @Author: 17Wang
+     * @Time: 13:42 2018/12/12
+     */
+    public boolean deleteById(int id) throws MyException {
+        return courseDao.deleteById(id);
+    }
+
+    /**
+     * Description: 新增课程
+     * @Author: 17Wang
+     * @Time: 17:11 2018/12/12
+     */
+    public boolean addCourse(Course course) throws MyException {
+        return courseDao.addOne(course);
+    }
 }
