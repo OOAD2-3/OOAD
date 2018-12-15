@@ -27,10 +27,6 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 
         String username=(String) authentication.getPrincipal();
 
-        String url="/common/test?username="+username;
-
-        //httpServletResponse.sendRedirect(url);
-
         RespInfo respInfo=new RespInfo();
         respInfo.setStatus(200);
         respInfo.setMsg("Login Success!");
@@ -47,7 +43,5 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         out.write(om.writeValueAsString(respInfo));
         out.flush();
         out.close();
-
-        //httpServletResponse.getWriter().write(JSON.toJSONString(respInfo));
     }
 }
