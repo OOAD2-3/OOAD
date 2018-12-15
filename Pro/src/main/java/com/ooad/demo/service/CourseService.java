@@ -5,6 +5,7 @@ import com.ooad.demo.dao.CourseDao;
 import com.ooad.demo.dao.RoundDao;
 import com.ooad.demo.entity.CClass;
 import com.ooad.demo.entity.Course;
+import com.ooad.demo.mapper.CClassMapper;
 import com.ooad.demo.pojo.vo.SeminarsOverviewVO;
 import com.ooad.demo.pojo.vo.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,12 @@ import java.util.List;
 @Service
 public class CourseService {
     @Autowired
-    CourseDao courseDao;
+    private CourseDao courseDao;
 
     @Autowired
-    RoundDao roundDao;
+    private RoundDao roundDao;
 
-    @Autowired
-    CClassDao cClassDao;
+
     /**
      * Description: 给讨论课总界面使用的VO，该VO包括课程id和name，该课程下的班级id和name，该课程下的讨论课id和name
      *
@@ -65,20 +65,6 @@ public class CourseService {
         Course course = courseDao.getById(courseId, true, true, false, false);
         SeminarsUnderRoundsVO seminarsUnderRoundsVOS = new SeminarsUnderRoundsVO(course);
         return seminarsUnderRoundsVOS;
-    }
-    /**
-     * Description: 创建课程
-     * @Author: WinstonDeng
-     * @Date: 11:34 2018/12/12
-     */
-    public boolean createCClass(int courseId, CClass cClass){
-        try {
-            cClassDao.addCClass(courseId,cClass);
-        }catch (Exception e){
-            System.out.println("service error");
-            return false;
-        }
-        return true;
     }
 
 }

@@ -24,19 +24,19 @@ import java.util.List;
 @Service
 public class SeminarService {
     @Autowired
-    SeminarDao seminarDao;
+    private SeminarDao seminarDao;
 
     @Autowired
-    CourseDao courseDao;
+    private CourseDao courseDao;
 
     @Autowired
-    TeamDao teamDao;
+    private TeamDao teamDao;
 
     @Autowired
-    PresentationDao presentationDao;
+    private PresentationDao presentationDao;
 
     @Autowired
-    RoundDao roundDao;
+    private RoundDao roundDao;
 
 
     /**

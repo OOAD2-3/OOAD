@@ -23,7 +23,7 @@
     </select>
 
     <select id="findByAccount" parameterType="String" resultMap="tab_user">
-        SELECT * FROM user WHERE user_id=#{userId}
+        SELECT * FROM user WHERE account=#{account}
     </select>
 
     <!--id字段重复-->
@@ -35,4 +35,9 @@
             ON ur.role_id=r.id
         WHERE u.id=#{userId}
     </select>
+
+    <insert id="insertUser" parameterType="com.ooad.demo.entity.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(account,name)
+        values (#{account},#{name})
+    </insert>
 </mapper>

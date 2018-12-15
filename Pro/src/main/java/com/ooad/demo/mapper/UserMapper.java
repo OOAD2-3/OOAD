@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface UserMapper {
+    //=========================查找========================
     /**
      * 通过id查找表的所有字段
      *
@@ -28,4 +29,7 @@ public interface UserMapper {
     User findByAccount(String account);
 
     User findUserRoleByUserId(int userId);
+
+    //=======================新增===========================
+    int insertUser(User user);
 }

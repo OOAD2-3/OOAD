@@ -1,8 +1,9 @@
 package com.ooad.demo.controller;
 
 import com.ooad.demo.entity.CClass;
+import com.ooad.demo.pojo.vo.CreateCClassVO;
+import com.ooad.demo.service.CClassService;
 import com.ooad.demo.service.CourseService;
-
 import com.ooad.demo.pojo.vo.SeminarsOverviewVO;
 import com.ooad.demo.pojo.vo.SeminarsUnderRoundsVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
+    @Autowired
+    CClassService cClassService;
     /**
      * @Description:快捷进入讨论课界面需要的数据
      * @Author:17Wang
@@ -57,16 +60,32 @@ public class CourseController {
      * @Author: WinstonDeng
      * @Date: 11:11 2018/12/12
      */
+    /**
+     *  初步想法先传文件，成功的话给前端一个文件名，然后创建班级时通过这个文件名去寻找文件并解析
+     *  解析数据，存库建立关系
+     */
     @PostMapping("/{courseId}/class")
     @ResponseBody
-    public ResponseEntity<Boolean> createcClassInCoursePage(@PathVariable("courseId") int courseId, @RequestBody CClass cClass){
-       boolean flag;
+    public ResponseEntity<Integer> createcClassInCoursePage(@PathVariable("courseId") int courseId, @RequestBody CreateCClassVO createCClassVO){
+        //初始化为-1 表示新建失败
+        int cclassId=-1;
        try {
-           flag=courseService.createCClass(courseId,cClass);
+           //设置班级基本信息
+           CClass cClass=new CClass();
+           cClass.setCourseId(courseId);
+           cClass.setName(createCClassVO.getName());
+           cClass.setTime(createCClassVO.getTime());
+           cClass.setPlace(createCClassVO.getClassroom());
+           //获得新建的课程主键
+           cclassId=cClassService.createCClass(courseId,cClass);
+           //解析学生名单
+           if(cclassId!=-1){
+               //调用解析学生名单的函数
+               cClassService.transStudentListFileToDataBase(cclassId,createCClassVO.getFileName());
+           }
        }catch (Exception e){
-           return ResponseEntity.status(401).body(false);
+           return ResponseEntity.status(401).body(cclassId);
        }
-       return ResponseEntity.ok().body(flag);
+       return ResponseEntity.ok().body(cclassId);
     }
-
 }

@@ -16,4 +16,9 @@
     <select id="findByCourseId" parameterType="Integer" resultMap="tab_round" resultType="com.ooad.demo.entity.Round">
         SELECT * FROM round WHERE course_id=#{courseId}
     </select>
+
+    <insert id="insertRound" parameterType="com.ooad.demo.entity.Round" useGeneratedKeys="true" keyProperty="id">
+        insert into round(course_id, order_num)
+        values (#{course_id},#{order_num});
+    </insert>
 </mapper>

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class QuestionService {
     @Autowired
-    QuestionDao questionDao;
+    private QuestionDao questionDao;
 
     /**
      * @Author: WinstonDeng
